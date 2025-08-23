@@ -14,7 +14,6 @@ import { SecurityBadges } from '@/components/atoms/SecurityBadges';
 import LimpezaHero from './LimpezaEnergetica/LimpezaHero';
 import PainPointsLimpeza from './LimpezaEnergetica/PainPointsLimpeza';
 import ComoFuncionaLimpeza from './LimpezaEnergetica/ComoFuncionaLimpeza';
-import TestimonialsCarouselLimpeza from '@/components/organisms/TestimonialsCarouselLimpeza';
 
 const LandingHeader = () => (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200/80">

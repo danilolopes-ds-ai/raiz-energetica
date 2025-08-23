@@ -48,42 +48,21 @@ const AllPostsSection = ({ posts, getCategoryName, formatDate }) => {
 
         {posts.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600">
+            <Text variant="lead">
               Nenhum artigo encontrado com os filtros selecionados.
-            </p>
+            </Text>
           </div>
         ) : (
-          <div>
-            <div className="mb-4 p-4 bg-blue-50 rounded">
-              <p>🔍 Debug: Tentando renderizar {posts.length} posts</p>
-              <p>📝 Primeiro post: {posts[0]?.title}</p>
-              <p>🏷️ Categoria: {posts[0]?.category}</p>
-            </div>
-            
-            {/* Lista simples para teste */}
-            <div className="mb-8">
-              <h3 className="text-lg font-bold mb-4">Lista Simples (Teste):</h3>
-              {posts.map((post, index) => (
-                <div key={post.id} className="p-4 border rounded mb-4 bg-white">
-                  <h4 className="font-bold">{post.title}</h4>
-                  <p className="text-sm text-gray-600">{post.excerpt}</p>
-                  <p className="text-xs text-gray-500">Categoria: {post.category}</p>
-                </div>
-              ))}
-            </div>
-            
-            {/* Grid original */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post, index) => (
-                <BlogCard 
-                  key={post.id}
-                  post={post} 
-                  index={index} 
-                  getCategoryName={getCategoryName} 
-                  formatDate={formatDate}
-                />
-              ))}
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post, index) => (
+              <BlogCard 
+                key={post.id}
+                post={post} 
+                index={index} 
+                getCategoryName={getCategoryName} 
+                formatDate={formatDate}
+              />
+            ))}
           </div>
         )}
       </div>

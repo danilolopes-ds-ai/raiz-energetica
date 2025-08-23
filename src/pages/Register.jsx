@@ -21,10 +21,17 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
+      console.log('Tentando registrar usuário:', email);
+      
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password: password.trim(),
+        options: {
+          emailRedirectTo: `${window.location.origin}/login`
+        }
       });
+
+      console.log('Resposta do Supabase:', { data, error });
 
       if (error) throw error;
       

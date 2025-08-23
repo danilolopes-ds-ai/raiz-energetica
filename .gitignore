@@ -106,3 +106,5 @@ analytics-keys.js
 # OS
 .DS_Store
 Thumbs.db
+
+.vercel

@@ -20,11 +20,7 @@ const BlogCard = ({ post, index, getCategoryName, formatDate, isFeaturedLayout =
           <img 
             className={`w-full object-cover ${isFeaturedLayout ? 'h-48' : 'h-40'}`}
             alt={post.title}
-            src={post.image || "https://images.unsplash.com/photo-1595872018818-97555653a011"}
-            onError={(e) => {
-              e.target.src = "https://images.unsplash.com/photo-1595872018818-97555653a011";
-            }}
-          />
+           src="https://images.unsplash.com/photo-1595872018818-97555653a011" />
           <Badge className={`absolute top-3 left-3 bg-[#2D8C5C] text-white ${isFeaturedLayout ? '' : 'text-xs'}`}>
             {getCategoryName(post.category)}
           </Badge>
@@ -36,7 +32,7 @@ const BlogCard = ({ post, index, getCategoryName, formatDate, isFeaturedLayout =
         </div>
         <CardHeader className={`${isFeaturedLayout ? '' : 'pb-2'}`}>
           <CardTitle className={`${isFeaturedLayout ? 'text-xl' : 'text-lg'} hover:text-[#2D8C5C] transition-colors ${isFeaturedLayout ? '' : 'line-clamp-2'}`}>
-            <Link to={`/blog/${post.slug || post.id}`}>
+            <Link to={`/blog/${post.id}`}>
               {post.title}
             </Link>
           </CardTitle>
@@ -51,7 +47,7 @@ const BlogCard = ({ post, index, getCategoryName, formatDate, isFeaturedLayout =
               <Calendar className={`mr-1 ${isFeaturedLayout ? 'w-4 h-4' : 'w-3 h-3'}`} />
               {formatDate(post.date)}
             </div>
-            <span>{post.read_time || post.readTime || '5 min'} de leitura</span>
+            <span>{post.readTime} de leitura</span>
           </div>
         </CardHeader>
         <CardContent className="flex-grow flex flex-col">
@@ -62,7 +58,7 @@ const BlogCard = ({ post, index, getCategoryName, formatDate, isFeaturedLayout =
             size={isFeaturedLayout ? 'default' : 'sm'}
             className={isFeaturedLayout ? '' : 'w-full'}
           >
-            <Link to={`/blog/${post.slug || post.id}`}>
+            <Link to={`/blog/${post.id}`}>
               Ler Artigo
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>

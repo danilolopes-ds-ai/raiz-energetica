@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Leaf, Zap, Search, BarChart, Sparkles, ShieldCheck, CheckCircle, HelpCircle, Gift, UserCheck, MessageSquare, Send, FileText } from 'lucide-react';
+import { Leaf, Zap, Search, BarChart, Sparkles, ShieldCheck, Star, CheckCircle, HelpCircle, Gift, UserCheck, MessageSquare, Send, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import TestimonialsCarousel from '@/components/organisms/TestimonialsCarousel';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
@@ -148,7 +147,7 @@ const Diagnostico = () => {
                         <div className="flex flex-col lg:flex-row">
                           <div className="p-8 lg:p-12 lg:w-3/5">
                             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
-                              Chega de dar <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">murro em ponta de faca</span>
+                              Chega de dar <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">murmo em ponta de faca</span>
                             </h2>
                             <p className="mt-4 text-lg text-slate-600 font-bold">
                               Veja o que você vai ter em mãos:
@@ -212,7 +211,29 @@ const Diagnostico = () => {
                     </div>
                 </section>
 
-                <TestimonialsCarousel testimonials={testimonials} />
+                <section className="py-20 md:py-24 bg-white">
+                    <div className="container mx-auto px-6 lg:px-8">
+                        <div className="text-center">
+                          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">Pessoas que descobriram a raiz e <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">mudaram seu rumo</span></h2>
+                        </div>
+                        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                           {testimonials.map((testimonial, i) => (
+                                <motion.div key={i} variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ delay: i * 0.1 }}>
+                                    <Card className="h-full border-slate-200/80 shadow-md p-6 flex flex-col">
+                                        <div className="flex mb-3">
+                                            {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />)}
+                                        </div>
+                                        <p className="text-slate-600 italic mb-4 flex-grow">{testimonial.text}</p>
+                                        <div className="text-right">
+                                            <p className="font-bold text-indigo-600">{testimonial.name}</p>
+                                            <p className="text-sm text-slate-500 italic">{testimonial.profession}</p>
+                                        </div>
+                                    </Card>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
                 
                 <section className="py-20 md:py-24 bg-slate-900">
                   <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
