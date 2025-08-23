@@ -217,3 +217,73 @@ export const trackEvent = {
 export const useTracking = () => {
   return trackEvent;
 };
+
+// Meta Pixel Conversions API - Server-side tracking
+const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID;
+const ACCESS_TOKEN = import.meta.env.VITE_META_PIXEL_ACCESS_TOKEN;
+
+export const sendServerSideEvent = async (eventName, eventData = {}, userData = {}) => {
+  // Só executa se o token estiver configurado
+  if (!ACCESS_TOKEN || !PIXEL_ID) {
+    console.log('Meta Pixel Conversions API: Token não configurado');
+    return false;
+  }
+
+  try {
+    const url = `https://graph.facebook.com/v18.0/${PIXEL_ID}/events`;
+    
+    const payload = {
+      data: [{
+        event_name: eventName,
+        event_time: Math.floor(Date.now() / 1000),
+        event_source_url: window.location.href,
+        action_source: 'website',
+        user_data: {
+          // Hash dos dados do usuário (quando disponíveis)
+          em: userData.email ? await hashData(userData.email.toLowerCase()) : undefined,
+          ph: userData.phone ? await hashData(userData.phone.replace(/\D/g, '')) : undefined,
+          country: 'BR',
+          ...userData
+        },
+        custom_data: {
+          content_name: eventData.content_name,
+          content_type: eventData.content_type || 'service',
+          value: eventData.value,
+          currency: eventData.currency || 'BRL',
+          ...eventData
+        }
+      }],
+      access_token: ACCESS_TOKEN
+    };
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      console.log('Evento enviado via Conversions API:', eventName);
+      return true;
+    } else {
+      console.error('Erro ao enviar evento via Conversions API:', await response.text());
+      return false;
+    }
+  } catch (error) {
+    console.error('Erro na Conversions API:', error);
+    return false;
+  }
+};
+
+// Função para hash de dados sensíveis
+async function hashData(data) {
+  if (!data) return undefined;
+  
+  const encoder = new TextEncoder();
+  const dataBuffer = encoder.encode(data);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
