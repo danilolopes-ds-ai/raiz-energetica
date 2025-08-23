@@ -1,0 +1,544 @@
+/* Variáveis CSS personalizadas */
+:root {
+  --swiper-theme-color: #ec4899;
+  --swiper-navigation-size: 1.5rem;
+  --swiper-pagination-bullet-inactive-color: #e2e8f0;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-horizontal-gap: 6px;
+  --swiper-pagination-bottom: 1rem;
+  
+  /* Cores do tema */
+  --color-primary: #ec4899;
+  --color-primary-light: #f472b6;
+  --color-secondary: #8b5cf6;
+  --color-secondary-light: #a78bfa;
+  --color-text: #1e293b;
+  --color-text-light: #64748b;
+  --color-bg: #ffffff;
+  --color-bg-light: #f8fafc;
+  --color-border: #e2e8f0;
+  
+  /* Transições */
+  --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Bordas */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+}
+
+/* Modo escuro */
+.dark {
+  --color-primary: #f472b6;
+  --color-secondary: #a78bfa;
+  --color-text: #f8fafc;
+  --color-text-light: #94a3b8;
+  --color-bg: #0f172a;
+  --color-bg-light: #1e293b;
+  --color-border: #334155;
+  --swiper-pagination-bullet-inactive-color: #475569;
+}
+
+/* Estilos para estado de carregamento */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.swiper-loading {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+}
+
+.swiper-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+  will-change: transform;
+}
+
+/* Estilos base para o Swiper */
+.swiper {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem 0 3.5rem;
+  --swiper-navigation-color: var(--color-primary);
+  --swiper-pagination-color: var(--color-primary);
+  overflow: visible;
+  position: relative;
+}
+
+/* Estilo para cada slide */
+.swiper-slide {
+  height: auto;
+  opacity: 0.5;
+  transition: all var(--transition-slow);
+  transform: scale(0.95);
+  filter: blur(1px);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  
+  /* Melhorias de performance */
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+/* Estilo para o slide ativo */
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  filter: none;
+  z-index: 1;
+}
+
+/* Estilo para os slides adjacentes */
+.swiper-slide-next,
+.swiper-slide-prev {
+  opacity: 0.8;
+  transform: scale(0.98);
+  filter: blur(0.5px);
+}
+
+/* Melhorias de acessibilidade para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .swiper-slide {
+    transition: none;
+    transform: none !important;
+    filter: none !important;
+  }
+  
+  .swiper-slide-active {
+    opacity: 1 !important;
+  }
+  
+  .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.3 !important;
+  }
+}
+
+/* Paginação personalizada */
+.testimonial-pagination {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--swiper-pagination-bullet-horizontal-gap);
+  margin: 2rem 0 1rem;
+  padding: 0.5rem;
+  list-style: none;
+}
+
+.testimonial-bullet {
+  display: block;
+  width: var(--swiper-pagination-bullet-size);
+  height: var(--swiper-pagination-bullet-size);
+  border-radius: var(--radius-full);
+  background-color: var(--swiper-pagination-bullet-inactive-color);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.testimonial-bullet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  border-radius: inherit;
+}
+
+.testimonial-bullet:hover {
+  opacity: 0.9;
+  transform: scale(1.2);
+}
+
+.testimonial-bullet:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+  transform: scale(1.1);
+}
+
+.testimonial-bullet-active {
+  width: 24px;
+  opacity: 1;
+  transform: scale(1.1);
+  background: transparent;
+}
+
+.testimonial-bullet-active::before {
+  opacity: 1;
+}
+
+/* Navegação */
+.swiper-button-next,
+.swiper-button-prev {
+  position: relative;
+  margin-top: 0;
+  top: auto;
+  bottom: auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  opacity: 0.9;
+  z-index: 10;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Posicionamento dos botões de navegação */
+.swiper-button-prev {
+  left: 0;
+  right: auto;
+}
+
+.swiper-button-next {
+  right: 0;
+  left: auto;
+}
+
+/* Container dos botões de navegação */
+.swiper-navigation-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active {
+  transform: translateY(0);
+}
+
+.swiper-button-next:focus-visible,
+.swiper-button-prev:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.swiper-button-disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  transform: none !important;
+  pointer-events: none;
+}
+
+/* Ícones de navegação */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Ajustes para preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-bullet,
+  .swiper-button-next,
+  .swiper-button-prev {
+    transition: none;
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    transform: none;
+  }
+}
+
+/* Efeito de foco para acessibilidade */
+.swiper-button-next:focus-visible,
+.swiper-button-prev:focus-visible,
+.testimonial-bullet:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.3);
+}
+
+/* Garante que o foco seja visível em todos os controles interativos */
+.swiper-button-next:focus:not(:focus-visible),
+.swiper-button-prev:focus:not(:focus-visible),
+.testimonial-bullet:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Melhora a visibilidade do foco no modo escuro */
+.dark .swiper-button-next:focus-visible,
+.dark .swiper-button-prev:focus-visible,
+.dark .testimonial-bullet:focus-visible {
+  outline-color: var(--color-primary-light);
+  box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.4);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajustes para telas pequenas (mobile-first) */
+@media (max-width: 639px) {
+  :root {
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bullet-horizontal-gap: 4px;
+    --swiper-pagination-bottom: 0.5rem;
+  }
+  
+  .swiper {
+    padding: 0.5rem 0 2.5rem;
+  }
+  
+  .swiper-slide {
+    opacity: 0.9;
+    transform: scale(0.98);
+    filter: none;
+  }
+  
+  .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .swiper-slide-next,
+  .swiper-slide-prev {
+    transform: scale(0.98);
+  }
+  
+  .testimonial-bullet {
+    width: var(--swiper-pagination-bullet-size);
+    height: var(--swiper-pagination-bullet-size);
+  }
+  
+  .testimonial-bullet-active {
+    width: 20px;
+  }
+  
+  /* Ajustes para navegação em telas pequenas */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.8;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 0.875rem;
+  }
+  
+  /* Melhora a área de toque para dispositivos móveis */
+  .testimonial-bullet {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .testimonial-bullet-active {
+    width: 24px;
+  }
+}
+
+/* Ajustes para o efeito de fade */
+.swiper-fade .swiper-slide {
+  transition-property: opacity, transform, filter;
+}
+
+/* Melhorias de performance */
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Ajustes para navegadores WebKit */
+.swiper-container {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Suporte para o Safari */
+@supports (not (overflow: -webkit-marquee)) and (max-width: 639px) {
+  .swiper-slide {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Melhorias de acessibilidade para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Melhorias para navegação por teclado */
+.swiper-button-next:focus-visible,
+.swiper-button-prev:focus-visible,
+.testimonial-bullet:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.3);
+}
+
+/* Suporte para modo de alto contraste */
+@media (forced-colors: active) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    border: 2px solid currentColor !important;
+  }
+  
+  .testimonial-bullet {
+    border: 1px solid currentColor;
+  }
+  
+  .testimonial-bullet-active {
+    background: currentColor !important;
+  }
+}
+
+/* Melhorias para dispositivos móveis */
+@media (max-width: 639px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 2.25rem;
+    height: 2.25rem;
+    opacity: 0.9;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 0.875rem;
+  }
+  
+  .testimonial-pagination {
+    margin: 1.5rem 0 0.5rem;
+  }
+}
+
+/* Melhorias de impressão */
+@media print {
+  /* Reset de estilos para impressão */
+  .swiper {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  
+  .swiper-wrapper {
+    display: block !important;
+    transform: none !important;
+  }
+  
+  .swiper-slide {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg) !important;
+    color: var(--color-text) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Esconde controles de navegação */
+  .swiper-button-next,
+  .swiper-button-prev,
+  .testimonial-pagination {
+    display: none !important;
+  }
+  
+  /* Melhora a legibilidade do texto */
+  .swiper-slide * {
+    color: var(--color-text) !important;
+    background: transparent !important;
+  }
+  
+  /* Adiciona margem entre os slides */
+  .swiper-slide:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Dark mode para navegação */
+.dark .swiper-button-next,
+.dark .swiper-button-prev {
+  color: #f472b6;
+}
+
+.dark .swiper-button-next:hover,
+.dark .swiper-button-prev:hover {
+  color: #ec4899;
+}
+
+/* Safe area para dispositivos com notch */
+@supports (padding: max(0px)) {
+  .safe-area-padding {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
