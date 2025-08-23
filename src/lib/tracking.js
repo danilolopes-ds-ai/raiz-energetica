@@ -2,16 +2,126 @@ import { track } from '@vercel/analytics';
 
 // Helper centralizado para tracking de conversões
 export const trackEvent = {
+  // Meta Pixel Standard Events para Raiz Energética
+  
+  // 1. VIEW CONTENT - Visualização de páginas importantes
+  viewContent: (contentName, contentType = 'service') => {
+    track('view_content', { content_name: contentName, content_type: contentType });
+    window.dataLayer?.push({
+      event: 'view_item',
+      content_name: contentName,
+      content_type: contentType
+    });
+    window.fbq?.('track', 'ViewContent', { 
+      content_name: contentName,
+      content_type: contentType 
+    });
+  },
+
+  // 2. LEAD - Captura de leads (formulários, contatos)
+  leadCapture: (source, email = null, contentName = null) => {
+    track('lead_capture', { source, email_domain: email?.split('@')[1] });
+    window.dataLayer?.push({
+      event: 'generate_lead',
+      lead_source: source,
+      content_name: contentName
+    });
+    window.fbq?.('track', 'Lead', { 
+      content_name: contentName || source,
+      lead_source: source
+    });
+  },
+
+  // 3. CONTACT - Tentativas de contato
+  contact: (method, source = 'website') => {
+    track('contact_attempt', { method, source });
+    window.dataLayer?.push({
+      event: 'contact',
+      contact_method: method,
+      source: source
+    });
+    window.fbq?.('track', 'Contact', { 
+      contact_method: method,
+      source: source 
+    });
+  },
+
+  // 4. SCHEDULE - Agendamentos via Cal.com
+  scheduleAppointment: (serviceType, value = null) => {
+    track('schedule_appointment', { service_type: serviceType, value });
+    window.dataLayer?.push({
+      event: 'schedule',
+      service_type: serviceType,
+      value: value
+    });
+    window.fbq?.('track', 'Schedule', { 
+      content_name: serviceType,
+      value: value,
+      currency: 'BRL'
+    });
+  },
+
+  // 5. COMPLETE REGISTRATION - Cadastros completos
+  completeRegistration: (registrationType, source = 'website') => {
+    track('complete_registration', { registration_type: registrationType, source });
+    window.dataLayer?.push({
+      event: 'sign_up',
+      method: registrationType,
+      source: source
+    });
+    window.fbq?.('track', 'CompleteRegistration', { 
+      content_name: registrationType,
+      registration_method: registrationType 
+    });
+  },
+
+  // 6. SEARCH - Buscas no site
+  search: (searchTerm, resultCount = 0) => {
+    track('site_search', { search_term: searchTerm, results: resultCount });
+    window.dataLayer?.push({
+      event: 'search',
+      search_term: searchTerm,
+      search_results: resultCount
+    });
+    window.fbq?.('track', 'Search', { 
+      search_string: searchTerm,
+      content_name: 'Site Search'
+    });
+  },
+
+  // 7. PURCHASE - Compras de serviços
+  purchase: (serviceType, value, currency = 'BRL') => {
+    track('purchase', { service_type: serviceType, value, currency });
+    window.dataLayer?.push({
+      event: 'purchase',
+      transaction_id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      value: value,
+      currency: currency,
+      items: [{
+        item_name: serviceType,
+        item_category: 'terapia_holistica',
+        price: value,
+        quantity: 1
+      }]
+    });
+    window.fbq?.('track', 'Purchase', { 
+      value: value,
+      currency: currency,
+      content_name: serviceType,
+      content_type: 'service'
+    });
+  },
+
+  // EVENTOS ESPECÍFICOS DO NEGÓCIO
+
   // Quiz Events
   quizStart: (source) => {
     track('quiz_start', { source });
-    // GTM
     window.dataLayer?.push({
       event: 'quiz_start',
       quiz_source: source
     });
-    // Meta Pixel
-    window.fbq?.('track', 'Lead', { content_name: 'Quiz Start' });
+    window.fbq?.('track', 'Lead', { content_name: 'Quiz Diagnóstico' });
   },
 
   quizStep: (step, answer) => {
@@ -29,116 +139,81 @@ export const trackEvent = {
       event: 'quiz_complete',
       quiz_result: result
     });
-    window.fbq?.('track', 'CompleteRegistration', { content_name: 'Quiz Complete' });
+    window.fbq?.('track', 'CompleteRegistration', { content_name: 'Quiz Diagnóstico Completo' });
   },
 
-  // Lead Events
-  leadCapture: (source, email) => {
-    track('lead_capture', { source, email_domain: email?.split('@')[1] });
-    window.dataLayer?.push({
-      event: 'generate_lead',
-      lead_source: source
-    });
-    window.fbq?.('track', 'Lead', { content_name: source });
-  },
-
-  // Booking Events
+  // Calendar Events  
   calendarView: (service) => {
     track('calendar_view', { service });
     window.dataLayer?.push({
       event: 'view_calendar',
       service_type: service
     });
+    window.fbq?.('track', 'ViewContent', { content_name: `Agendamento ${service}` });
   },
 
-  appointmentScheduled: (service, date) => {
-    track('appointment_scheduled', { service, date });
+  // WhatsApp Events
+  whatsappClick: (source, message = '') => {
+    track('whatsapp_click', { source, has_message: !!message });
     window.dataLayer?.push({
-      event: 'schedule_appointment',
-      service_type: service,
-      appointment_date: date
+      event: 'contact_whatsapp',
+      source: source,
+      message_type: message ? 'custom' : 'default'
     });
-    window.fbq?.('track', 'Schedule', { content_name: service });
+    window.fbq?.('track', 'Contact', { 
+      contact_method: 'whatsapp',
+      source: source 
+    });
   },
 
-  // Purchase Events
-  checkoutInitiate: (service, price) => {
-    track('checkout_initiate', { service, price });
+  // Page Events
+  pageView: (pageName, category = 'website') => {
+    track('page_view', { page: pageName, category });
     window.dataLayer?.push({
-      event: 'begin_checkout',
-      currency: 'BRL',
-      value: price,
-      items: [{ item_name: service, price }]
+      event: 'page_view',
+      page_title: pageName,
+      page_category: category
     });
-    window.fbq?.('track', 'InitiateCheckout', { 
-      content_name: service,
-      value: price,
-      currency: 'BRL'
-    });
+    // PageView já é enviado automaticamente pelo Meta Pixel
   },
 
-  purchase: (service, price, transactionId) => {
-    track('purchase', { service, price, transaction_id: transactionId });
+  // Service Interest Events
+  serviceInterest: (serviceName, source = 'website') => {
+    track('service_interest', { service: serviceName, source });
     window.dataLayer?.push({
-      event: 'purchase',
-      transaction_id: transactionId,
-      currency: 'BRL',
-      value: price,
-      items: [{ item_name: service, price }]
+      event: 'service_interest',
+      service_name: serviceName,
+      source: source
     });
-    window.fbq?.('track', 'Purchase', {
-      content_name: service,
-      value: price,
-      currency: 'BRL'
+    window.fbq?.('track', 'ViewContent', { 
+      content_name: serviceName,
+      content_type: 'service'
     });
   },
 
-  // Engagement Events
-  buttonClick: (buttonName, location) => {
-    track('button_click', { button: buttonName, location });
+  // Form Events
+  formStart: (formName) => {
+    track('form_start', { form_name: formName });
     window.dataLayer?.push({
-      event: 'click',
-      button_name: buttonName,
-      click_location: location
+      event: 'form_start',
+      form_name: formName
     });
   },
 
-  formSubmit: (formName, success) => {
-    track('form_submit', { form: formName, success });
+  formSubmit: (formName, success = true) => {
+    track('form_submit', { form_name: formName, success });
     window.dataLayer?.push({
       event: 'form_submit',
       form_name: formName,
-      form_success: success
+      success: success
     });
-  },
-
-  videoPlay: (videoName, duration) => {
-    track('video_play', { video: videoName, duration });
-    window.dataLayer?.push({
-      event: 'video_start',
-      video_title: videoName
-    });
-  },
-
-  // Page Engagement
-  timeOnPage: (page, seconds) => {
-    if (seconds > 30) { // Só trackear se passou mais de 30s
-      track('page_engagement', { page, time_seconds: seconds });
-    }
-  },
-
-  scrollDepth: (page, depth) => {
-    if (depth >= 75) { // 75% da página
-      track('scroll_depth', { page, depth_percent: depth });
-      window.dataLayer?.push({
-        event: 'scroll',
-        scroll_depth: depth
-      });
+    if (success) {
+      window.fbq?.('track', 'Lead', { content_name: formName });
     }
   }
 };
 
-// Hook para facilitar o uso
+// Hook para facilitar o uso em componentes React
 export const useTracking = () => {
   return trackEvent;
 };
