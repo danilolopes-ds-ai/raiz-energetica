@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import AppButton from '@/components/atoms/AppButton';
 import Text from '@/components/atoms/Text';
 
-const CtaSection = ({ onButtonClick }) => {
+const CtaSection = () => {
   return (
     <section id="cta-final" className="py-16 sm:py-24">
       <div className="container mx-auto px-4">
@@ -32,8 +33,8 @@ const CtaSection = ({ onButtonClick }) => {
           </div>
           </motion.div>
           <AppButton 
-            as="button"
-            onClick={onButtonClick}
+            as={Link}
+            to="/agendar"
             variant="primary"
             size="lg"
           >
