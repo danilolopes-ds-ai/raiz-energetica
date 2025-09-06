@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
+import CalcomDashboard from '../../components/admin/CalcomDashboard';
 
 const MetricCard = ({ title, value, description, icon, trend, color }) => (
   <div className="bg-white overflow-hidden shadow-sm rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
@@ -295,6 +296,11 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <QuickActions />
         <RecentActivity activities={recentActivities} />
+      </div>
+
+      {/* Cal.com Integration */}
+      <div>
+        <CalcomDashboard />
       </div>
 
       {/* Additional Info */}

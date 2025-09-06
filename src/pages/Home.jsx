@@ -19,6 +19,7 @@ const Home = () => {
 
   const openBookingModal = () => setIsBookingModalOpen(true);
   const closeBookingModal = () => setIsBookingModalOpen(false);
+  
   const stats = [
     {
       title: "🌿 500+ Pessoas Atendidas",
@@ -51,26 +52,18 @@ const Home = () => {
     },
     {
       icon: Heart,
-      title: "Tratamento Personalizado",
-      description: 'A partir do diagnóstico, traçamos um plano terapêutico único, direcionado para limpar, equilibrar e proteger seu campo energético.',
+      title: "Harmonização Integral",
+      description: "Aplicamos técnicas de limpeza, realinhamento e reequilíbrio energético. Cada sessão é personalizada para sua necessidade específica."
     }
   ];
 
   const differentials = [
     {
-      title: "Metodologia Exclusiva de Radiestesia Genética",
-      description: "Criada a partir de décadas de estudo, prática e resultados mensuráveis."
+      title: "Método Exclusivo com Resultados Comprovados",
+      description: "Nossa abordagem combina técnicas milenares com tecnologia de ponta para resultados que você pode sentir."
     },
     {
-      title: "Visão Holística e Integrativa",
-      description: "Você é tratada(o) como um todo: corpo, mente, campo e história."
-    },
-    {
-      title: "Resultados Comprovados e Duradouros",
-      description: "Mais de 500 vidas impactadas e 95% relatando melhora após as primeiras sessões."
-    },
-    {
-      title: "Acompanhamento Personalizado",
+      title: "Atendimento Totalmente Personalizado",
       description: "Nada em massa. Cada jornada é única, e você será acompanhada(o) de verdade."
     },
     {
@@ -85,16 +78,16 @@ const Home = () => {
 
   const testimonials = [
     {
-      identifier: "🌳🍃 <strong>Maria S.</strong> – 42 anos, Curitiba (PR)",
-      text: "Tive enxaquecas por mais de <strong>10 anos</strong>. Já tinha tentado de tudo.\nNa primeira sessão de Radiestesia Genética, <strong>entendi o que estava por trás</strong> da dor.\nHoje, <strong>vivo sem dor</strong>, e com uma paz que eu nem lembrava que existia."
+      identifier: "🌸 <strong>Renata S.</strong> – 38 anos, Curitiba (PR)",
+      text: "Carreguei dores que nem sabia de onde vinham. <strong>Anos de busca</strong>, mas nada tocava no que eu precisava curar.\nNa primeira sessão, senti <strong>algo se desfazendo dentro de mim</strong>. Como se finalmente alguém entendesse minha alma.\nHoje respiro com <strong>leveza</strong>. Me olho no espelho e me vejo <strong>bonita e inteira</strong> novamente."
     },
     {
-      identifier: "🧠🔓 <strong>Otávio L.</strong> – 36 anos, São Paulo (SP)",
-      text: "Eu carregava um peso que não era meu. Terapia convencional não resolvia.\nCom a Radiestesia, entendi a origem do meu bloqueio, que era <strong>emocional e ancestral</strong>.\nEm <strong>3 sessões</strong>, <strong>tudo mudou</strong>. Leveza e clareza definem meu novo eu."
+      identifier: "🌊 <strong>André L.</strong> – 41 anos, São Paulo (SP)",
+      text: "Eu vivia no automático, <strong>desconectado de mim mesmo</strong>. Sentia que algo profundo precisava despertar.\nCom a Radiestesia Genética, <strong>encontrei as raízes do meu bloqueio</strong> — memórias que nem eram minhas.\n<strong>3 sessões e renasci</strong>. Hoje confio na minha intuição e me sinto <strong>forte e renovado</strong>."
     },
     {
-      identifier: "🙏💕 <strong>Luciana M.</strong> – 45 anos, mãe do Gabriel (15), Florianópolis (SC)",
-      text: "Meu filho adolescente estava <strong>distante</strong>, <strong>agressivo</strong>, <strong>e já não falava comigo</strong>.\nFiz o tratamento para ele à distância, <strong>sem ele saber</strong>.\nNa mesma semana, ele me procurou para conversar. <strong>Até me pediu um abraço</strong>.\nSenti que meu filho <strong>estava voltando pra mim</strong>."
+      identifier: "💕 <strong>Luciana M.</strong> – 43 anos, Florianópolis (SC)",
+      text: "Minha relação mais importante estava se perdendo. <strong>Tentei de tudo</strong>, mas a conexão não voltava.\nO tratamento à distância foi como <strong>plantar uma semente invisível</strong>.\nEm poucos dias, senti a <strong>energia mudando entre nós</strong>. Hoje vivemos uma harmonia que <strong>aquece meu coração</strong> todos os dias."
     }
   ];
 
@@ -112,13 +105,12 @@ const Home = () => {
         <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4">
           <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-full max-h-[90vh] overflow-hidden flex flex-col">
             <button 
-              onClick={closeBookingModal} 
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 z-10"
-              aria-label="Fechar modal de agendamento"
+              onClick={closeBookingModal}
+              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
             >
-              <X size={28} />
+              <X className="w-6 h-6 text-gray-600" />
             </button>
-            <div className="flex-grow overflow-auto">
+            <div className="flex-1 min-h-0">
               <BookingSection />
             </div>
           </div>
