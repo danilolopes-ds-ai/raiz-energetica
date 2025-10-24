@@ -19,8 +19,8 @@ const TestimonialsSection = ({ testimonials }) => {
   return (
     <motion.div onViewportEnter={handleViewportEnter}>
       <GridSection
-        title="Histórias de <span class='text-gradient'>Transformação Profunda</span>"
-        subtitle="Pessoas que chegaram carregando pesos invisíveis e encontraram sua essência — radiante, inteira e livre."
+        title="Depoimentos Reais de Quem <span class='text-gradient'>Escolheu Curar Pela Raiz</span>"
+        subtitle="Histórias de quem chegou com dor, dúvidas ou esgotamento e encontrou clareza, leveza e reconexão."
         items={testimonials}
         renderItem={(item) => (
           <TestimonialCard 

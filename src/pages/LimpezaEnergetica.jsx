@@ -9,11 +9,8 @@ import { useCallback } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import CountdownTimer from '@/components/atoms/CountdownTimer';
-import { SecurityBadges } from '@/components/atoms/SecurityBadges';
-import LimpezaHero from './LimpezaEnergetica/LimpezaHero';
-import PainPointsLimpeza from './LimpezaEnergetica/PainPointsLimpeza';
-import ComoFuncionaLimpeza from './LimpezaEnergetica/ComoFuncionaLimpeza';
+import HeroLimpeza from './landing-components/HeroLimpeza';
+import SinaisLimpeza from './landing-components/SinaisLimpeza';
 
 const LandingHeader = () => (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200/80">
@@ -85,7 +82,7 @@ const LimpezaEnergetica = () => {
     { icon: Zap, text: "Pensamentos negativos e repetitivos" },
     { icon: Users, text: "Dificuldade e conflitos nos relacionamentos" },
     { icon: BrainCircuit, text: "Falta de clareza mental e confusão" },
-    { icon: Clock, text: "Sensação de estagnação e tudo parece dar errado" },
+    { icon: Clock, text: "Sensação de estagnação e 'azar crônico'" },
     { icon: HeartHand, text: "Irritabilidade e explosões emocionais" },
   ];
 
@@ -186,90 +183,94 @@ const LimpezaEnergetica = () => {
         <LandingHeader />
 
         <main>
-            <LimpezaHero 
-              handlePurchaseClick={handlePurchaseClick}
-              containerVariants={containerVariants}
-              itemVariants={itemVariants}
-              slots={slots}
-            />
+            <HeroLimpeza />
             
-            <PainPointsLimpeza 
-              containerVariants={containerVariants}
-              itemVariants={itemVariants}
-            />
+            <SinaisLimpeza />
             
-            <ComoFuncionaLimpeza 
-              containerVariants={containerVariants}
-              itemVariants={itemVariants}
-            />
+            <section id="como-funciona" className="py-20 md:py-24 bg-white">
+                <div className="container mx-auto px-6 lg:px-8">
+                    <div className="text-center">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">Nossa Metodologia de <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500">Limpeza Profunda</span></h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">Combinamos técnicas poderosas para uma purificação completa e eficaz do seu campo energético.</p>
+                    </div>
+                    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                        {methodElements.map((item, i) => (
+                            <motion.div key={i} variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} transition={{ delay: i * 0.1 }} className="flex items-start space-x-6">
+                                <div className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center bg-teal-600 text-white shadow-lg">
+                                    <item.icon className="w-8 h-8" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed">{item.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-            <section id="oferta" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-white to-teal-50/30 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(45,212,191,0.08),rgba(6,182,212,0.05),rgba(255,255,255,0))]"></div>
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-                    <motion.div 
-                        className="max-w-3xl mx-auto bg-slate-100 border border-slate-200 rounded-xl p-4 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <Badge className="bg-red-100 text-red-800 border-red-200 mb-4 animate-pulse">
-                            🔥 Oferta por Tempo Limitado
-                        </Badge>
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
-                            Limpeza Energética <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Profunda</span>
-                        </h2>
-                        <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8">
-                            Renove sua energia vital e liberte-se do que te sobrecarrega
-                        </p>
-                        
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8 text-xs sm:text-sm">
-                            <div className="flex items-center justify-center sm:justify-start">
-                                <CheckCircle className="w-4 h-4 text-teal-500 mr-2 flex-shrink-0" />
-                                <span>Limpeza Profunda à Distância</span>
-                            </div>
-                            <div className="flex items-center justify-center sm:justify-start">
-                                <CheckCircle className="w-4 h-4 text-teal-500 mr-2 flex-shrink-0" />
-                                <span>Relatório Detalhado</span>
-                            </div>
-                            <div className="flex items-center justify-center sm:justify-start">
-                                <CheckCircle className="w-4 h-4 text-teal-500 mr-2 flex-shrink-0" />
-                                <span>Entrega em 24h</span>
-                            </div>
-                        </div>
-                        
-                        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-6 sm:mb-8 space-y-2 sm:space-y-0">
-                            <div className="text-center sm:text-left">
-                                <p className="text-slate-500 text-sm sm:text-base">De <span className="line-through">R$199</span></p>
-                                <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">R$ 149</p>
-                                <p className="text-slate-600 font-semibold text-xs sm:text-sm">Pagamento único</p>
-                            </div>
-                            <div className="w-full sm:w-auto">
-                                <CountdownTimer initialMinutes={15} storageKey="limpeza-timer" />
-                            </div>
-                        </div>
-                        
-                        <div className="w-full max-w-xs mx-auto mt-6 sm:mt-8">
-                            <div className="bg-slate-200 rounded-full h-2.5">
-                                <div className="bg-gradient-to-r from-teal-400 to-cyan-500 h-2.5 rounded-full transition-all duration-500" style={{ width: `${(slots / 8) * 100}%` }}></div>
-                            </div>
-                        </div>
-                        <p className="mt-2 text-slate-600 font-semibold text-xs sm:text-sm text-center">
-                            🔥 Apenas <span className="text-red-600 font-bold">{slots} vagas disponíveis</span> hoje
-                        </p>
-                        <Button onClick={handlePurchaseClick} size="lg" asChild className="mt-6 sm:mt-8 w-full sm:w-auto bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-4 px-6 h-auto animate-pulse text-xs sm:text-sm md:text-base min-h-[3.5rem] sm:min-h-[4rem]">
-                          <a href="#oferta" className="text-center leading-tight flex items-center justify-center w-full h-full">
-                            <span className="block">✨ SIM! QUERO RENOVAR<br className="sm:hidden"/>
-                            <span className="hidden sm:inline"> </span>MINHA ENERGIA AGORA</span>
-                          </a>
-                        </Button>
-                        <div className="mt-4 sm:mt-6">
-                            <SecurityBadges compact={true} className="max-w-md mx-auto" />
-                        </div>
-                        <p className="text-xs text-slate-500 mt-3 sm:mt-4">
-                            Para garantir qualidade, atendemos apenas 8 pessoas por dia
-                        </p>
-                    </motion.div>
+            <section id="oferta" className="py-20 md:py-24 text-white bg-gradient-to-br from-teal-600 to-cyan-700">
+                <div className="container mx-auto px-6 lg:px-8">
+                  <motion.div 
+                    className="bg-white text-slate-900 rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="p-8 lg:p-12 lg:w-3/5">
+                          <Badge className="bg-amber-100 text-amber-800 border-amber-200 mb-4 font-semibold">Oferta Exclusiva</Badge>
+                          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">Sua Oportunidade de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Renovação Completa</span></h2>
+                          <p className="mt-4 text-lg text-slate-600">Dê o primeiro passo para uma vida com mais leveza, bem-estar e clareza.</p>
+                          <ul className="space-y-4 text-slate-700 mt-8">
+                              {[
+                                  "Limpeza Energética Profunda à Distância",
+                                  "Relatório Detalhado com tudo que foi tratado",
+                                  "Entrega Rápida em até 24h no seu e-mail"
+                              ].map(item => (
+                                  <li key={item} className="flex items-center">
+                                      <CheckCircle className="w-6 h-6 text-teal-500 mr-3 flex-shrink-0" />
+                                      <span>{item}</span>
+                                  </li>
+                              ))}
+                              <li className="flex items-center font-bold text-teal-500">
+                                <Sparkles className="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0" />
+                                <span>BÔNUS: Alinhamento Completo dos Chakras</span>
+                              </li>
+                          </ul>
+                      </div>
+                      
+                      <div className="group relative bg-slate-50 p-8 lg:p-12 lg:w-2/5 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-amber-100 to-yellow-200 opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-2xl"></div>
+                          <div className="relative">
+                              <div className="text-center">
+                                  <p className="text-slate-500 text-xl">Investimento único</p>
+                                  <p className="my-2 text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600">R$ 149</p>
+                                  <p className="text-slate-600 font-semibold mb-6">ou 12x de R$ 14,96</p>
+                                  <Button onClick={handlePurchaseClick} size="lg" className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-4 h-auto">
+                                      Quero Minha Limpeza Agora
+                                  </Button>
+                                  <div className="mt-6">
+                                      <h3 className="text-lg font-bold text-amber-600 mb-2">Vagas Diárias Limitadas!</h3>
+                                      <p className="text-sm text-slate-600 mb-2">Para garantir a qualidade, atendemos apenas {localStorage.getItem('slots_limpeza') || 8} pessoas por dia.</p>
+                                      <div className="bg-slate-200 rounded-full h-3 overflow-hidden">
+                                          <motion.div 
+                                            className="bg-gradient-to-r from-teal-400 to-cyan-500 h-3" 
+                                            style={{ width: `${(slots / (localStorage.getItem('slots_limpeza') || 8)) * 100}%` }}
+                                            initial={{width: '100%'}}
+                                            animate={{width: `${(slots / (localStorage.getItem('slots_limpeza') || 8)) * 100}%`}}
+                                            transition={{duration: 0.5}}
+                                            >
+                                          </motion.div>
+                                      </div>
+                                      <p className="text-xs font-semibold text-teal-700 mt-2">{slots} VAGAS RESTANTES HOJE</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
             </section>
             
@@ -283,7 +284,7 @@ const LimpezaEnergetica = () => {
                         {benefits.map((benefit, i) => (
                             <motion.div key={i} variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} transition={{ delay: i * 0.1 }}>
                                 <Card className="p-6 border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
-                                    <div className="flex items-center space-x-4">
+                                    <div className="flex items-start space-x-4">
                                         <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center bg-teal-100">
                                             <benefit.icon className="w-6 h-6 text-teal-500" />
                                         </div>
@@ -302,6 +303,10 @@ const LimpezaEnergetica = () => {
             <section className="py-20 md:py-24 bg-gradient-to-b from-white to-teal-50/50">
               <div className="container mx-auto px-6 lg:px-8">
                 <div className="text-center mb-16">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-teal-100 text-teal-800 mb-4">
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    Depoimentos Reais
+                  </span>
                   <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">Quem fez, <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">recomenda</span></h2>
                   <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">Veja o que nossos clientes estão falando sobre a experiência da limpeza energética</p>
                 </div>
@@ -387,31 +392,10 @@ const LimpezaEnergetica = () => {
                 <div className="text-center bg-slate-100 p-10 rounded-2xl max-w-3xl mx-auto border border-slate-200">
                     <Award className="w-16 h-16 text-teal-500 mx-auto mb-4" />
                     <h2 className="text-2xl font-bold text-slate-900">Sua Satisfação é Nosso Compromisso</h2>
-                    <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">Temos tanta confiança nos benefícios da limpeza que oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não se sentir mais leve e com a energia renovada, basta nos enviar um e-mail e devolveremos todo o seu investimento.</p>
-                    <div className="w-full max-w-xs mx-auto mt-6 sm:mt-8">
-                        <div className="bg-slate-200 rounded-full h-2.5">
-                            <div className="bg-gradient-to-r from-teal-400 to-cyan-500 h-2.5 rounded-full transition-all duration-500" style={{ width: `${(slots / 8) * 100}%` }}></div>
-                        </div>
-                    </div>
-                    <div className="mt-4 mb-2">
-                        <p className="text-red-600 text-sm font-bold animate-pulse">
-                            ⚠️ APENAS {slots} VAGAS DISPONÍVEIS HOJE!
-                        </p>
-                        <p className="text-slate-500 text-xs">Garante já a sua antes que esgote</p>
-                    </div>
-                    <Button onClick={handlePurchaseClick} size="lg" asChild className="mt-6 sm:mt-8 w-full sm:w-auto bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-3 sm:py-4 h-auto animate-pulse text-xs sm:text-sm md:text-base px-2 sm:px-4 md:px-6">
-                      <a href="#oferta" className="text-center">
-                        ✨ QUERO RENOVAR MINHA ENERGIA
-                      </a>
+                    <p className="mt-4 text-slate-600">Seu risco é zero. Temos tanta confiança nos benefícios da limpeza que oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não se sentir mais leve e com a energia renovada, basta nos enviar um e-mail e devolveremos todo o seu investimento.</p>
+                    <Button onClick={handlePurchaseClick} size="lg" asChild className="mt-8 bg-teal-600 hover:bg-teal-700 text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-4 h-auto">
+                      <a href="#oferta">Solicitar Limpeza Sem Risco</a>
                     </Button>
-                    <div className="mt-4 sm:mt-6">
-                      <SecurityBadges compact={true} className="max-w-md mx-auto" />
-                    </div>
-                    <div className="mt-4">
-                      <p className="text-slate-600 text-xs sm:text-sm italic">
-                        Para garantir a qualidade e excelência, atendemos apenas 8 pessoas por dia.
-                      </p>
-                    </div>
                 </div>
               </div>
             </section>

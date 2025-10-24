@@ -34,10 +34,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from '@/contexts/AuthContext';
 
-// Vercel Analytics e Speed Insights
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
-
 function App() {
   return (
         <HelmetProvider>
@@ -86,9 +82,6 @@ function App() {
 
             </Routes>
             <Toaster />
-            {/* Vercel Analytics - Tracking completo */}
-            <Analytics />
-            <SpeedInsights />
           </AnalyticsProvider>
         </Router>
       </AuthProvider>

@@ -6,7 +6,7 @@ const signs = [
   { icon: Zap, text: "Pensamentos negativos e repetitivos" },
   { icon: Users, text: "Dificuldade e conflitos nos relacionamentos" },
   { icon: BrainCircuit, text: "Falta de clareza mental e confusão" },
-  { icon: Clock, text: "Sensação de estagnação e tudo parece dar errado" },
+  { icon: Clock, text: "Sensação de estagnação e 'azar crônico'" },
   { icon: HeartHand, text: "Irritabilidade e explosões emocionais" },
 ];
 

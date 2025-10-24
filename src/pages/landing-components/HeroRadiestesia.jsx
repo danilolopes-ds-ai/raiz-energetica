@@ -25,7 +25,7 @@ const HeroRadiestesia = () => {
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-                <a href="#oferta">Agendar meu Tratamento</a>
+                <a href="#oferta">Agendar Análise Energética</a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-slate-300 hover:bg-slate-100 font-semibold">
                 <a href="#ciencia">Ver a comprovação</a>

@@ -162,7 +162,6 @@ const globalStyles = `
 `;
 
 const ServiceTestimonials = ({
-  testimonials: propTestimonials = [],
   serviceName = '',
   maxTestimonials = 8,
   showTitle = true,
@@ -233,26 +232,6 @@ const ServiceTestimonials = ({
     const loadAndProcessTestimonials = async () => {
       setIsLoading(true);
       try {
-        // Usar dados passados via props se disponíveis
-        if (propTestimonials && propTestimonials.length > 0) {
-          let filtered = propTestimonials;
-          if (serviceName) {
-            const serviceFiltered = filtered.filter(t => t.service === serviceName);
-            if (serviceFiltered.length > 0) {
-              filtered = serviceFiltered;
-            }
-          }
-
-          const shuffled = filtered.sort(() => 0.5 - Math.random());
-          const limited = shuffled.slice(0, maxTestimonials);
-          
-          const processed = limited.map(t => ({ ...t, ...getServiceColor(t.service) }));
-          setTestimonials(processed);
-          setIsLoading(false);
-          return;
-        }
-
-        // Fallback para Supabase se não há dados via props
         const { supabase } = await import('@/lib/supabase');
         const { data: items, error } = await supabase
           .from('testimonials')
@@ -287,7 +266,7 @@ const ServiceTestimonials = ({
     };
 
     loadAndProcessTestimonials();
-  }, [isVisible, serviceName, maxTestimonials, propTestimonials]);
+  }, [isVisible, serviceName, maxTestimonials]);
 
   // --- RENDERIZAÇÃO CONDICIONAL ---
   if (isLoading) {

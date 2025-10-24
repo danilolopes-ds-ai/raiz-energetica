@@ -12,8 +12,8 @@ const CMSGuide = () => {
 
   const handleConnect = () => {
     toast({
-      title: "🎉 Parabéns! Seu CMS já está ativo!",
-      description: "Você já está conectado! Use o menu lateral para começar a gerenciar seu conteúdo.",
+      title: "Conexão com Supabase",
+      description: "Para conectar, clique no botão do Supabase no canto superior direito da tela e siga as instruções.",
     });
   };
 
@@ -68,21 +68,17 @@ const CMSGuide = () => {
         </CardContent>
       </Card>
 
-      <Alert variant="default" className="border-green-500 text-green-800 bg-green-50">
-        <CheckCircle className="h-4 w-4 !text-green-500" />
-        <AlertTitle className="font-bold">🎉 Seu CMS está ATIVO!</AlertTitle>
+      <Alert variant="default" className="border-blue-500 text-blue-800">
+        <Database className="h-4 w-4 !text-blue-500" />
+        <AlertTitle className="font-bold">Passo Final: Ative seu CMS</AlertTitle>
         <AlertDescription>
-          <strong>Parabéns!</strong> Seu painel administrativo já está conectado e funcionando perfeitamente! 
-          Agora você pode usar o menu lateral para:
-          <br />• <strong>Posts:</strong> Criar e gerenciar artigos do blog
-          <br />• <strong>Serviços:</strong> Atualizar suas ofertas
-          <br />• <strong>Depoimentos:</strong> Aprovar testimonials
-          <br />• <strong>Visão Geral:</strong> Ver estatísticas do site
+          Para desbloquear todo esse poder, o último passo é conectar seu site a um banco de dados Supabase.
+          Isso irá ativar seu painel e permitir que você comece a editar seu conteúdo ao vivo.
         </AlertDescription>
         <div className="mt-4">
-          <AppButton onClick={handleConnect} className="bg-green-500 hover:bg-green-600 text-white">
-            <CheckCircle className="mr-2 h-4 w-4" />
-            Começar a Gerenciar Conteúdo
+          <AppButton onClick={handleConnect} className="bg-blue-500 hover:bg-blue-600 text-white">
+            <Database className="mr-2 h-4 w-4" />
+            Conectar ao Supabase Agora
           </AppButton>
         </div>
       </Alert>

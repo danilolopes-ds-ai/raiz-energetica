@@ -3,15 +3,14 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/lib/supabase';
 import NewsletterSection from '@/pages/Blog/NewsletterSection';
 import BlogQuizBanner from '@/components/organisms/BlogQuizBanner';
 import BlogPostQuizCTA from '@/components/organisms/BlogPostQuizCTA';
 
-const RelatedPostsSection = ({ currentPostSlug, posts }) => {
-    const postCategory = posts.find(post => post.slug === currentPostSlug)?.category;
+const RelatedPostsSection = ({ currentPostId, posts }) => {
+    const postCategory = posts.find(post => post.id.toString() === currentPostId)?.category;
     const related = posts
-        .filter(p => p.category === postCategory && p.slug !== currentPostSlug)
+        .filter(p => p.category === postCategory && p.id.toString() !== currentPostId)
         .slice(0, 3);
 
     if (related.length === 0) return null;
@@ -28,7 +27,7 @@ const RelatedPostsSection = ({ currentPostSlug, posts }) => {
                             transition={{ duration: 0.2 }}
                             className="bg-white rounded-lg shadow-lg overflow-hidden"
                         >
-                            <Link to={`/blog/${post.slug}`} className="block p-6">
+                            <Link to={`/blog/${post.id}`} className="block p-6">
                                 <p className="text-sm text-blue-600 font-semibold mb-2 uppercase tracking-wider">{post.category}</p>
                                 <h3 className="font-bold text-xl mb-3 text-gray-900">{post.title}</h3>
                                 <p className="text-gray-600 text-sm line-clamp-3">{post.excerpt}</p>
@@ -43,67 +42,26 @@ const RelatedPostsSection = ({ currentPostSlug, posts }) => {
 
 
 const BlogPost = () => {
-  const { slug } = useParams();
+  const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [allPosts, setAllPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    loadPost();
-  }, [slug]);
-
-  const loadPost = async () => {
-    try {
-      setLoading(true);
-      
-      // Carregar todos os posts
-      const { data: allPostsData, error: allPostsError } = await supabase
-        .from('posts')
-        .select('*')
-        .eq('status', 'published')
-        .order('date', { ascending: false });
-
-      if (allPostsError) throw allPostsError;
-      
-      // Encontrar o post atual por slug
-      const currentPost = allPostsData.find(p => p.slug === slug);
-      
-      if (!currentPost) {
-        setError('Artigo não encontrado');
-        return;
-      }
-
+    const savedPosts = localStorage.getItem('blogPostsRaizEnergetica');
+    if (savedPosts) {
+      const posts = JSON.parse(savedPosts);
+      const currentPost = posts.find(p => p.id.toString() === postId);
       setPost(currentPost);
-      setAllPosts(allPostsData);
-    } catch (err) {
-      console.error('Erro ao carregar post:', err);
-      setError('Erro ao carregar o artigo');
-    } finally {
-      setLoading(false);
+      setAllPosts(posts);
     }
-  };
+  }, [postId]);
 
-  if (loading) {
+  if (!post) {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-50">
         <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
             <p className="text-xl text-gray-600">Carregando artigo...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error || !post) {
-    return (
-      <div className="flex justify-center items-center h-screen bg-gray-50">
-        <div className="text-center">
-            <p className="text-xl text-red-600 mb-4">{error || 'Artigo não encontrado'}</p>
-            <Button asChild>
-              <Link to="/blog">Voltar para o Blog</Link>
-            </Button>
         </div>
       </div>
     );
@@ -161,15 +119,16 @@ const BlogPost = () => {
             </div>
 
             <div className="my-8 rounded-lg overflow-hidden shadow-2xl aspect-w-16 aspect-h-9">
-              <img alt={post.title} className="w-full h-full object-cover" src={post.image || "https://images.unsplash.com/photo-1595872018818-97555653a011"} />
+              <img  alt={post.title} className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1595872018818-97555653a011" />
             </div>
 
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-              <div className="text-xl font-medium text-gray-800 mb-6">{post.excerpt}</div>
-              <div 
-                className="scientific-article"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
+            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+              <p className="text-xl font-medium text-gray-800">{post.excerpt}</p>
+              <p>Este é o corpo do artigo. Aqui viria o conteúdo detalhado sobre "{post.title}". Como esta é uma página padrão, o conteúdo completo seria gerenciado através de um CMS (Sistema de Gerenciamento de Conteúdo).</p>
+              <p>A integração com um CMS permitiria que você escrevesse e editasse seus artigos em um painel de administração, e as alterações seriam refletidas automaticamente aqui. Você poderia adicionar parágrafos, imagens, vídeos, listas e muito mais, de forma simples e intuitiva.</p>
+              <h3 className="font-bold text-2xl mt-8 mb-4 text-gray-800">A Profundidade do Assunto</h3>
+              <p>Imagine explorar a fundo os conceitos da radiestesia, compartilhar novas descobertas, detalhar casos de sucesso com depoimentos e fotos, e oferecer guias práticos para seus leitores. Tudo isso seria possível com a implementação do CMS que você solicitou anteriormente.</p>
+              <p>Por enquanto, esta página serve como o "molde" para seus futuros artigos. O próximo passo, após a sua aprovação, seria conectar esta estrutura a um banco de dados (como o Supabase) para que o conteúdo se torne dinâmico e gerenciável por você.</p>
             </div>
             
             <BlogPostQuizCTA />
@@ -177,7 +136,7 @@ const BlogPost = () => {
         </div>
       </div>
       
-      <RelatedPostsSection currentPostSlug={slug} posts={allPosts} />
+      <RelatedPostsSection currentPostId={postId} posts={allPosts} />
       <NewsletterSection />
     </motion.div>
   );

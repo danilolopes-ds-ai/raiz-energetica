@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 import { Helmet } from 'react-helmet-async';
 import ServicesHero from '@/pages/Services/ServicesHero';
 import ServiceList from '@/pages/Services/ServiceList';
@@ -15,41 +16,14 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        // Dados mock - Supabase removido para evitar problemas de conexão
-        const mockData = [
-          {
-            id: 1,
-            title: 'Desvendando a Raiz',
-            description: 'Mapeie padrões ocultos, descubra os bloqueios reais que travam sua vida e receba um plano de ação para sua transformação.',
-            icon: 'Activity',
-            slug: 'diagnostico',
-            order_index: 1
-          },
-          {
-            id: 2,
-            title: 'Limpeza Energética',
-            description: 'Liberte-se de energias densas e bloqueios invisíveis que drenam sua vitalidade. Sinta a leveza que você busca.',
-            icon: 'Sparkles',
-            slug: 'limpeza-energetica',
-            order_index: 2
-          },
-          {
-            id: 3,
-            title: 'Radiestesia Genética',
-            description: 'Identifique e cure padrões familiares que se repetem há gerações. Quebre ciclos para você e sua família.',
-            icon: 'Dna',
-            slug: 'radiestesia-genetica',
-            order_index: 3
-          },
-          {
-            id: 4,
-            title: 'Harmonia Geracional',
-            description: 'Cure conflitos familiares profundos e restabeleça o equilíbrio nas relações que mais importam.',
-            icon: 'HeartHand',
-            slug: 'harmonia-geracional',
-            order_index: 4
-          }
-        ];
+        const { data, error } = await supabase
+          .from('services')
+          .select('id, title, description, icon, slug, order_index') // Manter a query otimizada
+          .order('order_index', { ascending: true });
+
+        if (error) {
+          throw error;
+        }
 
         const iconMap = {
           Activity,
@@ -58,18 +32,27 @@ const Services = () => {
           HeartHand,
         };
 
-        const processedData = mockData.map(service => {
+        const processedData = data.map(service => {
           const iconComponent = iconMap[service.icon] || Activity;
           
+          let updatedDescription = service.description;
+          if (service.title === 'Desvendando a Raiz') {
+            updatedDescription = 'Mapeie padrões ocultos, descubra os bloqueios reais que travam sua vida e receba um plano de ação para sua transformação.';
+          } else if (service.title === 'Radiestesia Genética') {
+            updatedDescription = 'Acesse o DNA energético da sua linhagem e trate padrões invisíveis que silenciosamente moldam sua saúde, seus relacionamentos e sua prosperidade.';
+          } else if (service.title === 'Harmonia Geracional') {
+            updatedDescription = '💞 Reduza conflitos, aproxime corações e reestabeleça a harmonia entre mãe e filho(a) sem confronto ou desgaste.';
+          }
+
           return { 
             ...service, 
-            icon: iconComponent
+            icon: iconComponent, 
+            description: updatedDescription 
           };
         });
 
         setServices(processedData);
       } catch (err) {
-        console.error('Erro ao buscar serviços:', err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -108,42 +91,9 @@ const Services = () => {
   ];
 
   const testimonials = [
-    { 
-      id: 1,
-      name: "Maria S.", 
-      age: 42,
-      location: "São Paulo, SP",
-      service: "Harmonia Geracional", 
-      testimonial: "Em 30 dias ele parou de chegar tarde, voltou a conversar comigo e as notas melhoraram. Ele nem imagina que fiz a Harmonia Geracional.", 
-      rating: 5,
-      avatar: "MS",
-      highlight: "Reconexão familiar",
-      date: "15/08/2024"
-    },
-    { 
-      id: 2,
-      name: "Carlos P.", 
-      age: 45,
-      location: "Rio de Janeiro, RJ",
-      service: "Radiestesia Genética", 
-      testimonial: "Eu estava desesperado com a rebeldia da minha filha. A sessão de Radiestesia revelou uma questão da minha própria adolescência que eu passava pra ela. Mudou tudo.", 
-      rating: 5,
-      avatar: "CP",
-      highlight: "Quebra de ciclos familiares",
-      date: "10/08/2024"
-    },
-    { 
-      id: 3,
-      name: "Ana P.", 
-      age: 38,
-      location: "Belo Horizonte, MG",
-      service: "Desvendando a Raiz", 
-      testimonial: "O diagnóstico foi um mapa claro do que eu precisava trabalhar. Foi o primeiro passo para uma grande mudança na minha vida.", 
-      rating: 5,
-      avatar: "AP",
-      highlight: "Clareza e direcionamento",
-      date: "05/08/2024"
-    }
+    { name: "Maria, mãe de João (16)", service: "Harmonia Geracional", text: "Em 30 dias ele parou de chegar tarde, voltou a conversar comigo e as notas melhoraram. Ele nem imagina que fiz a Harmonia Geracional.", rating: 5 },
+    { name: "Carlos, pai de Sofia (14)", service: "Radiestesia Genética", text: "Eu estava desesperado com a rebeldia da minha filha. A sessão de Radiestesia revelou uma questão da minha própria adolescência que eu passava pra ela. Mudou tudo.", rating: 5 },
+    { name: "Ana P.", service: "Diagnóstico Raiz", text: "O diagnóstico foi um mapa claro do que eu precisava trabalhar. Foi o primeiro passo para uma grande mudança na minha vida.", rating: 5 }
   ];
 
   return (

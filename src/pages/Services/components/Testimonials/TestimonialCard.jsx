@@ -59,7 +59,7 @@ const TestimonialCard = ({ testimonial, index, className = '' }) => {
     id: 'unknown',
     service: 'default',
     highlight: '',
-    testimonial: testimonial?.text || testimonial?.testimonial || 'Depoimento não disponível',
+    testimonial: 'Depoimento não disponível',
     name: 'Anônimo',
     age: '',
     location: '',
@@ -131,11 +131,11 @@ const TestimonialCard = ({ testimonial, index, className = '' }) => {
           ${safeTestimonial.border || 'border border-slate-200 dark:border-slate-700'}
           ${safeTestimonial.hover || 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}
           shadow-sm hover:shadow-lg dark:shadow-lg/20 dark:hover:shadow-xl/30
-          group relative border-opacity-30 dark:border-opacity-20 h-full`}
+          group/card relative border-opacity-30 dark:border-opacity-20 h-full`}
       >
         {/* Efeito de gradiente sutil no hover */}
         <motion.div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-10 group-focus:opacity-10 rounded-xl transition-opacity duration-300"
+          className="absolute inset-0 opacity-0 group-hover/card:opacity-10 group-focus/card:opacity-10 rounded-xl"
           style={{
             background: `linear-gradient(135deg, var(--${gradientFrom}), var(--${gradientTo}))`,
           }}

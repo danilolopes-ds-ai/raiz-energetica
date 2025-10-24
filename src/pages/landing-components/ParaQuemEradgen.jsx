@@ -20,8 +20,8 @@ const ParaQuemEradgen = () => {
     },
     {
       icon: <Target className="w-8 h-8 text-amber-600" />,
-      title: "Quem Busca Autoconhecimento Profundo",
-      description: "Para quem deseja entender a si mesmo em um novo nível, descobrir potenciais ocultos e conquistar mais equilíbrio e clareza na vida."
+      title: "Terapeutas e Profissionais de Ajuda",
+      description: "Para profissionais que desejam uma ferramenta de diagnóstico e tratamento de alta precisão para seus próprios processos e de seus clientes."
     }
   ];
 
@@ -47,13 +47,13 @@ const ParaQuemEradgen = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center"
+              className="bg-slate-50 border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="flex items-center justify-center bg-amber-100/50 p-3 rounded-full mb-4 mx-auto">
+              <div className="flex-shrink-0 bg-amber-100/50 p-3 rounded-full inline-block mb-4">
                 {item.icon}
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-800 leading-snug whitespace-pre-line" style={{ wordBreak: 'keep-all', lineBreak: 'strict' }}>{item.title.replace(/(\s)([^\s]+)$/,'\u00A0$2')}</h3>
-              <p className="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">{item.description}</p>
+              <h3 className="text-xl font-bold text-slate-800">{item.title}</h3>
+              <p className="mt-2 text-slate-600">{item.description}</p>
             </motion.div>
           ))}
         </div>
