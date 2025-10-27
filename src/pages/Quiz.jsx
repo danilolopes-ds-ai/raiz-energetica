@@ -9,7 +9,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
 import { 
-  Crown, Sword, Shield, TreePine, Owl, Flower2, Sparkles, Heart, 
+  Crown, Sword, Shield, TreePine, Bird, Flower2, Sparkles, Heart, 
   Share2, Download, CheckCircle, Mail, User, Leaf, BookOpen, 
   ArrowRight, MessageSquare, Copy, Facebook, Instagram, Feather, Hammer
 } from 'lucide-react';
@@ -69,7 +69,7 @@ const archetypes = {
     feminine: {
       name: "ATENA",
       title: "A Sábia Ancestral",
-      icon: Owl,
+      icon: Bird,
       color: "from-emerald-600 to-emerald-700",
       bgColor: "bg-emerald-50",
       borderColor: "border-emerald-500",
@@ -347,7 +347,7 @@ const Quiz = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-emerald-50 border border-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <Owl className="w-8 h-8 text-emerald-700" />
+                      <Bird className="w-8 h-8 text-emerald-700" />
                     </div>
                     <p className="font-semibold text-emerald-700">Atena</p>
                     <p className="text-sm text-slate-600">A Sábia</p>
