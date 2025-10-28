@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Raiz Energética</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Investigamos a raiz, curamos a causa. Radiestesia genética para descobrir as verdadeiras origens dos seus sintomas.
+              Investigamos a raiz, curamos a causa. Aqui você encontra as respostas que seus sintomas escondem.
             </p>
           </div>
 
@@ -36,10 +36,9 @@ const Footer = () => {
           <div>
             <span className="text-lg font-semibold mb-4 block">Serviços</span>
             <ul className="space-y-2">
-              <li><span className="text-gray-300">Radiestesia Genética</span></li>
-              <li><span className="text-gray-300">Acupuntura Energética</span></li>
-              <li><span className="text-gray-300">Terapias Complementares</span></li>
-              <li><span className="text-gray-300">Limpeza Energética</span></li>
+              <li><Link to="/limpeza-energetica" className="text-gray-300 hover:text-white transition-colors">Limpeza Energética</Link></li>
+              <li><Link to="/radiestesia-genetica" className="text-gray-300 hover:text-white transition-colors">Radiestesia Genética</Link></li>
+              <li><Link to="/harmonia-geracional" className="text-gray-300 hover:text-white transition-colors">Harmonia Geracional</Link></li>
             </ul>
           </div>
 
@@ -53,7 +52,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-[#2D8C5C]" />
-                <span className="text-gray-300 text-sm">contato@raizenergetica.com</span>
+                <span className="text-gray-300 text-sm">raizenergetica@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4 text-[#2D8C5C]" />

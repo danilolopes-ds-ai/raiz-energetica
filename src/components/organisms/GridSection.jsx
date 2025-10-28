@@ -4,7 +4,7 @@ import Text from '@/components/atoms/Text';
 
 const GridSection = ({ title, subtitle, items, renderItem, gridCols = 3, children }) => {
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

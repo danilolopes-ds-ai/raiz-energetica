@@ -19,7 +19,12 @@ const CtaSection = ({ onButtonClick }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-          <Text as="h2" variant="h2" className="mb-4" dangerouslySetInnerHTML={{ __html: '🌿 A Cura Começa Quando Você <span class="text-gradient">Decide Ouvir</span>' }} />
+          <Text as="h2" variant="h2" className="mb-4">
+            <span className="block sm:inline mb-2 sm:mb-0">🌿</span>
+            <span className="block sm:inline"> A Cura Começa</span>
+            <span className="block sm:inline"> Quando Você</span>
+            <span className="block sm:inline"> <span class="text-gradient">Decide Ouvir</span></span>
+          </Text>
           <div className="max-w-2xl mx-auto text-gray-600">
             <Text as="p" className="mb-4">
               Não é sobre pressa. É sobre escutar o que sua energia está tentando te mostrar.

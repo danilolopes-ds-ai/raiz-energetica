@@ -21,19 +21,19 @@ const Home = () => {
   const closeBookingModal = () => setIsBookingModalOpen(false);
   const stats = [
     {
-      title: "🌿 500+ Pessoas Atendidas",
+      title: "<span class='text-emerald-400'>🌿 500+ Pessoas Atendidas</span>",
       description: "Caminhos individuais que começaram pela raiz e encontraram leveza, direção e reconexão."
     },
     {
-      title: "🔮 95% de Relatos Positivos",
+      title: "<span class='text-emerald-400'>🔮 95% de Relatos Positivos</span>",
       description: "A maioria sente mudança perceptível já nas primeiras sessões — mesmo sem saber explicar como."
     },
     {
-      title: "🧬 9+ Anos de Experiência",
+      title: "<span class='text-emerald-400'>🧬 9+ Anos de Experiência</span>",
       description: "Anos de prática, pesquisa e resultados com terapias vibracionais profundas e integrativas."
     },
     {
-      title: "🧠 Suporte 24h com Inteligência Energética (em breve)",
+      title: "<span class='text-emerald-400'>🧠 Suporte 24h com Inteligência Energética</span> <span class='text-emerald-400/60'>(em breve)</span>",
       description: "Helena, nossa assistente inteligente, vai te acompanhar com precisão, sensibilidade e linguagem consciente."
     }
   ];
