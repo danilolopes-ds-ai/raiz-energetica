@@ -68,7 +68,7 @@ const SiteHeader = () => {
                 {item.name}
               </Link>
             ))}
-            {isAuthenticated ? (
+            {isAuthenticated && (
               <div className="flex items-center space-x-4">
                 <AppButton asChild variant="secondary" size="sm">
                   <Link to="/admin"><LayoutDashboard className="w-4 h-4 mr-2" /> Painel Admin</Link>
@@ -77,10 +77,6 @@ const SiteHeader = () => {
                   <LogOut className="w-4 h-4 mr-2" /> Sair
                 </AppButton>
               </div>
-            ) : (
-              <AppButton asChild variant="primary">
-                <Link to="/login">Falar com Helena / Login</Link>
-              </AppButton>
             )}
           </div>
 
@@ -115,7 +111,7 @@ const SiteHeader = () => {
                   {item.name}
                 </Link>
               ))}
-               {isAuthenticated ? (
+               {isAuthenticated && (
                 <div className="border-t pt-4 space-y-3">
                    <AppButton asChild variant="secondary" className="w-full">
                     <Link to="/admin" onClick={() => setIsMenuOpen(false)}><LayoutDashboard className="w-4 h-4 mr-2"/> Painel Admin</Link>
@@ -124,16 +120,6 @@ const SiteHeader = () => {
                     <LogOut className="w-4 h-4 mr-2"/> Sair
                   </AppButton>
                 </div>
-              ) : (
-                <AppButton 
-                  asChild
-                  variant="primary"
-                  className="w-full mt-4"
-                >
-                  <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                    Falar com Helena / Login
-                  </Link>
-                </AppButton>
               )}
             </div>
           </motion.div>

@@ -86,7 +86,8 @@ const DaniloLopesSection = () => {
           >
              <img 
               className="rounded-2xl shadow-xl w-full h-full max-h-[500px] object-cover object-top"
-              alt="Danilo Lopes, fundador da Raiz Energética" src="https://images.unsplash.com/photo-1675270714610-11a5cadcc7b3" />
+              alt="Danilo Lopes, fundador da Raiz Energética" 
+              src="/images/services/atendimento-paciente-clinica.webp" />
           </motion.div>
         </div>
       </div>
