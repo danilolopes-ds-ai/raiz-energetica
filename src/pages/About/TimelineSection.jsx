@@ -1,11 +1,26 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Text from '@/components/atoms/Text';
 
 const TimelineSection = ({ timeline }) => {
+  const containerRef = useRef(null);
+  
+  // Track scroll progress of the timeline container
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  // Add spring animation for smooth transition
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <section className="section-padding bg-gray-50/50">
+    <section className="section-padding" ref={containerRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,7 +37,18 @@ const TimelineSection = ({ timeline }) => {
         </motion.div>
 
         <div className="relative max-w-5xl mx-auto mt-16">
+          {/* Background static line */}
           <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 bg-green-200 rounded-full -translate-x-1/2" aria-hidden="true"></div>
+          
+          {/* Animated growing line */}
+          <motion.div 
+            className="absolute left-4 md:left-1/2 top-0 w-0.5 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-full -translate-x-1/2 origin-top shadow-lg shadow-emerald-500/50"
+            style={{ 
+              scaleY: scaleY,
+              height: '100%'
+            }}
+            aria-hidden="true"
+          ></motion.div>
 
           <div className="space-y-12 md:space-y-0">
             {timeline.map((item, index) => (

@@ -57,6 +57,7 @@ const MissionSection = () => {
               src="/images/services/sobre-nos-empoderamento.webp"
               alt="Pessoa de braços abertos em uma paisagem natural, simbolizando empoderamento e serenidade."
               className="object-cover w-full h-auto max-h-[500px] shadow-md"
+              loading="lazy"
             />
             <p className="text-sm italic text-gray-500 mt-4 text-center px-4">
               “Empoderamento começa quando você se reconecta com a sua própria energia.”

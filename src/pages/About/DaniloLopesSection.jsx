@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const DaniloLopesSection = () => {
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -17,7 +17,9 @@ const DaniloLopesSection = () => {
             <img  
               className="rounded-2xl shadow-xl w-full h-[450px] md:h-[650px] object-cover object-top"
               alt="Retrato de Danilo Lopes, fundador da Raiz Energética, em um ambiente natural e sereno."
-              src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" />
+              src="/images/services/foto-perfil-raiz-site.webp"
+              loading="lazy"
+            />
           </motion.div>
 
           <motion.div
@@ -34,7 +36,7 @@ const DaniloLopesSection = () => {
                 Fisioterapeuta, Acupunturista e Especialista em Radiestesia Genética
               </p>
               <p className="text-lg text-gray-600 italic border-l-4 border-green-700 pl-4">
-                “Minha formação começou no corpo. Minha missão se revelou na energia.”
+                "Minha formação começou no corpo. Minha missão se revelou no ser Humano como um todo."
               </p>
             </div>
 

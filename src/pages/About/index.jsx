@@ -25,19 +25,30 @@ const AboutPage = () => {
 
   const aboutStats = [
     {
-      title: "🌿 500+ Pessoas Atendidas",
+      emoji: "🌿",
+      number: 500,
+      suffix: "+",
+      label: "Pessoas Atendidas",
       description: "Caminhos individuais que começaram pela raiz e encontraram leveza, clareza e transformação verdadeira."
     },
     {
-      title: "💠 10+ Técnicas Integradas",
+      emoji: "💠",
+      number: 10,
+      suffix: "+",
+      label: "Técnicas Integradas",
       description: "Radgen, chakras, acupuntura, MTC, linguagem do corpo e mais — aplicadas com sensibilidade e estratégia."
     },
     {
-      title: "📆 9+ Anos de Experiência",
+      emoji: "📆",
+      number: 9,
+      suffix: "+",
+      label: "Anos de Experiência",
       description: "Uma trajetória de escuta, prática e resultados com terapias vibracionais profundas e personalizadas."
     },
     {
-      title: "🧠 Suporte com Inteligência Energética (em breve)",
+      emoji: "🧠",
+      label: "Suporte com Inteligência Energética",
+      labelSuffix: "(em breve)",
       description: "Helena, nossa assistente inteligente, vai te acompanhar com precisão, linguagem sensível e presença energética."
     }
   ];

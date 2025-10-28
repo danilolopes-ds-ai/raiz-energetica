@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import AppButton from '@/components/atoms/AppButton';
 import { Badge } from '@/components/ui/badge';
 import Text from '@/components/atoms/Text';
+import AnimatedCounter from '@/components/atoms/AnimatedCounter';
 
 const HeroSection = ({
   badge,
@@ -115,10 +116,18 @@ const HeroSection = ({
                           transition={{ delay: 0.8 + 0.1 * index, duration: 0.6 }}
                           className="text-center sm:text-left group"
                         >
-                          <div 
-                            className="font-bold text-lg sm:text-xl text-emerald-200 mb-2 group-hover:text-emerald-100 transition-colors duration-200"
-                            dangerouslySetInnerHTML={{ __html: stat.title }}
-                          />
+                          <div className="font-bold text-lg sm:text-xl text-emerald-200 mb-2 group-hover:text-emerald-100 transition-colors duration-200">
+                            {stat.emoji}{' '}
+                            {stat.number ? (
+                              <>
+                                <AnimatedCounter value={stat.number} suffix={stat.suffix || ''} /> {stat.label}
+                              </>
+                            ) : (
+                              <>
+                                {stat.label} {stat.labelSuffix && <span className="text-emerald-400/60 text-sm">{stat.labelSuffix}</span>}
+                              </>
+                            )}
+                          </div>
                           <p className="text-sm sm:text-base text-emerald-100/80 leading-relaxed">
                             {stat.description}
                           </p>

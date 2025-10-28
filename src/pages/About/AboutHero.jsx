@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Text from '@/components/atoms/Text';
+import AnimatedCounter from '@/components/atoms/AnimatedCounter';
 
 const AboutHero = ({ stats }) => {
   return (
@@ -21,6 +22,7 @@ const AboutHero = ({ stats }) => {
                 className="rounded-2xl shadow-xl w-full max-w-2xl mx-auto object-cover"
                 alt="Mulher conectada com a natureza, simbolizando a raiz energética"
                 src="/images/services/raiz-mulher.webp"
+                loading="lazy"
               />
               <p className="text-sm italic text-gray-500 mt-3">
                 “Cura começa quando voltamos a nos conectar com aquilo que sustenta nossa essência.”
@@ -39,8 +41,8 @@ const AboutHero = ({ stats }) => {
               </p>
             </div>
 
-            <div className="bg-[#1b413a] border border-white/10 rounded-xl p-6 mt-12 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+            <div className="bg-[#1b413a] border border-white/10 rounded-xl p-4 sm:p-6 mt-12 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-6">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
@@ -49,7 +51,18 @@ const AboutHero = ({ stats }) => {
                     transition={{ delay: 0.2 * index, duration: 0.6 }}
                     className="text-left"
                   >
-                    <div className="font-bold text-lg text-[#99CD85] mb-1">{stat.title}</div>
+                    <div className="font-bold text-lg text-[#99CD85] mb-1">
+                      {stat.emoji}{' '}
+                      {stat.number ? (
+                        <>
+                          <AnimatedCounter value={stat.number} suffix={stat.suffix || ''} /> {stat.label}
+                        </>
+                      ) : (
+                        <>
+                          {stat.label} {stat.labelSuffix && <span className="text-emerald-400/60">{stat.labelSuffix}</span>}
+                        </>
+                      )}
+                    </div>
                     <Text variant="caption" className="text-gray-300">{stat.description}</Text>
                   </motion.div>
                 ))}

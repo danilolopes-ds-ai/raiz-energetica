@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Text from '@/components/atoms/Text';
 import AppButton from '@/components/atoms/AppButton';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaXTwitter, FaTiktok, FaYoutube, FaFacebook } from 'react-icons/fa6';
 
 const CommunitySection = () => {
   return (
@@ -23,11 +23,11 @@ const CommunitySection = () => {
               </Text>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-8 sm:mt-10">
               <AppButton 
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white shadow-lg transform hover:scale-105 transition-transform duration-300"
+                className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white shadow-lg transform hover:scale-105 transition-transform duration-300 px-6 py-3"
               >
                 <a href="https://chat.whatsapp.com/J1y3wL5dZ6K8z7X9fG0aB1" target="_blank" rel="noopener noreferrer">
                   <FaWhatsapp className="mr-3 h-6 w-6" />
@@ -37,6 +37,71 @@ const CommunitySection = () => {
               <Text variant="small" className="mt-4 text-gray-500 block">
                 📬 Não gostou dos conteúdos? Sem problema. Saia do grupo quando quiser.
               </Text>
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-gray-200">
+              <Text as="h3" className="text-xl font-bold text-gray-800 mb-3">
+                Acompanhe também nas redes sociais:
+              </Text>
+              <Text variant="body" className="text-gray-600 mb-6">
+                Conteúdos sobre autocuidado, energia e transformação.
+              </Text>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a 
+                  href="https://www.instagram.com/raiz.energetica/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-pink-500/50"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="text-xl relative z-10" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </a>
+                
+                <a 
+                  href="https://www.tiktok.com/@raizenergetica" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-gray-900/50"
+                  aria-label="TikTok"
+                >
+                  <FaTiktok className="text-xl relative z-10" />
+                  <div className="absolute inset-0 rounded-full bg-black blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </a>
+                
+                <a 
+                  href="https://www.facebook.com/raizenergetica/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-600/50"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="text-xl relative z-10" />
+                  <div className="absolute inset-0 rounded-full bg-blue-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </a>
+                
+                <a 
+                  href="https://x.com/raizenergetica" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-gray-900/50"
+                  aria-label="X (Twitter)"
+                >
+                  <FaXTwitter className="text-xl relative z-10" />
+                  <div className="absolute inset-0 rounded-full bg-black blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </a>
+                
+                <a 
+                  href="https://www.youtube.com/@RaizEnergetica" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-red-600 text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-red-600/50"
+                  aria-label="YouTube"
+                >
+                  <FaYoutube className="text-xl relative z-10" />
+                  <div className="absolute inset-0 rounded-full bg-red-600 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                </a>
+              </div>
             </div>
           </motion.div>
 

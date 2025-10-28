@@ -21,19 +21,30 @@ const Home = () => {
   const closeBookingModal = () => setIsBookingModalOpen(false);
   const stats = [
     {
-      title: "<span class='text-emerald-400'>🌿 500+ Pessoas Atendidas</span>",
+      emoji: "🌿",
+      number: 500,
+      suffix: "+",
+      label: "Pessoas Atendidas",
       description: "Caminhos individuais que começaram pela raiz e encontraram leveza, direção e reconexão."
     },
     {
-      title: "<span class='text-emerald-400'>🔮 95% de Relatos Positivos</span>",
+      emoji: "🔮",
+      number: 95,
+      suffix: "%",
+      label: "de Relatos Positivos",
       description: "A maioria sente mudança perceptível já nas primeiras sessões — mesmo sem saber explicar como."
     },
     {
-      title: "<span class='text-emerald-400'>🧬 9+ Anos de Experiência</span>",
+      emoji: "🧬",
+      number: 9,
+      suffix: "+",
+      label: "Anos de Experiência",
       description: "Anos de prática, pesquisa e resultados com terapias vibracionais profundas e integrativas."
     },
     {
-      title: "<span class='text-emerald-400'>🧠 Suporte 24h com Inteligência Energética</span> <span class='text-emerald-400/60'>(em breve)</span>",
+      emoji: "🧠",
+      label: "Suporte 24h com Inteligência Energética",
+      labelSuffix: "(em breve)",
       description: "Helena, nossa assistente inteligente, vai te acompanhar com precisão, sensibilidade e linguagem consciente."
     }
   ];
