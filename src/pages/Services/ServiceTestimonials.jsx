@@ -107,6 +107,15 @@ const globalStyles = `
     border-radius: 50%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
+    display: none; /* Oculto por padrão no mobile */
+  }
+  
+  /* Mostrar setas apenas em telas médias ou maiores */
+  @media (min-width: 768px) {
+    .testimonials-swiper .swiper-button-next,
+    .testimonials-swiper .swiper-button-prev {
+      display: flex;
+    }
   }
   
   .testimonials-swiper .swiper-button-next:hover,
