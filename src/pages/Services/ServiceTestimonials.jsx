@@ -1,11 +1,9 @@
-import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useRef, useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { trackGAEvent } from '@/lib/analytics';
-import { trackEvent as trackMetaCustomEvent } from '@/lib/metaPixel';
 import ErrorBoundary from '@/components/ErrorBoundary';
 
-// Imports diretos do Swiper (mais simples e confiável)
+// Imports diretos do Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -14,14 +12,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Componentes locais
-import { 
-  TestimonialCard, 
-  TestimonialNavigation,
-  DEMO_TESTIMONIALS,
-  SERVICE_COLORS,
-  getServiceColor
-} from './components/Testimonials';
+// Dados estáticos e componentes
+import testimonials, { testimonialStats } from '@/data/testimonials';
+import TestimonialCardPremium from '@/components/molecules/TestimonialCardPremium';
+import { Star, TrendingUp, Users, ThumbsUp } from 'lucide-react';
 
 // Estilos globais otimizados
 const globalStyles = `
@@ -165,18 +159,32 @@ const ServiceTestimonials = ({
   serviceName = '',
   maxTestimonials = 8,
   showTitle = true,
+  showStats = true,
   autoPlay = true
 }) => {
   // --- ESTADOS ---
-  const [testimonials, setTestimonials] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   // --- REFS ---
   const swiperRef = useRef(null);
-  const containerRef = useRef(null);
+
+  // --- FILTRAR E PROCESSAR DEPOIMENTOS ---
+  const filteredTestimonials = useMemo(() => {
+    let filtered = [...testimonials];
+    
+    // Filtrar por serviço se especificado
+    if (serviceName) {
+      const serviceFiltered = filtered.filter(t => t.service === serviceName);
+      if (serviceFiltered.length > 0) {
+        filtered = serviceFiltered;
+      }
+    }
+    
+    // Embaralhar e limitar
+    const shuffled = filtered.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, maxTestimonials);
+  }, [serviceName, maxTestimonials]);
 
   // --- CONFIGURAÇÕES RESPONSIVAS ---
   const breakpoints = useMemo(() => ({
@@ -186,15 +194,6 @@ const ServiceTestimonials = ({
     1280: { slidesPerView: 3.5, spaceBetween: 40 },
   }), []);
 
-  // --- CALLBACKS OTIMIZADOS ---
-  const handlePrev = useCallback(() => {
-    swiperRef.current?.swiper?.slidePrev();
-  }, []);
-
-  const handleNext = useCallback(() => {
-    swiperRef.current?.swiper?.slideNext();
-  }, []);
-
   const updateNavigationState = useCallback(() => {
     const swiper = swiperRef.current?.swiper;
     if (swiper && !swiper.destroyed) {
@@ -203,153 +202,106 @@ const ServiceTestimonials = ({
     }
   }, []);
 
-  // --- CARREGAMENTO DE DADOS ---
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const loadAndProcessTestimonials = async () => {
-      setIsLoading(true);
-      try {
-        const { supabase } = await import('@/lib/supabase');
-        const { data: items, error } = await supabase
-          .from('testimonials')
-          .select('*')
-          .eq('status', 'Ativo');
-        
-        if (error) throw error;
-
-        let filtered = items || [];
-        if (serviceName) {
-          const serviceFiltered = filtered.filter(t => t.service === serviceName);
-          if (serviceFiltered.length > 0) {
-            filtered = serviceFiltered;
-          }
-        }
-
-        const shuffled = filtered.sort(() => 0.5 - Math.random());
-        const limited = shuffled.slice(0, maxTestimonials);
-        
-        const processed = limited.map(t => ({ ...t, ...getServiceColor(t.service) }));
-
-        setTestimonials(processed);
-
-      } catch (error) {
-        console.error("Falha ao carregar depoimentos, usando dados de fallback:", error);
-        const fallbackData = DEMO_TESTIMONIALS.slice(0, maxTestimonials)
-          .map(t => ({ ...t, ...getServiceColor(t.service) }));
-        setTestimonials(fallbackData);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadAndProcessTestimonials();
-  }, [isVisible, serviceName, maxTestimonials]);
-
-  // --- RENDERIZAÇÃO CONDICIONAL ---
-  if (isLoading) {
-    return (
-      <section ref={containerRef} className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-pink-500"></div>
-      </section>
-    );
-  }
-
-  if (!testimonials || testimonials.length === 0) {
-    return (
-      <section ref={containerRef} className="py-16 bg-yellow-50 dark:bg-yellow-900/20">
-        <div className="container mx-auto px-4 text-center">
-          <p>Nenhum depoimento disponível.</p>
-        </div>
-      </section>
-    );
-  }
-
   // --- RENDERIZAÇÃO PRINCIPAL ---
   return (
-    <section 
-      ref={containerRef}
-      className="py-16 bg-white dark:bg-slate-900 transition-colors duration-300"
-    >
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800">
       <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
       
       <div className="container mx-auto px-4">
+        {/* Título e Stats */}
         {showTitle && (
-          <TestimonialNavigation 
-            onPrev={handlePrev}
-            onNext={handleNext}
-            isBeginning={isBeginning}
-            isEnd={isEnd}
-            serviceName={serviceName}
-          />
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+            >
+              Histórias de{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
+                Transformação Real
+              </span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+            >
+              Veja como nossos serviços transformaram a vida de centenas de pessoas
+            </motion.p>
+          </div>
+        )}
+
+        {/* Estatísticas de Social Proof */}
+        {showStats && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-4xl mx-auto"
+          >
+            {[
+              { icon: Users, label: 'Clientes Atendidos', value: testimonialStats.totalClients },
+              { icon: ThumbsUp, label: 'Satisfação', value: testimonialStats.satisfaction },
+              { icon: Star, label: 'Avaliação Média', value: testimonialStats.averageRating },
+              { icon: TrendingUp, label: 'Recomendam', value: testimonialStats.recommendationRate }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + index * 0.1 }}
+                className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+              >
+                <stat.icon className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
+                <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         )}
         
-        <ErrorBoundary fallback={<p>Erro ao carregar o carrossel.</p>}>
+        {/* Carrossel de Depoimentos */}
+        <ErrorBoundary fallback={<p className="text-center">Erro ao carregar depoimentos.</p>}>
           <Swiper
             ref={swiperRef}
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView={1.1}
             breakpoints={breakpoints}
-            loop={testimonials.length > 3}
+            loop={filteredTestimonials.length > 3}
             grabCursor={true}
             watchSlidesProgress={true}
             className="testimonials-swiper"
             autoplay={autoPlay ? {
-              delay: 4000,
+              delay: 5000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true
             } : false}
             pagination={{
               clickable: true,
               dynamicBullets: true,
-              el: '.testimonial-pagination',
             }}
-            navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            }}
+            navigation={true}
             onSlideChange={updateNavigationState}
             onAfterInit={updateNavigationState}
           >
-            {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={testimonial.id || index} className="h-auto py-4">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="h-full"
-                >
-                  <TestimonialCard 
-                    testimonial={testimonial} 
-                    className="h-full"
-                  />
-                </motion.div>
+            {filteredTestimonials.map((testimonial, index) => (
+              <SwiperSlide key={testimonial.id} className="h-auto pb-12">
+                <TestimonialCardPremium 
+                  testimonial={testimonial} 
+                  index={index}
+                />
               </SwiperSlide>
             ))}
-            <div className="testimonial-pagination flex justify-center mt-8 space-x-2"></div>
           </Swiper>
         </ErrorBoundary>
       </div>
@@ -361,6 +313,7 @@ ServiceTestimonials.propTypes = {
   serviceName: PropTypes.string,
   maxTestimonials: PropTypes.number,
   showTitle: PropTypes.bool,
+  showStats: PropTypes.bool,
   autoPlay: PropTypes.bool
 };
 
