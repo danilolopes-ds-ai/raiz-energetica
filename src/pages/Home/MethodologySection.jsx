@@ -8,7 +8,7 @@ const MethodologySection = ({ methodology }) => {
   return (
     <div className="section-padding">
       <GridSection
-        title="Como Funciona Nossa <span class='text-gradient'>Metodologia</span>"
+        title="Como Funciona Nossa <span className='text-gradient'>Metodologia</span>"
         subtitle="Um processo sensível, científico e profundo para investigar as causas ocultas dos seus sintomas e tratá-las com precisão energética."
         items={methodology}
         renderItem={(item) => (

@@ -37,9 +37,9 @@ import { AuthProvider } from '@/contexts/AuthContext';
 
 function App() {
   return (
-        <HelmetProvider>
+    <HelmetProvider>
       <AuthProvider>
-      <Router>
+        <Router>
           <AnalyticsProvider>
             <ScrollToTop />
             <Routes>

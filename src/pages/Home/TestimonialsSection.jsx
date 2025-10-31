@@ -19,7 +19,7 @@ const TestimonialsSection = ({ testimonials }) => {
   return (
     <motion.div onViewportEnter={handleViewportEnter}>
       <GridSection
-        title="Depoimentos Reais de Quem <span class='text-gradient'>Escolheu Curar Pela Raiz</span>"
+        title="Depoimentos Reais de Quem <span className='text-gradient'>Escolheu Curar Pela Raiz</span>"
         subtitle="Histórias de quem chegou com dor, dúvidas ou esgotamento e encontrou clareza, leveza e reconexão."
         items={testimonials}
         renderItem={(item) => (

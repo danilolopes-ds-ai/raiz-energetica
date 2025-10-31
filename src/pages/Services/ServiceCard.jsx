@@ -75,7 +75,7 @@ const ServiceCard = ({ service, index }) => {
           <h3 className={`text-3xl font-bold tracking-tight text-slate-900`}>{service.title}</h3>
           <p className="mt-4 text-lg text-slate-600">{service.description}</p>
           <Button asChild className={`mt-8 w-full md:w-auto font-bold rounded-full whitespace-nowrap text-center px-4 py-3 text-sm sm:px-8 sm:py-4 sm:text-base ${theme.button}`}>
-            <Link to={service.slug} className="flex items-center justify-center">
+            <Link to={`/${service.slug}`} className="flex items-center justify-center">
               {buttonText} <ArrowRight className="ml-2 w-5 h-5 inline-block align-middle" />
             </Link>
           </Button>

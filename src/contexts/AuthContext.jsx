@@ -5,56 +5,18 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Desabilitado temporariamente
 
+  // Temporariamente desabilitado para debug
   useEffect(() => {
-    if (!supabase) {
-      console.error("AuthContext: Cliente Supabase não está disponível. A autenticação será desabilitada.");
-      setLoading(false);
-      setUser(null);
-      return;
-    }
-
-    let authListener = null;
-
-    const initializeAuth = async () => {
-      try {
-        // Etapa 1: Obter a sessão de forma segura.
-        const { data, error } = await supabase.auth.getSession();
-        
-        // Etapa 2: Verificar o erro ANTES de tentar acessar os dados.
-        if (error) {
-          throw error;
-        }
-        
-        // Etapa 3: Definir o usuário com segurança.
-        setUser(data.session?.user ?? null);
-
-        // Etapa 4: Configurar o ouvinte para futuras mudanças de autenticação.
-        const { data: listenerData } = supabase.auth.onAuthStateChange((_event, session) => {
-          setUser(session?.user ?? null);
-        });
-        authListener = listenerData;
-
-      } catch (error) {
-        console.error("Erro ao inicializar autenticação do Supabase:", error);
-        setUser(null);
-      } finally {
-        // Essencial: garante que o app pare de carregar e renderize a UI, não importa o que aconteça.
-        setLoading(false);
-      }
-    };
-
-    initializeAuth();
-
-    // Função de limpeza para remover o ouvinte quando o componente desmontar.
-    return () => {
-      authListener?.subscription?.unsubscribe();
-    };
+    console.log("AuthContext: Modo simplificado - Supabase desabilitado temporariamente");
+    setLoading(false);
+    setUser(null);
   }, []);
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    console.log("Logout desabilitado temporariamente");
+    // await supabase.auth.signOut();
   };
 
   const value = {
@@ -66,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };

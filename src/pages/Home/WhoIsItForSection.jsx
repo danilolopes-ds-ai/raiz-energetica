@@ -21,7 +21,7 @@ const WhoIsItForSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <Text as="h2" variant="h2" className="mb-4" dangerouslySetInnerHTML={{ __html: '🌱 Para quem é a <span class="text-gradient">Raiz Energética</span>?' }} />
+          <Text as="h2" variant="h2" className="mb-4" dangerouslySetInnerHTML={{ __html: '🌱 Para quem é a <span className="text-gradient">Raiz Energética</span>?' }} />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
