@@ -4,6 +4,7 @@ import ServicesHero from '@/pages/Services/ServicesHero';
 import ServiceList from '@/pages/Services/ServiceList';
 import ProcessSection from '@/pages/Services/ProcessSection';
 import ServiceTestimonials from '@/pages/Services/ServiceTestimonials';
+import ServicesFAQ from '@/pages/Services/ServicesFAQ';
 import ServicesCTA from '@/pages/Services/ServicesCTA';
 import { services } from '@/data/services';
 
@@ -27,7 +28,7 @@ const Services = () => {
     },
     {
       title: 'Receba sua entrega',
-      description: 'Para diagnósticos (como Desvendando a Raiz), você recebe o material por e-mail. Para terapias, o tratamento é iniciado dentro do prazo combinado ou agendado.',
+      description: 'Para diagnósticos (Limpeza Energética), você recebe o resultado por e-mail ou whatsapp. Para terapias, o tratamento é iniciado dentro do prazo combinado ou agendado.',
       icon: '📩'
     },
     {
@@ -53,7 +54,8 @@ const Services = () => {
         <ServicesHero />
         <ServiceList services={services} />
         <ProcessSection processSteps={processSteps} />
-        <ServiceTestimonials testimonials={testimonials} />
+        <ServiceTestimonials testimonials={testimonials} showStats={false} />
+        <ServicesFAQ />
         <ServicesCTA services={services} />
       </div>
     </>

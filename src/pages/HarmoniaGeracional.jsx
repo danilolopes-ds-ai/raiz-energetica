@@ -533,6 +533,10 @@ const HarmoniaGeracional = () => {
             <div className="mt-8">
               <CountdownTimer />
             </div>
+            
+            <p className="text-xs mt-6 max-w-2xl mx-auto text-rose-700/70">
+              Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico.
+            </p>
           </div>
         </section>
       </main>

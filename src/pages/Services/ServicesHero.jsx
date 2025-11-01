@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import AnimatedCounter from '@/components/atoms/AnimatedCounter';
 
 const ServicesHero = () => {
   const floatingAnimation = {
@@ -13,9 +14,9 @@ const ServicesHero = () => {
   };
 
   const stats = [
-    { label: 'Clientes Transformados', value: '500+' },
-    { label: 'Taxa de Satisfação', value: '98%' },
-    { label: 'Anos de Experiência', value: '10+' }
+    { label: 'Clientes Transformados', value: 500, suffix: '+' },
+    { label: 'Taxa de Satisfação', value: 98, suffix: '%' },
+    { label: 'Anos de Experiência', value: 10, suffix: '+' }
   ];
 
   return (
@@ -43,6 +44,20 @@ const ServicesHero = () => {
           transition={{ duration: 0.8 }}
           className="text-center space-y-8 max-w-5xl mx-auto"
         >
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="flex justify-center mb-8"
+          >
+            <img 
+              src="/images/services/logo-raizenergetica.webp" 
+              alt="Raiz Energética" 
+              className="w-32 h-32 md:w-40 md:h-40 object-contain"
+            />
+          </motion.div>
+
           {/* Título principal */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -83,7 +98,7 @@ const ServicesHero = () => {
                 className="text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   {stat.label}

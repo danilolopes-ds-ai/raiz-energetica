@@ -29,7 +29,7 @@ const LandingFooter = () => (
     <footer className="bg-slate-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-slate-400">
             <p>&copy; {new Date().getFullYear()} Raiz Energética. Todos os direitos reservados.</p>
-            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de autoconhecimento e direcionamento terapêutico, mas não substitui diagnósticos ou tratamentos médicos, psicológicos ou psiquiátricos. Em caso de problemas de saúde, procure um profissional qualificado.</p>
+            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico.</p>
         </div>
     </footer>
 );
