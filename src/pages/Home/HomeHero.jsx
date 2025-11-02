@@ -8,7 +8,7 @@ const HomeHero = ({ stats }) => {
       text: '✨ Radiestesia Genética Avançada',
       className: 'bg-[#2D8C5C]/10 text-[#2D8C5C] border-[#2D8C5C]/20 text-xs sm:text-sm hover:bg-[#2D8C5C]/15 hover:border-[#2D8C5C]/30 transition-colors',
     },
-    title: 'Investigamos a <span className="text-gradient">Raiz</span>, curamos a <span className="text-gradient">causa</span>',
+    title: 'Investigamos a <span class="text-gradient">Raiz</span>, curamos a <span class="text-gradient">causa</span>',
     subtitle: 'Aqui você encontra as respostas que seus sintomas escondem. Não é sobre mascarar a dor, é entender, acolher e ir na raiz onde tudo começou.',
     primaryCta: {
       text: 'Fale com um Especialista Raiz',
