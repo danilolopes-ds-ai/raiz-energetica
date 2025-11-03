@@ -13,6 +13,8 @@ import SintomasRadgen from './landing-components/SintomasRadgen';
 import OqueEradgen from './landing-components/OqueEradgen';
 import ComoAgeRadgen from './landing-components/ComoAgeRadgen';
 import ParaQuemEradgen from './landing-components/ParaQuemEradgen';
+import FAQRadiestesia from './landing-components/FAQRadiestesia';
+import CTAFinalRadiestesia from './landing-components/CTAFinalRadiestesia';
 
 const LandingHeader = () => (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-amber-200/80">
@@ -80,6 +82,94 @@ const RadiestesiaGenetica = () => {
       <Helmet>
         <title>Radiestesia Genética - Transforme as Raízes da Sua Vida</title>
         <meta name="description" content="Sessão exclusiva para investigar e tratar as causas energéticas hereditárias que governam sua vida. Liberte-se de padrões ancestrais e reescreva sua história." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Como funciona a análise genética energética à distância?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A Radiestesia Genética trabalha com o campo quântico informacional. Utilizando seu nome completo e data de nascimento, acessamos seu campo energético e rastreamos padrões herdados até a 12ª geração ancestral. A distância não é barreira no campo vibracional."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quanto tempo dura uma sessão e quanto tempo leva para ter resultados?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cada sessão dura aproximadamente 60 minutos ao vivo. Os resultados começam a se manifestar imediatamente após a sessão, com percepções mais profundas emergindo nas primeiras semanas à medida que os padrões se reorganizam."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "O que exatamente é investigado na minha linhagem genética?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Investigamos bloqueios energéticos, traumas não resolvidos, padrões de comportamento repetitivos, crenças limitantes herdadas, contratos ancestrais, votos e juramentos inconscientes que foram transmitidos através das gerações e impactam sua vida atual."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Preciso conhecer a história da minha família para fazer a sessão?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. A Radiestesia Genética acessa diretamente seu campo informacional energético. Mesmo sem conhecer sua árvore genealógica ou história familiar, conseguimos identificar e transmutar os padrões que foram herdados e estão ativos em você."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "O que está incluído no relatório da sessão?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Você recebe um relatório completo detalhando: padrões ancestrais identificados, gerações de origem dos bloqueios, emoções e crenças herdadas, transmutações realizadas, orientações pós-sessão e práticas de integração para consolidar as mudanças."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Com que frequência preciso fazer as sessões?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Uma única sessão já promove transformações profundas. Para casos mais complexos ou múltiplas camadas de padrões, recomendamos intervalos de 30-45 dias entre sessões, permitindo que as mudanças se integrem completamente antes de acessar novas camadas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Como a Radiestesia Genética difere de terapias tradicionais?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Enquanto terapias convencionais trabalham com sua história pessoal nesta vida, a Radiestesia Genética vai além: investiga e transmuta padrões que você herdou de seus ancestrais, acessando a raiz vibracional de questões que muitas vezes não têm origem em sua experiência atual."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Eu preciso acreditar para funcionar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. A Radiestesia Genética trabalha no nível energético informacional, independente de crenças. Sua abertura e intenção de transformação potencializam os resultados, mas o processo age sobre os campos sutis independentemente do ceticismo ou fé."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Como funciona a garantia de 7 dias?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Se dentro de 7 dias após a sessão você sentir que o serviço não atendeu suas expectativas, devolvemos 100% do seu investimento, sem perguntas ou burocracia. Nosso compromisso é com sua transformação genuína."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A Radiestesia Genética substitui tratamento médico ou psicológico?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. A Radiestesia Genética é uma terapia complementar que trabalha no campo energético. Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico quando necessário."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <LandingHeader />
 
@@ -132,16 +222,31 @@ const RadiestesiaGenetica = () => {
                             <div className="mt-8 bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
                                 <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
                                     <div className="text-center sm:text-left">
-                                        <p className="text-slate-500 text-lg">Investimento de transformação</p>
-                                        <div className="my-1 flex flex-wrap items-baseline justify-center sm:justify-start gap-x-3">
-                                            <p className="text-4xl sm:text-5xl font-extrabold text-slate-800">
-                                                R$350
-                                            </p>
-                                            <p className="line-through text-2xl sm:text-3xl text-slate-400 font-medium">
-                                                R$449
-                                            </p>
+                                        <p className="text-slate-500 text-sm uppercase tracking-wider mb-3 font-medium">Investimento de transformação</p>
+                                        
+                                        {/* Preço original riscado */}
+                                        <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
+                                            <span className="text-slate-400 line-through text-2xl font-semibold">R$ 500,00</span>
+                                            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                                <Flame className="w-3 h-3" />
+                                                <span>30% OFF</span>
+                                            </div>
                                         </div>
-                                        <p className="text-slate-600 font-semibold">ou em até 12x de R$ 35,14</p>
+                                        
+                                        {/* Preço atual */}
+                                        <div className="flex items-baseline justify-center sm:justify-start gap-2 mb-2">
+                                            <span className="text-xl text-amber-700 font-semibold">R$</span>
+                                            <span className="text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-700 to-amber-600">349</span>
+                                            <span className="text-2xl text-amber-700 font-bold">,90</span>
+                                        </div>
+                                        
+                                        <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 33,99</span> sem juros</p>
+                                        
+                                        {/* Badge de economia */}
+                                        <div className="inline-flex items-center gap-2 bg-amber-50 border-2 border-amber-300 text-amber-900 px-4 py-2 rounded-xl">
+                                            <span className="text-lg">💰</span>
+                                            <span className="font-bold text-sm">Economize R$ 150,10 hoje</span>
+                                        </div>
                                     </div>
                                     <Button onClick={handleBookingClick} size="lg" className="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-4 px-8 h-auto">
                                         Garantir Minha Vaga
@@ -177,6 +282,8 @@ const RadiestesiaGenetica = () => {
           </div>
         </section>
 
+        <FAQRadiestesia />
+
         <section className="py-20 md:py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center bg-slate-100 p-10 rounded-2xl max-w-3xl mx-auto border border-slate-200">
@@ -191,6 +298,7 @@ const RadiestesiaGenetica = () => {
         </section>
       </main>
 
+      <CTAFinalRadiestesia />
       <LandingFooter />
     </div>
   );

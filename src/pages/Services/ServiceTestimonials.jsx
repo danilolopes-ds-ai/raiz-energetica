@@ -169,7 +169,8 @@ const ServiceTestimonials = ({
   maxTestimonials = 8,
   showTitle = true,
   showStats = true,
-  autoPlay = true
+  autoPlay = true,
+  showServiceBadge = true
 }) => {
   // --- ESTADOS ---
   const [isBeginning, setIsBeginning] = useState(true);
@@ -224,7 +225,7 @@ const ServiceTestimonials = ({
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 leading-tight"
             >
               Histórias de{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
@@ -236,7 +237,7 @@ const ServiceTestimonials = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
             >
               Veja como nossos serviços transformaram a vida de centenas de pessoas
             </motion.p>
@@ -308,6 +309,7 @@ const ServiceTestimonials = ({
                 <TestimonialCardPremium 
                   testimonial={testimonial} 
                   index={index}
+                  showServiceBadge={showServiceBadge}
                 />
               </SwiperSlide>
             ))}
@@ -323,7 +325,8 @@ ServiceTestimonials.propTypes = {
   maxTestimonials: PropTypes.number,
   showTitle: PropTypes.bool,
   showStats: PropTypes.bool,
-  autoPlay: PropTypes.bool
+  autoPlay: PropTypes.bool,
+  showServiceBadge: PropTypes.bool
 };
 
 export default React.memo(ServiceTestimonials);

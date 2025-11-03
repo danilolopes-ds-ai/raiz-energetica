@@ -40,8 +40,8 @@ const HeroRadiestesia = () => {
           >
             <div className="absolute -top-3 -right-3 w-full h-full bg-amber-200 rounded-3xl transform rotate-3 opacity-50 blur-xl"></div>
             <img 
-              src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=1200&auto=format&fit=crop" 
-              alt="Árvore com raízes profundas e galhos que se estendem para o céu, simbolizando a ancestralidade."
+              src="/images/services/LP-RADGEN-SITE.webp" 
+              alt="Radiestesia Genética - Investigação ancestral e energética"
               className="relative w-full h-auto object-cover rounded-3xl shadow-2xl"
               style={{ maxHeight: '450px' }}
             />

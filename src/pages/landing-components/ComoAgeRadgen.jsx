@@ -64,6 +64,24 @@ const ComoAgeRadgen = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Frase Emocional */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-16 max-w-4xl mx-auto px-6 text-center space-y-6"
+        >
+          <blockquote className="relative">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 leading-relaxed">
+              <span class="text-gradient-gold">"</span>Você não herdou apenas genes,
+            </p>
+            <p className="text-xl md:text-2xl font-medium text-amber-700 leading-relaxed mt-2">
+              herdou padrões. Liberte-se das correntes invisíveis e reescreva sua história.<span class="text-gradient-gold">"</span>
+            </p>
+          </blockquote>
+        </motion.div>
       </div>
     </section>
   );

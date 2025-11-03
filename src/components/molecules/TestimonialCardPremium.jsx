@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, CheckCircle, Quote } from 'lucide-react';
 import { serviceThemes } from '@/data/testimonials';
 
-const TestimonialCardPremium = ({ testimonial, index = 0 }) => {
+const TestimonialCardPremium = ({ testimonial, index = 0, showServiceBadge = true }) => {
   const theme = serviceThemes[testimonial.service] || serviceThemes['Limpeza Energética'];
 
   // Gerar iniciais do avatar
@@ -35,14 +35,16 @@ const TestimonialCardPremium = ({ testimonial, index = 0 }) => {
         </div>
 
         {/* Badge do serviço */}
-        <div className="relative z-10 mb-4">
-          <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border ${theme.badge}`}>
-            {testimonial.verified && (
-              <CheckCircle className="w-3.5 h-3.5" />
-            )}
-            {testimonial.service}
-          </span>
-        </div>
+        {showServiceBadge && (
+          <div className="relative z-10 mb-4">
+            <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border ${theme.badge}`}>
+              {testimonial.verified && (
+                <CheckCircle className="w-3.5 h-3.5" />
+              )}
+              {testimonial.service}
+            </span>
+          </div>
+        )}
 
         {/* Highlight (destaque do benefício) */}
         {testimonial.highlight && (
