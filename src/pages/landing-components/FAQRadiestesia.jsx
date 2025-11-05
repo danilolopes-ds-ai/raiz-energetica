@@ -49,19 +49,19 @@ const FAQRadiestesia = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-24 bg-white">
+    <section id="faq" className="py-24 md:py-32 bg-slate-50">
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
-            Perguntas <span className="text-gradient-gold">Frequentes</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            Perguntas Frequentes
           </h2>
-          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
             Tire suas dúvidas sobre a Radiestesia Genética
           </p>
         </motion.div>
@@ -74,15 +74,15 @@ const FAQRadiestesia = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="border border-slate-200 rounded-xl overflow-hidden bg-white hover:border-amber-300 transition-colors duration-300"
+              className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:border-gray-300 hover:shadow-sm transition-all duration-300"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-amber-50/30 transition-colors duration-200"
+                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition-colors duration-200"
               >
                 <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-amber-600 flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-5 h-5 text-[#582c81] flex-shrink-0 transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />

@@ -101,6 +101,17 @@ h1, h2, h3, h4, h5, h6 {
   animation: text-gradient-animation 5s ease-in-out infinite;
 }
 
+/* Comentado - Design neutro não usa gradientes animados
+.text-gradient-radgen {
+  background: linear-gradient(110deg, #582c81 25%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: text-gradient-animation 5s ease-in-out infinite;
+}
+*/
+
 .text-gradient-harmony {
   background: linear-gradient(110deg, #D4AF37 0%, #E9B37E 100%);
   -webkit-background-clip: text;

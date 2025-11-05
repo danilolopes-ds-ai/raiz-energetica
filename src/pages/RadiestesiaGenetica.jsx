@@ -17,13 +17,13 @@ import FAQRadiestesia from './landing-components/FAQRadiestesia';
 import CTAFinalRadiestesia from './landing-components/CTAFinalRadiestesia';
 
 const LandingHeader = () => (
-    <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-amber-200/80">
-        <div className="container mx-auto flex justify-between items-center p-4">
+    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <div className="container mx-auto flex justify-between items-center px-6 py-4">
             <Link to="/" className="flex items-center space-x-2">
-                <Dna className="w-8 h-8 text-amber-600" />
-                <span className="font-bold text-xl text-slate-800 tracking-tight">Radiestesia Genética</span>
+                <Dna className="w-7 h-7 text-slate-900" />
+                <span className="font-semibold text-lg text-slate-900 tracking-tight">Radiestesia Genética</span>
             </Link>
-            <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+            <Button asChild className="bg-[#582c81] hover:bg-[#6d3a9b] text-white font-medium px-6 py-2 rounded-full transition-all shadow-sm hover:shadow-md">
                 <a href="#oferta">Agendar Sessão</a>
             </Button>
         </div>
@@ -182,10 +182,10 @@ const RadiestesiaGenetica = () => {
 
         <ParaQuemEradgen />
 
-        <section id="oferta" className="py-20 md:py-24 bg-slate-50">
+        <section id="oferta" className="py-24 md:py-32 bg-white">
             <div className="container mx-auto px-6 lg:px-8">
                 <motion.div
-                    className="bg-slate-50 rounded-2xl shadow-2xl overflow-hidden max-w-4xl mx-auto border border-amber-200/50"
+                    className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto border border-gray-200"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, amount: 0.3 }}
@@ -193,66 +193,65 @@ const RadiestesiaGenetica = () => {
                 >
                     <div className="p-8 md:p-12">
                         <div>
-                            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-center">
-                                <span className="text-gradient-gold">Descubra e Limpe os Padrões que Sabotam Sua Vida</span>
+                            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-center text-slate-900">
+                                Descubra e limpe os padrões que sabotam sua vida
                                 <span className="ml-2 inline-block" role="img" aria-label="dna">🧬</span>
                             </h2>
-                            <p className="mt-4 text-lg text-slate-600 text-center max-w-3xl mx-auto">Sessão de Radiestesia Genética para identificar e tratar bloqueios ancestrais que geram sintomas recorrentes.</p>
+                            <p className="mt-6 text-xl text-slate-600 text-center max-w-3xl mx-auto leading-relaxed">
+                                Sessão de Radiestesia Genética para identificar e tratar bloqueios ancestrais que geram sintomas recorrentes.
+                            </p>
                             
-                            <h3 className="mt-8 mb-4 font-bold text-xl text-slate-800 text-center">O que você recebe:</h3>
-                            <ul className="space-y-3 text-slate-700 max-w-lg mx-auto text-left">
+                            <h3 className="mt-12 mb-6 font-semibold text-2xl text-slate-900 text-center">O que você recebe:</h3>
+                            <ul className="space-y-4 text-slate-700 max-w-2xl mx-auto">
                                 {offerItems.map(item => (
-                                    <li key={item} className="flex items-start">
-                                        <CheckCircle className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" />
+                                    <li key={item} className="flex items-start text-lg">
+                                        <CheckCircle className="w-6 h-6 text-green-500 mr-4 flex-shrink-0 mt-1" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                         
-                        <div className="mt-8 max-w-2xl mx-auto">
-                            <div className="bg-amber-50/60 border-2 border-dashed border-amber-400 p-6 rounded-xl text-center">
-                                <div className="flex justify-center items-center mb-2">
-                                    <Gift className="w-8 h-8 text-amber-600 mr-3" />
-                                    <p className="font-extrabold text-amber-800 text-2xl">BÔNUS EXCLUSIVO</p>
+                        <div className="mt-12 max-w-2xl mx-auto">
+                            <div className="bg-gray-50 border-2 border-dashed border-gray-300 p-6 rounded-xl text-center shadow-sm">
+                                <div className="flex justify-center items-center mb-3">
+                                    <Gift className="w-8 h-8 text-[#582c81] mr-3" />
+                                    <p className="font-bold text-slate-900 text-xl">BÔNUS EXCLUSIVO</p>
                                 </div>
-                                <p className="text-amber-700 max-w-md mx-auto">{bonusText}</p>
+                                <p className="text-slate-700 text-lg max-w-md mx-auto leading-relaxed">{bonusText}</p>
                             </div>
 
-                            <div className="mt-8 bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-                                <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+                            <div className="mt-10 bg-slate-50 p-8 rounded-2xl shadow-lg border border-gray-200">
+                                <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
                                     <div className="text-center sm:text-left">
                                         <p className="text-slate-500 text-sm uppercase tracking-wider mb-3 font-medium">Investimento de transformação</p>
                                         
-                                        {/* Preço original riscado */}
                                         <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
                                             <span className="text-slate-400 line-through text-2xl font-semibold">R$ 500,00</span>
-                                            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
                                                 <Flame className="w-3 h-3" />
                                                 <span>30% OFF</span>
                                             </div>
                                         </div>
                                         
-                                        {/* Preço atual */}
                                         <div className="flex items-baseline justify-center sm:justify-start gap-2 mb-2">
-                                            <span className="text-xl text-amber-700 font-semibold">R$</span>
-                                            <span className="text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-700 to-amber-600">349</span>
-                                            <span className="text-2xl text-amber-700 font-bold">,90</span>
+                                            <span className="text-xl text-[#582c81] font-semibold">R$</span>
+                                            <span className="text-6xl lg:text-7xl font-black text-[#582c81]">349</span>
+                                            <span className="text-2xl text-[#582c81] font-bold">,90</span>
                                         </div>
                                         
                                         <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 33,99</span> sem juros</p>
                                         
-                                        {/* Badge de economia */}
-                                        <div className="inline-flex items-center gap-2 bg-amber-50 border-2 border-amber-300 text-amber-900 px-4 py-2 rounded-xl">
+                                        <div className="inline-flex items-center gap-2 bg-white border-2 border-gray-200 text-slate-900 px-4 py-2 rounded-lg shadow-sm">
                                             <span className="text-lg">💰</span>
                                             <span className="font-bold text-sm">Economize R$ 150,10 hoje</span>
                                         </div>
                                     </div>
-                                    <Button onClick={handleBookingClick} size="lg" className="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-4 px-8 h-auto">
+                                    <Button onClick={handleBookingClick} size="lg" className="w-full sm:w-auto bg-[#582c81] hover:bg-[#6d3a9b] text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all py-6 px-10 h-auto rounded-full">
                                         Garantir Minha Vaga
                                     </Button>
                                 </div>
-                                <p className="text-xs text-slate-500 mt-4 text-center">Vagas limitadas para garantir a profundidade de cada atendimento.</p>
+                                <p className="text-sm text-slate-500 mt-6 text-center">Vagas limitadas para garantir a profundidade de cada atendimento.</p>
                             </div>
                         </div>
                     </div>
@@ -260,21 +259,21 @@ const RadiestesiaGenetica = () => {
             </div>
         </section>
 
-        <section className="py-20 md:py-24">
+        <section className="py-24 md:py-32 bg-slate-50">
           <div className="container mx-auto px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">Histórias de <span className="text-gradient-gold">Libertação</span></h2>
-              <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">Resultados reais de quem decidiu quebrar as correntes do passado.</p>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">Histórias de Libertação</h2>
+              <p className="mt-6 max-w-3xl mx-auto text-xl text-slate-600 leading-relaxed">Resultados reais de quem decidiu quebrar as correntes do passado.</p>
             </div>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {testimonials.map((testimonial, i) => (
                 <motion.div key={i} variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ delay: i * 0.1 }} className="h-full">
-                  <Card className="h-full border-slate-200/80 shadow-md p-6 flex flex-col bg-white">
+                  <Card className="h-full border-gray-200 shadow-sm hover:shadow-md p-6 flex flex-col bg-white transition-shadow duration-300">
                     <div className="flex mb-3">
                       {[...Array(testimonial.rating)].map((_, j) => <Star key={j} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
                     </div>
-                    <p className="text-slate-600 italic mb-4 flex-grow">"{testimonial.text}"</p>
-                    <p className="font-bold text-amber-700 text-right">- {testimonial.name}</p>
+                    <p className="text-slate-600 italic mb-4 flex-grow text-lg leading-relaxed">"{testimonial.text}"</p>
+                    <p className="font-bold text-slate-900 text-right">- {testimonial.name}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -284,13 +283,15 @@ const RadiestesiaGenetica = () => {
 
         <FAQRadiestesia />
 
-        <section className="py-20 md:py-24 bg-white">
+        <section className="py-24 md:py-32 bg-white">
           <div className="container mx-auto px-6 lg:px-8">
-            <div className="text-center bg-slate-100 p-10 rounded-2xl max-w-3xl mx-auto border border-slate-200">
-              <Award className="w-16 h-16 text-amber-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-slate-900">Garantia de Profundidade</h2>
-              <p className="mt-4 text-slate-600">Temos total confiança no poder desta sessão. Se ao final você não sentir que recebeu insights profundos e um caminho claro para a transformação, agendaremos uma sessão complementar de 30 minutos, sem custo algum, para aprofundar as questões. Seu investimento é na sua evolução, e nosso compromisso é com o seu resultado.</p>
-              <Button onClick={handleBookingClick} size="lg" asChild className="mt-8 bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 py-4 h-auto">
+            <div className="text-center bg-white p-12 rounded-2xl max-w-3xl mx-auto border border-gray-200 shadow-lg">
+              <Award className="w-16 h-16 text-[#582c81] mx-auto mb-6" />
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Garantia de Profundidade</h2>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Temos total confiança no poder desta sessão. Se ao final você não sentir que recebeu insights profundos e um caminho claro para a transformação, agendaremos uma sessão complementar de 30 minutos, sem custo algum, para aprofundar as questões. Seu investimento é na sua evolução, e nosso compromisso é com o seu resultado.
+              </p>
+              <Button onClick={handleBookingClick} size="lg" asChild className="mt-8 bg-[#582c81] hover:bg-[#6d3a9b] text-white font-bold shadow-lg hover:shadow-xl transition-all py-6 px-10 h-auto rounded-full">
                 <a href="#oferta">Agendar Sem Risco</a>
               </Button>
             </div>
