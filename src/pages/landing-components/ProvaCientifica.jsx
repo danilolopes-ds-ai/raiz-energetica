@@ -1,24 +1,21 @@
 import { motion } from 'framer-motion';
-import { BrainCircuit, CheckCircle, BarChart3 } from 'lucide-react';
+import { BrainCircuit, CheckCircle, BarChart3, Activity, TrendingUp } from 'lucide-react';
 
 const ProvaCientifica = () => {
   const stats = [
     {
-      icon: <BarChart3 className="w-10 h-10 text-[#582c81]" />,
-      title: "Melhora nos Ritmos Cerebrais",
-      description: "90% dos voluntários apresentaram melhora nos ritmos alfa e beta, indicando relaxamento profundo e redução da tensão.",
+      icon: <BarChart3 className="w-12 h-12 text-[#582c81]" />,
+      description: "Ritmo alfa mais estruturado e definido (27 de 30 voluntários)",
       percentage: "90%"
     },
     {
-      icon: <BrainCircuit className="w-10 h-10 text-[#582c81]" />,
-      title: "Redução de Traços Anormais",
-      description: "93% dos casos com traços epileptiformes antes da sessão não apresentaram mais os mesmos traços depois.",
+      icon: <BrainCircuit className="w-12 h-12 text-[#582c81]" />,
+      description: "Redução de traços epileptiformes (28 de 30 participantes)",
       percentage: "93%"
     },
     {
-      icon: <CheckCircle className="w-10 h-10 text-[#582c81]" />,
-      title: "Eficácia à Distância",
-      description: "Todos os resultados foram obtidos sem contato direto, comprovando a eficácia da terapia à distância através do campo eletromagnético.",
+      icon: <CheckCircle className="w-12 h-12 text-[#582c81]" />,
+      description: "Mantiveram traçados cerebrais normais após sessão",
       percentage: "100%"
     }
   ];
@@ -37,18 +34,19 @@ const ProvaCientifica = () => {
             O que a ciência mostra
           </h2>
           <p className="text-xl text-slate-600 leading-relaxed">
-            Resultados clínicos comprovados em pacientes reais após sessões de Radiestesia Genética.
+            Resultados mensuráveis comprovados por mapeamento cerebral
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+        {/* Cards de Resultados - 5 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="flex justify-center mb-6">
@@ -62,6 +60,44 @@ const ProvaCientifica = () => {
               </p>
             </motion.div>
           ))}
+
+          {/* Card 4: Frequência Beta */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <div className="flex justify-center mb-6">
+              <Activity className="w-12 h-12 text-[#582c81]" />
+            </div>
+            <div className="text-3xl font-extrabold text-[#582c81] mb-4">
+              Frequência β ↓
+            </div>
+            <p className="text-lg text-slate-700 leading-relaxed">
+              Redução da frequência beta - estado de relaxamento mantendo vigília
+            </p>
+          </motion.div>
+
+          {/* Card 5: Amplitude Alfa */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <div className="flex justify-center mb-6">
+              <TrendingUp className="w-12 h-12 text-[#582c81]" />
+            </div>
+            <div className="text-3xl font-extrabold text-[#582c81] mb-4">
+              Amplitude α +43%
+            </div>
+            <p className="text-lg text-slate-700 leading-relaxed">
+              Amplitude alfa aumentou de ~70µV para {'>'} 100µV
+            </p>
+          </motion.div>
         </div>
 
         {/* Gráfico de Frequência das Ondas Cerebrais */}
@@ -164,10 +200,33 @@ const ProvaCientifica = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-12 bg-[#582c81]/5 border border-[#582c81]/20 rounded-xl p-6 max-w-4xl mx-auto"
+            className="mt-12 bg-[#582c81]/5 border border-[#582c81]/20 rounded-xl p-8 max-w-5xl mx-auto"
           >
-            <p className="text-slate-700 text-center leading-relaxed">
+            <p className="text-slate-700 text-center leading-relaxed mb-6 text-lg">
               <strong className="text-[#582c81]">Estudo científico validado:</strong> Os resultados foram obtidos através de eletroencefalogramas (EEG) realizados antes e após as sessões, demonstrando mudanças mensuráveis na atividade cerebral dos participantes.
+            </p>
+            
+            {/* Credenciais técnicas */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-[#582c81]/20">
+              <div className="text-center">
+                <p className="text-sm font-bold text-[#582c81] mb-1">Aprovação Institucional</p>
+                <p className="text-xs text-slate-600">Hospital Israelita Albert Einstein</p>
+                <p className="text-xs text-slate-500">(TCC Pós-Graduação 2020)</p>
+              </div>
+              <div className="text-center">
+                <p className="text-sm font-bold text-[#582c81] mb-1">Autora Principal</p>
+                <p className="text-xs text-slate-600">Patricia Bortone</p>
+                <p className="text-xs text-slate-500">Especialista em Radiestesia Genética</p>
+              </div>
+              <div className="text-center">
+                <p className="text-sm font-bold text-[#582c81] mb-1">Validação Oficial</p>
+                <p className="text-xs text-slate-600">Registrado pelo MEC</p>
+                <p className="text-xs text-slate-500">Sistema Internacional 10-20</p>
+              </div>
+            </div>
+            
+            <p className="text-xs text-center text-slate-500 mt-6 italic">
+              Análise objetiva e não-subjetiva • Dados gerados por equipamento BRAIN-WAVE II • Laudos emitidos por especialista em Neurofisiologia
             </p>
           </motion.div>
         </motion.div>

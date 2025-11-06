@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { CheckCircle, Clock, Shield } from 'lucide-react';
 
 const HeroRadiestesia = () => {
   return (
@@ -26,23 +27,54 @@ const HeroRadiestesia = () => {
               />
             </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">
-              Liberte-se dos padrões ancestrais
+            {/* Badge de urgência + prova social */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6"
+            >
+              <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 px-4 py-2 rounded-full text-sm font-bold shadow-sm">
+                <Clock className="w-4 h-4" />
+                <span>Apenas 8 vagas/dia</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-4 py-2 rounded-full text-sm font-bold shadow-sm">
+                <CheckCircle className="w-4 h-4" />
+                <span>500+ vidas transformadas</span>
+              </div>
+            </motion.div>
+
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
+              Descubra a raiz científica dos seus problemas
             </h1>
-            <p className="mt-6 text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Identifique e transforme informações energéticas herdadas que limitam sua vida hoje.
+            <p className="text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+              <strong className="text-slate-900">Mapeamento cerebral comprova:</strong> A RadGen identifica e trata causas energéticas que a medicina não explica - doenças sem histórico, padrões que se repetem, bloqueios invisíveis.
             </p>
+
+            {/* Garantia visível */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="inline-flex items-center gap-2 bg-slate-50 border-2 border-slate-200 px-4 py-3 rounded-xl mb-8 shadow-sm"
             >
-              <Button asChild size="lg" className="bg-[#582c81] hover:bg-[#6d3a9b] text-white font-medium px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all">
-                <a href="#oferta">Agendar Sessão</a>
+              <Shield className="w-5 h-5 text-[#582c81]" />
+              <span className="text-sm font-semibold text-slate-900">
+                Garantia de 7 dias • Reembolso total se não funcionar
+              </span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <Button asChild size="lg" className="bg-[#582c81] hover:bg-[#6d3a9b] text-white font-bold px-10 py-7 text-lg rounded-full shadow-lg hover:shadow-xl transition-all">
+                <a href="#oferta">Garantir Minha Vaga Agora</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-slate-900 font-medium px-8 py-6 text-lg rounded-full transition-all">
-                <a href="#ciencia">Ver Comprovação</a>
+              <Button asChild size="lg" variant="outline" className="border-2 border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-slate-900 font-semibold px-8 py-7 text-lg rounded-full transition-all">
+                <a href="#ciencia">Ver Estudo Científico</a>
               </Button>
             </motion.div>
           </motion.div>

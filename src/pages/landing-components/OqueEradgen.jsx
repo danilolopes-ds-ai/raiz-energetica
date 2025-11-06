@@ -35,25 +35,36 @@ const OqueEradgen = () => {
           >
             <h3 className="text-2xl font-semibold text-slate-900 mb-4 flex items-center">
               <Sparkles className="w-7 h-7 text-[#582c81] mr-3" />
-              Validada cientificamente
+              Base Científica Comprovada
             </h3>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              Estudo aprovado pelo <strong className="text-slate-900">Hospital Israelita Albert Einstein</strong> (2020) comprovou através de mapeamento cerebral:
+              Estudo aprovado pelo <strong className="text-slate-900">Hospital Israelita Albert Einstein</strong> (TCC Pós-Graduação 2020) validou a técnica através de metodologia rigorosa:
             </p>
             <ul className="space-y-2 text-slate-700">
               <li className="flex items-start">
                 <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>90%</strong> dos participantes apresentaram melhora nos ritmos cerebrais alfa e beta</span>
+                <span><strong>30 voluntários</strong> (21 mulheres, 9 homens, 13-62 anos)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>93%</strong> tiveram redução significativa de traços epileptiformes</span>
+                <span><strong>Mapeamento cerebral</strong> antes e depois de cada sessão</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>100%</strong> mantiveram traçados cerebrais normais após as sessões</span>
+                <span><strong>Sessões 100% à distância</strong> (sem contato físico)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#582c81] font-bold mr-2">•</span>
+                <span><strong>Equipamento BRAIN-WAVE II</strong> para análise objetiva</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#582c81] font-bold mr-2">•</span>
+                <span><strong>Laudos por especialista</strong> em Neurofisiologia</span>
               </li>
             </ul>
+            <p className="text-sm text-slate-500 mt-4 italic">
+              Registrado pelo MEC • Análise não-subjetiva (dados gerados por equipamento)
+            </p>
           </motion.div>
         </div>
       </div>

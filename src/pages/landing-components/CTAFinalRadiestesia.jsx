@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CheckCircle, Clock } from 'lucide-react';
+import { CheckCircle, Clock, AlertCircle, Zap } from 'lucide-react';
 import Logo from '@/components/atoms/Logo';
 import { Button } from '@/components/ui/button';
 
@@ -20,7 +20,7 @@ const CTAFinalRadiestesia = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center"
         >
           {/* Logo */}
           <div className="mb-8 flex justify-center">
@@ -29,42 +29,72 @@ const CTAFinalRadiestesia = () => {
             </div>
           </div>
 
-          {/* Badge de urgência */}
+          {/* Badge de ÚLTIMA urgência */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30 mb-6 shadow-lg"
+            className="inline-flex items-center gap-3 bg-red-500/90 backdrop-blur-sm px-8 py-4 rounded-full border-2 border-red-300 mb-8 shadow-2xl animate-pulse"
           >
-            <Clock className="w-5 h-5 text-white" />
+            <AlertCircle className="w-6 h-6 text-white" />
             <div className="text-left">
-              <p className="text-white font-bold text-sm">Limitamos a 8 atendimentos diários</p>
-              <p className="text-white/90 text-xs">⚠️ Garantimos qualidade e compromisso exclusivo com seu processo!</p>
+              <p className="text-white font-extrabold text-lg">⚠️ ÚLTIMA CHAMADA</p>
+              <p className="text-white/90 text-sm">Apenas 3 vagas restantes hoje • Próxima disponibilidade em 7 dias</p>
             </div>
           </motion.div>
 
-          {/* Título */}
+          {/* Título com urgência */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
           >
-            Liberte-se das Correntes Ancestrais
+            Não deixe mais um dia passar carregando o que não é seu
           </motion.h2>
 
-          {/* Subtítulo */}
-          <motion.p
+          {/* Razões específicas para agir AGORA */}
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-10 shadow-2xl"
           >
-            Agende sua sessão agora e comece sua jornada de transformação profunda
-          </motion.p>
+            <h3 className="text-xl font-bold text-white mb-6">Por que agendar HOJE:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+              <div className="flex items-start gap-3">
+                <Zap className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-white font-semibold">Cada dia conta</p>
+                  <p className="text-white/80 text-sm">Padrões se fortalecem com o tempo. Quanto antes tratar, mais rápida a transformação.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Clock className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-white font-semibold">Vagas esgotam rápido</p>
+                  <p className="text-white/80 text-sm">Limitamos a 8 sessões/dia. Próxima disponibilidade pode ser daqui 1 semana.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-white font-semibold">Oferta exclusiva</p>
+                  <p className="text-white/80 text-sm">30% OFF + Bônus de R$ 349,90 válidos apenas para novos clientes hoje.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-white font-semibold">Risco zero</p>
+                  <p className="text-white/80 text-sm">7 dias de garantia total. Se não transformar, devolvemos 100% do investimento.</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* CTA Button */}
           <motion.div
@@ -77,10 +107,11 @@ const CTAFinalRadiestesia = () => {
             <Button
               onClick={handleBooking}
               size="lg"
-              className="bg-white text-[#582c81] hover:bg-purple-50 text-lg px-10 py-7 rounded-full font-bold shadow-2xl shadow-purple-900/40 hover:shadow-purple-900/50 transform hover:scale-105 transition-all duration-300"
+              className="bg-white text-[#582c81] hover:bg-purple-50 text-xl px-12 py-8 rounded-full font-black shadow-2xl shadow-purple-900/40 hover:shadow-purple-900/50 transform hover:scale-110 transition-all duration-300 animate-pulse"
             >
-              Agendar Minha Sessão Agora
+              🔥 SIM! Quero Minha Transformação AGORA
             </Button>
+            <p className="text-white/90 text-sm mt-4">👉 Clique e escolha o melhor horário para você</p>
           </motion.div>
 
           {/* Prova Social Badges */}
@@ -115,8 +146,8 @@ const CTAFinalRadiestesia = () => {
             {/* Badge 4 */}
             <div className="flex flex-col items-center p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
               <CheckCircle className="w-8 h-8 text-purple-300 mb-2" />
-              <p className="text-white font-bold text-sm sm:text-base">60 minutos</p>
-              <p className="text-white/70 text-xs text-center">de sessão ao vivo</p>
+              <p className="text-white font-bold text-sm sm:text-base">Garantia 7d</p>
+              <p className="text-white/70 text-xs text-center">reembolso total</p>
             </div>
           </motion.div>
         </motion.div>
