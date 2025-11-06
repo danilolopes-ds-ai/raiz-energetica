@@ -7,44 +7,44 @@ const FAQRadiestesia = () => {
 
   const faqs = [
     {
-      question: "Como funciona a análise genética energética à distância?",
-      answer: "A Radiestesia Genética trabalha com o campo quântico informacional. Utilizando seu nome completo e data de nascimento, acessamos seu campo energético e rastreamos padrões herdados até a 12ª geração ancestral. A distância não é barreira no campo vibracional."
+      question: "Como funciona a sessão de Radiestesia Genética à distância?",
+      answer: "A técnica utiliza seu nome completo e data de nascimento para acessar seu campo energético através de comunicação quântica (comprovada cientificamente). Durante 60 minutos, identifico e trato padrões energéticos do DNA que afetam sua saúde física, emocional e mental, podendo rastrear informações de até 12 gerações ancestrais."
     },
     {
-      question: "Quanto tempo dura uma sessão e quanto tempo leva para ter resultados?",
-      answer: "Cada sessão dura aproximadamente 60 minutos ao vivo. Os resultados começam a se manifestar imediatamente após a sessão, com percepções mais profundas emergindo nas primeiras semanas à medida que os padrões se reorganizam."
+      question: "Como recebo o resultado da minha sessão?",
+      answer: "Após a sessão de 60 minutos, você recebe um relatório por áudio e imagens via WhatsApp detalhando tudo que foi identificado e tratado. Caso prefira, posso enviar um resumo por e-mail. O retorno é personalizado conforme cada caso específico."
     },
     {
-      question: "O que exatamente é investigado na minha linhagem genética?",
-      answer: "Investigamos bloqueios energéticos, traumas não resolvidos, padrões de comportamento repetitivos, crenças limitantes herdadas, contratos ancestrais, votos e juramentos inconscientes que foram transmitidos através das gerações e impactam sua vida atual."
+      question: "Que tipo de problemas a Radiestesia Genética pode tratar?",
+      answer: "A técnica é completa: trata desde causas físicas (dores, doenças que se repetem na família), até energias de imóveis doentes (veios de água subterrâneos, antenas de celular, postes de alta tensão), padrões repetitivos (histórias que se repetem entre gerações), vampiros energéticos, energias de objetos pessoais (tatuagens, cicatrizes, piercings, relógios), entre muitas outras origens."
     },
     {
-      question: "Preciso conhecer a história da minha família para fazer a sessão?",
-      answer: "Não. A Radiestesia Genética acessa diretamente seu campo informacional energético. Mesmo sem conhecer sua árvore genealógica ou história familiar, conseguimos identificar e transmutar os padrões que foram herdados e estão ativos em você."
+      question: "Preciso fazer várias sessões ou apenas uma resolve?",
+      answer: "Depende da necessidade de cada caso específico. Uma sessão já promove transformações profundas. Recomendamos sessões de manutenção conforme seu sentir e suas condições. Não há contraindicação - você pode fazer toda semana se desejar, pois cada sessão acessa novas camadas de tratamento."
     },
     {
-      question: "O que está incluído no relatório da sessão?",
-      answer: "Você recebe um relatório completo detalhando: padrões ancestrais identificados, gerações de origem dos bloqueios, emoções e crenças herdadas, transmutações realizadas, orientações pós-sessão e práticas de integração para consolidar as mudanças."
+      question: "A técnica tem comprovação científica?",
+      answer: "Sim. Estudo realizado com 30 voluntários e validado pelo Hospital Israelita Albert Einstein (2020) comprovou através de mapeamento cerebral: 90% apresentaram melhora nos ritmos cerebrais alfa e beta, 93% tiveram redução de traços epileptiformes, e 100% mantiveram traçados dentro da normalidade, demonstrando estado de maior relaxamento."
     },
     {
-      question: "Com que frequência preciso fazer as sessões?",
-      answer: "Uma única sessão já promove transformações profundas. Para casos mais complexos ou múltiplas camadas de padrões, recomendamos intervalos de 30-45 dias entre sessões, permitindo que as mudanças se integrem completamente antes de acessar novas camadas."
+      question: "Como a Radiestesia Genética é diferente de outras terapias?",
+      answer: "É uma técnica completa que vai além do emocional: trata causas que a medicina ocidental não explica (como hepatite sem histórico familiar), neutraliza energias de imóveis, identifica vampiros energéticos que impedem sua evolução, trata DNA energético (diferente do genético), e trabalha com gráficos próprios da técnica. Vai desde a causa física até desordens de antepassados."
     },
     {
-      question: "Como a Radiestesia Genética difere de terapias tradicionais?",
-      answer: "Enquanto terapias convencionais trabalham com sua história pessoal nesta vida, a Radiestesia Genética vai além: investiga e transmuta padrões que você herdou de seus ancestrais, acessando a raiz vibracional de questões que muitas vezes não têm origem em sua experiência atual."
+      question: "O que é DNA energético e como ele difere do DNA genético?",
+      answer: "DNA genético é a matéria física herdada. DNA energético é a energia que passa pelo seu DNA fazendo você 'carregar' padrões vibracionais dos antepassados - por exemplo: histórias que se repetem (bisavô faliu, avô faliu, pai faliu, você está falindo). A RadGen trata ambos: transforma a matéria (genético) e a frequência mental (energético)."
     },
     {
-      question: "Eu preciso acreditar para funcionar?",
-      answer: "Não. A Radiestesia Genética trabalha no nível energético informacional, independente de crenças. Sua abertura e intenção de transformação potencializam os resultados, mas o processo age sobre os campos sutis independentemente do ceticismo ou fé."
+      question: "Preciso estar presente fisicamente ou pode ser à distância mesmo?",
+      answer: "A Radiestesia Genética é realizada 100% à distância. Através de campos mórficos eletromagnéticos, seu supraconsciente se conecta ao do terapeuta durante a sessão. Estudos científicos sobre comunicação quântica contrafactual comprovam que a informação pode ser transmitida a grandes distâncias sem partículas viajando entre receptores."
+    },
+    {
+      question: "Posso fazer Radiestesia Genética junto com tratamento médico?",
+      answer: "Sim, a RadGen é reconhecida como Prática Integrativa e Complementar, alinhada às diretrizes da OMS e Ministério da Saúde. Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico. Funciona como terapia complementar que trata o campo energético."
     },
     {
       question: "Como funciona a garantia de 7 dias?",
-      answer: "Se dentro de 7 dias após a sessão você sentir que o serviço não atendeu suas expectativas, devolvemos 100% do seu investimento, sem perguntas ou burocracia. Nosso compromisso é com sua transformação genuína."
-    },
-    {
-      question: "A Radiestesia Genética substitui tratamento médico ou psicológico?",
-      answer: "Não. A Radiestesia Genética é uma terapia complementar que trabalha no campo energético. Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico quando necessário."
+      answer: "Se dentro de 7 dias após sua sessão você sentir que o serviço não atendeu suas expectativas, devolvemos 100% do seu investimento, sem perguntas ou burocracia. Nosso compromisso é com sua transformação genuína e resultados reais."
     }
   ];
 

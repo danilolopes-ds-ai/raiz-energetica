@@ -5,28 +5,28 @@ const ComoAgeRadgen = () => {
   const features = [
     {
       icon: <Zap className="w-8 h-8 text-[#582c81]" />,
-      title: "Identificação Precisa",
-      description: "Identifica a origem vibracional de padrões físicos, emocionais e mentais."
+      title: "Diagnóstico Completo e Diferenciado",
+      description: "Identifica causas que vão além do convencional: desde físicas, energias de imóveis, vampiros energéticos, até padrões de antepassados."
     },
     {
       icon: <Dna className="w-8 h-8 text-[#582c81]" />,
-      title: "DNA Energético",
-      description: "Atua sobre o DNA energético, acessando informações herdadas até a 12ª geração."
+      title: "DNA Genético + DNA Energético",
+      description: "Trata tanto a matéria física (DNA genético) quanto a frequência mental e padrões vibracionais herdados (DNA energético) de até 12 gerações."
     },
     {
       icon: <Wifi className="w-8 h-8 text-[#582c81]" />,
-      title: "Atuação à Distância",
-      description: "Transmuta bloqueios mesmo sem contato físico, com sessões feitas à distância."
+      title: "Comunicação Quântica à Distância",
+      description: "Através de campos mórficos eletromagnéticos, seu supraconsciente se conecta ao do terapeuta. Sessões 100% à distância com resultados comprovados."
     },
     {
       icon: <BrainCircuit className="w-8 h-8 text-[#582c81]" />,
-      title: "Inteligência Supraconsciente",
-      description: "Trabalha com a inteligência do seu supraconsciente, acessando seu campo quântico individual."
+      title: "Pêndulo e Gráficos Próprios",
+      description: "Utiliza pêndulo para captar energia sutil em micromovimentos, direcionando diagnóstico e tratamento através de gráficos de ondas de formas exclusivos da técnica."
     },
     {
       icon: <UserCheck className="w-8 h-8 text-[#582c81]" />,
-      title: "Terapia Personalizada",
-      description: "É não invasiva, precisa e totalmente personalizada para suas necessidades."
+      title: "Tratamento Personalizado e Completo",
+      description: "Cada caso é único. Trata pessoas, animais, plantas e imóveis. Neutraliza energias intrusas e reequilibra frequências para sua evolução."
     }
   ];
 

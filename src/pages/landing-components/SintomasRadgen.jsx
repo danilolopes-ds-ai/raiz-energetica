@@ -3,10 +3,10 @@ import { Check } from 'lucide-react';
 
 const SintomasRadgen = () => {
   const symptoms = [
-    "Ansiedade sem explicação?",
-    "Dores ou doenças que se repetem na família?",
-    "Relacionamentos difíceis, mesmo após diversas tentativas?",
-    "Procrastinação, bloqueios financeiros ou sensação de 'peso invisível'?"
+    "Doenças ou dores que se repetem na família sem explicação médica?",
+    "Padrões que se repetem: relacionamentos, falências, autossabotagem?",
+    "Ansiedade, pânico ou sintomas físicos que a medicina não diagnostica?",
+    "Sensação de 'peso invisível' ou bloqueios que impedem sua evolução?"
   ];
 
   return (

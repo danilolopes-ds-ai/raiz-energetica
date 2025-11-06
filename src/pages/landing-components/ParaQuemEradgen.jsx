@@ -5,23 +5,23 @@ const ParaQuemEradgen = () => {
   const profiles = [
     {
       icon: <UserCheck className="w-8 h-8 text-[#582c81]" />,
-      title: "Pessoas com Padrões Repetitivos",
-      description: "Para quem vive ciclos de autossabotagem, escassez ou relacionamentos tóxicos e não sabe como sair deles."
+      title: "Pessoas com Padrões que Se Repetem",
+      description: "Histórias que se repetem entre gerações (falências, doenças, relacionamentos). DNA energético está carregando padrões vibracionais de antepassados que precisam ser tratados."
     },
     {
       icon: <Search className="w-8 h-8 text-[#582c81]" />,
-      title: "Buscadores de Causa Raiz",
-      description: "Para quem já tentou de tudo, mas sente que os tratamentos convencionais não chegam na verdadeira origem do problema."
+      title: "Quem Busca a Causa Raiz Real",
+      description: "Casos que a medicina ocidental não explica: hepatite sem histórico familiar, dores crônicas sem diagnóstico, ansiedade sem causa aparente. A RadGen investiga causas que vão além do físico."
     },
     {
       icon: <HelpCircle className="w-8 h-8 text-[#582c81]" />,
-      title: "Pessoas com Sintomas 'Sem Causa'",
-      description: "Para quem sofre com ansiedade, medos ou dores crônicas que a medicina tradicional não consegue explicar ou diagnosticar."
+      title: "Pessoas Afetadas por Energias Externas",
+      description: "Sofre com energias de imóveis doentes (veios de água, antenas, postes), vampiros energéticos (família ou pessoas próximas), ou energias de objetos (tatuagens, cicatrizes, piercings)."
     },
     {
       icon: <Target className="w-8 h-8 text-[#582c81]" />,
-      title: "Terapeutas e Profissionais de Ajuda",
-      description: "Para profissionais que desejam uma ferramenta de diagnóstico e tratamento de alta precisão para seus próprios processos e de seus clientes."
+      title: "Terapeutas e Profissionais da Saúde",
+      description: "Profissionais que buscam uma técnica completa de diagnóstico e tratamento para casos complexos, além de poder realizar auto-tratamento com a RadGen."
     }
   ];
 
