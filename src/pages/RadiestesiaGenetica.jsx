@@ -17,14 +17,16 @@ import FAQRadiestesia from './landing-components/FAQRadiestesia';
 import CTAFinalRadiestesia from './landing-components/CTAFinalRadiestesia';
 
 const LandingHeader = () => (
-    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-        <div className="container mx-auto flex justify-between items-center px-6 py-4">
-            <Link to="/" className="flex items-center space-x-2">
-                <Dna className="w-7 h-7 text-slate-900" />
-                <span className="font-semibold text-lg text-slate-900 tracking-tight">Radiestesia Genética</span>
+    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/60">
+        <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
+            <Link to="/" className="text-slate-900 hover:text-[#582c81] transition-colors duration-300">
+                <span className="font-bold text-lg sm:text-xl tracking-tight">Radiestesia Genética</span>
             </Link>
-            <Button asChild className="bg-[#582c81] hover:bg-[#6d3a9b] text-white font-medium px-6 py-2 rounded-full transition-all shadow-sm hover:shadow-md">
-                <a href="#oferta">Agendar Sessão</a>
+            <Button asChild className="bg-[#582c81] hover:bg-[#6d3a9b] text-white font-semibold rounded-full px-4 sm:px-6 py-2 text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300">
+                <a href="#oferta">
+                    <span className="hidden sm:inline">Agendar Sessão</span>
+                    <span className="sm:hidden">Agendar</span>
+                </a>
             </Button>
         </div>
     </header>

@@ -12,6 +12,20 @@ const HeroRadiestesia = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-center lg:text-left"
           >
+            {/* Logo Raiz Energética - Radiestesia Genética */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center lg:justify-start mb-6"
+            >
+              <img 
+                src="/images/services/logo-raiz-radgen-site.webp" 
+                alt="Raiz Energética - Radiestesia Genética"
+                className="w-36 h-36 md:w-44 md:h-44 object-contain"
+              />
+            </motion.div>
+
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">
               Liberte-se dos padrões ancestrais
             </h1>
@@ -40,8 +54,8 @@ const HeroRadiestesia = () => {
           >
             <img 
               src="/images/services/LP-RADGEN-SITE.webp" 
-              alt="Radiestesia Genética - Investigação ancestral e energética"
-              className="w-full h-auto object-cover rounded-2xl shadow-2xl"
+              alt="Pêndulo formando coração - Radiestesia Genética"
+              className="w-full h-auto object-contain rounded-2xl shadow-2xl"
               style={{ maxHeight: '550px' }}
             />
           </motion.div>
