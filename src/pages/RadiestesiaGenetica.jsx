@@ -7,6 +7,7 @@ import { Dna, KeyRound, Flame, Award, CheckCircle, Star, Users, DollarSign, Hand
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import Carousel from '@/components/molecules/Carousel';
 import HeroRadiestesia from './landing-components/HeroRadiestesia';
 import ProvaCientifica from './landing-components/ProvaCientifica';
 import SintomasRadgen from './landing-components/SintomasRadgen';
@@ -68,6 +69,8 @@ const RadiestesiaGenetica = () => {
     { name: "Marcos V.", text: "Lutava com dívidas e sentia que o dinheiro 'escapava' de mim, um padrão que via em meu pai. Após a sessão, fechei dois novos contratos e minha mentalidade sobre prosperidade mudou completamente.", rating: 5 },
     { name: "Ana P.", text: "Vivia um ciclo de relacionamentos tóxicos. Depois da sessão, consegui encerrar o ciclo e hoje vivo um relacionamento saudável, baseado em respeito e parceria. Foi libertador.", rating: 5 },
     { name: "Sofia L.", text: "Sofria de uma ansiedade crônica sem gatilhos aparentes. A sessão revelou a origem ancestral e me trouxe uma paz interior que eu não sentia há anos. A ansiedade diminuiu 80%.", rating: 5 },
+    { name: "Juliana M.", text: "Minha família vivia doente sem explicação - meu filho com alergias constantes, eu com enxaquecas terríveis. A RadGen identificou que nossa casa estava sobre veios de água subterrâneos. Após a limpeza geopatogênica, em 2 semanas as alergias do meu filho sumiram e minhas enxaquecas cessaram. Foi transformador para toda a família.", rating: 5 },
+    { name: "Suely F.", text: "Meu filho adolescente estava agressivo, tirando notas ruins e se isolando. Fiz a sessão sem ele saber, tratando os padrões energéticos que o afetavam. Em 3 semanas, voltou a ser o menino carinhoso que eu conhecia, as notas melhoraram e ele voltou a conversar comigo. Parecia milagre, mas era energia.", rating: 5 },
   ];
 
   const offerItems = [
@@ -184,28 +187,102 @@ const RadiestesiaGenetica = () => {
 
         <ParaQuemEradgen />
 
-        <section id="oferta" className="py-24 md:py-32 bg-white">
+        <section id="oferta" className="pt-12 pb-24 md:py-32 bg-white">
             <div className="container mx-auto px-6 lg:px-8">
-                {/* Badge de escassez */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="flex justify-center mb-8"
-                >
-                    <div className="inline-flex items-center gap-2 bg-red-50 border-2 border-red-300 text-red-700 px-6 py-3 rounded-full font-bold shadow-lg animate-pulse">
-                        <Flame className="w-5 h-5" />
-                        <span>⚠️ ATENÇÃO: Apenas 8 sessões disponíveis por dia</span>
-                    </div>
-                </motion.div>
+                {/* Badges estilo Sobre Nós com glow effect e alternância */}
+                <div className="max-w-2xl mx-auto space-y-2 mb-16 md:mb-12">
+                    <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative"
+                    >
+                        {/* Background glow effect */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.2, duration: 0.6 }}
+                          className="absolute inset-0 bg-gradient-to-r from-amber-100/40 via-amber-50/30 to-transparent rounded-lg blur-sm"
+                          aria-hidden="true"
+                        />
+                        <div className="relative flex items-start space-x-3 py-3 px-4">
+                          <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                          <span className="text-gray-700 leading-relaxed font-medium">Apenas 8 sessões disponíveis por dia</span>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: -100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative"
+                    >
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.4, duration: 0.6 }}
+                          className="absolute inset-0 bg-gradient-to-r from-amber-100/40 via-amber-50/30 to-transparent rounded-lg blur-sm"
+                          aria-hidden="true"
+                        />
+                        <div className="relative flex items-start space-x-3 py-3 px-4">
+                          <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                          <span className="text-gray-700 leading-relaxed font-medium">500+ vidas transformadas</span>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        className="relative"
+                    >
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.6, duration: 0.6 }}
+                          className="absolute inset-0 bg-gradient-to-r from-amber-100/40 via-amber-50/30 to-transparent rounded-lg blur-sm"
+                          aria-hidden="true"
+                        />
+                        <div className="relative flex items-start space-x-3 py-3 px-4">
+                          <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                          <span className="text-gray-700 leading-relaxed font-medium">Validado pelo MEC e Hospital Albert Einstein</span>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: -100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                        className="relative"
+                    >
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.8, duration: 0.6 }}
+                          className="absolute inset-0 bg-gradient-to-r from-amber-100/40 via-amber-50/30 to-transparent rounded-lg blur-sm"
+                          aria-hidden="true"
+                        />
+                        <div className="relative flex items-start space-x-3 py-3 px-4">
+                          <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                          <span className="text-gray-700 leading-relaxed font-medium">10+ anos de experiência</span>
+                        </div>
+                    </motion.div>
+                </div>
 
                 <motion.div
                     className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto border-2 border-[#582c81]/20"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.5 }}
                 >
                     <div className="p-8 md:p-12">
                         <div>
@@ -213,31 +290,15 @@ const RadiestesiaGenetica = () => {
                                 Sessão de Radiestesia Genética
                                 <span className="ml-2 inline-block" role="img" aria-label="dna">🧬</span>
                             </h2>
-                            <p className="text-xl text-slate-600 text-center max-w-3xl mx-auto leading-relaxed mb-6">
+                            <p className="text-xl text-slate-600 text-center max-w-3xl mx-auto leading-relaxed mb-12">
                                 Identificação e tratamento de bloqueios ancestrais que geram sintomas recorrentes
                             </p>
                             
-                            {/* Selos de confiança */}
-                            <div className="flex flex-wrap justify-center gap-4 mb-12">
-                                <div className="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
-                                    <CheckCircle className="w-5 h-5 text-green-500" />
-                                    <span className="text-sm font-semibold text-slate-700">Einstein Hospital</span>
-                                </div>
-                                <div className="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
-                                    <CheckCircle className="w-5 h-5 text-green-500" />
-                                    <span className="text-sm font-semibold text-slate-700">Validado MEC</span>
-                                </div>
-                                <div className="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
-                                    <CheckCircle className="w-5 h-5 text-green-500" />
-                                    <span className="text-sm font-semibold text-slate-700">500+ Transformados</span>
-                                </div>
-                            </div>
-                            
-                            <h3 className="mt-12 mb-6 font-semibold text-2xl text-slate-900 text-center">O que está incluído:</h3>
+                            <h3 className="mb-6 font-semibold text-2xl text-slate-900 text-center">O que está incluído:</h3>
                             <ul className="space-y-4 text-slate-700 max-w-2xl mx-auto">
                                 {offerItems.map(item => (
                                     <li key={item} className="flex items-start text-lg">
-                                        <CheckCircle className="w-6 h-6 text-green-500 mr-4 flex-shrink-0 mt-1" />
+                                        <CheckCircle className="w-6 h-6 text-amber-600 mr-4 flex-shrink-0 mt-1" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -247,11 +308,11 @@ const RadiestesiaGenetica = () => {
                         <div className="mt-12 max-w-2xl mx-auto">
                             <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-dashed border-amber-300 p-6 rounded-xl text-center shadow-md">
                                 <div className="flex justify-center items-center mb-3">
-                                    <Gift className="w-8 h-8 text-amber-600 mr-3" />
-                                    <p className="font-bold text-amber-900 text-xl">🎁 BÔNUS EXCLUSIVO (Valor R$ 349,90)</p>
+                                    <span className="text-3xl mr-2">🎁</span>
+                                    <p className="font-bold text-amber-900 text-xl">BÔNUS EXCLUSIVO (Valor R$ 149,90)</p>
                                 </div>
                                 <p className="text-slate-700 text-lg max-w-md mx-auto leading-relaxed">
-                                    <strong>1 sessão completa de presente</strong> para aquela pessoa especial que você sabe que está pronta para transformação. Porque quando curamos nossas raízes, libertamos quem amamos.
+                                    <strong>1 Sessão de Limpeza Energética de presente</strong> para aquela pessoa especial que você sabe que está pronta para transformação. Quando você cura suas raízes, pode estender essa luz a quem você ama.
                                 </p>
                             </div>
 
@@ -262,7 +323,7 @@ const RadiestesiaGenetica = () => {
                                         
                                         <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
                                             <span className="text-slate-400 line-through text-2xl font-semibold">R$ 500,00</span>
-                                            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                                            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
                                                 <Flame className="w-3 h-3" />
                                                 <span>30% OFF HOJE</span>
                                             </div>
@@ -276,44 +337,16 @@ const RadiestesiaGenetica = () => {
                                         
                                         <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 33,99</span> sem juros</p>
                                         
-                                        <div className="inline-flex items-center gap-2 bg-white border-2 border-green-200 text-green-700 px-4 py-2 rounded-lg shadow-sm">
+                                        <div className="inline-flex items-center gap-2 bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-lg shadow-sm">
                                             <span className="text-lg">💰</span>
-                                            <span className="font-bold text-sm">Você economiza R$ 150,10 + GANHA R$ 349,90 em bônus</span>
+                                            <span className="font-bold text-xs sm:text-sm">Você economiza R$ 150,10 + GANHA R$ 149,90 em bônus | Totalizando R$ 299,90 nessa oferta</span>
                                         </div>
                                     </div>
                                     <Button onClick={handleBookingClick} size="lg" className="w-full sm:w-auto bg-[#582c81] hover:bg-[#6d3a9b] text-white font-bold text-lg shadow-2xl hover:shadow-3xl transition-all py-7 px-12 h-auto rounded-full transform hover:scale-105">
-                                        Garantir Minha Vaga Agora
+                                        Garantir Minha Vaga
                                     </Button>
                                 </div>
                                 <p className="text-sm text-slate-500 mt-6 text-center">⚡ Liberamos apenas 8 vagas por dia para garantir atendimento profundo e personalizado</p>
-                            </div>
-
-                            {/* Mini-FAQ de objeções */}
-                            <div className="mt-8 bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-                                <h4 className="font-bold text-slate-900 text-center mb-4 text-lg">❓ Dúvidas frequentes sobre a sessão:</h4>
-                                <div className="space-y-3 text-sm">
-                                    <div className="flex items-start gap-2">
-                                        <CheckCircle className="w-5 h-5 text-[#582c81] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <strong className="text-slate-900">E se não funcionar para mim?</strong>
-                                            <p className="text-slate-600">7 dias de garantia total. Devolvo 100% do seu dinheiro sem perguntas.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2">
-                                        <CheckCircle className="w-5 h-5 text-[#582c81] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <strong className="text-slate-900">É seguro fazer à distância?</strong>
-                                            <p className="text-slate-600">Sim! Estudo do Hospital Einstein comprovou eficácia 100% à distância.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2">
-                                        <CheckCircle className="w-5 h-5 text-[#582c81] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <strong className="text-slate-900">Quando verei resultados?</strong>
-                                            <p className="text-slate-600">Resultados começam imediatamente. 90% sentem mudanças nas primeiras 48h.</p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -327,18 +360,34 @@ const RadiestesiaGenetica = () => {
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">Histórias de Libertação</h2>
               <p className="mt-6 max-w-3xl mx-auto text-xl text-slate-600 leading-relaxed">Resultados reais de quem decidiu quebrar as correntes do passado.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {testimonials.map((testimonial, i) => (
-                <motion.div key={i} variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ delay: i * 0.1 }} className="h-full">
-                  <Card className="h-full border-gray-200 shadow-sm hover:shadow-md p-6 flex flex-col bg-white transition-shadow duration-300">
-                    <div className="flex mb-3">
-                      {[...Array(testimonial.rating)].map((_, j) => <Star key={j} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
+            <div className="max-w-4xl mx-auto">
+              <Carousel
+                items={testimonials}
+                autoPlay={true}
+                autoPlayInterval={7000}
+                showDots={true}
+                showArrows={true}
+                itemsPerView={1}
+                arrowClassName="hidden md:flex"
+                dotActiveColor="bg-amber-600"
+                dotInactiveColor="bg-gray-300 hover:bg-amber-300"
+                progressBarColor="bg-amber-600"
+                renderItem={(testimonial, index) => (
+                  <Card className="border-gray-200 shadow-lg hover:shadow-xl p-8 bg-white transition-shadow duration-300">
+                    <div className="flex justify-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, j) => (
+                        <Star key={j} className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+                      ))}
                     </div>
-                    <p className="text-slate-600 italic mb-4 flex-grow text-lg leading-relaxed">"{testimonial.text}"</p>
-                    <p className="font-bold text-slate-900 text-right">- {testimonial.name}</p>
+                    <p className="text-slate-700 italic mb-6 text-lg leading-relaxed text-center">
+                      "{testimonial.text}"
+                    </p>
+                    <p className="font-bold text-slate-900 text-center text-xl">
+                      - {testimonial.name}
+                    </p>
                   </Card>
-                </motion.div>
-              ))}
+                )}
+              />
             </div>
           </div>
         </section>
@@ -348,7 +397,11 @@ const RadiestesiaGenetica = () => {
         <section className="py-24 md:py-32 bg-white">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center bg-white p-12 rounded-2xl max-w-3xl mx-auto border border-gray-200 shadow-lg">
-              <Award className="w-16 h-16 text-[#582c81] mx-auto mb-6" />
+              <img 
+                src="/images/services/selo-7-dias.webp" 
+                alt="Selo Garantia 7 Dias" 
+                className="w-32 h-32 mx-auto mb-6 object-contain"
+              />
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Garantia de Profundidade</h2>
               <p className="text-lg text-slate-600 leading-relaxed">
                 Temos total confiança no poder desta sessão. Se ao final você não sentir que recebeu insights profundos e um caminho claro para a transformação, agendaremos uma sessão complementar de 30 minutos, sem custo algum, para aprofundar as questões. Seu investimento é na sua evolução, e nosso compromisso é com o seu resultado.

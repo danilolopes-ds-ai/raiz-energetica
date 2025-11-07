@@ -10,7 +10,11 @@ const Carousel = ({
   showDots = true,
   showArrows = true,
   className = "",
-  itemsPerView = 1
+  itemsPerView = 1,
+  arrowClassName = "",
+  dotActiveColor = "bg-indigo-600",
+  dotInactiveColor = "bg-gray-300 hover:bg-gray-400",
+  progressBarColor = "bg-indigo-600"
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
@@ -87,14 +91,14 @@ const Carousel = ({
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
+            className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10 ${arrowClassName}`}
             aria-label="Slide anterior"
           >
             <ChevronLeft className="w-5 h-5 text-gray-700" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10"
+            className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 z-10 ${arrowClassName}`}
             aria-label="Próximo slide"
           >
             <ChevronRight className="w-5 h-5 text-gray-700" />
@@ -111,8 +115,8 @@ const Carousel = ({
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === currentIndex
-                  ? 'bg-indigo-600 scale-110'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? `${dotActiveColor} scale-110`
+                  : dotInactiveColor
               }`}
               aria-label={`Ir para slide ${index + 1}`}
             />
@@ -124,7 +128,7 @@ const Carousel = ({
       {isPlaying && (
         <div className="w-full h-1 bg-gray-200 mt-4">
           <motion.div
-            className="h-full bg-indigo-600"
+            className={`h-full ${progressBarColor}`}
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
             transition={{ duration: autoPlayInterval / 1000, ease: "linear" }}

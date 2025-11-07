@@ -23,25 +23,23 @@ const CTAFinalRadiestesia = () => {
           className="max-w-4xl mx-auto text-center"
         >
           {/* Logo */}
-          <div className="mb-8 flex justify-center">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20 shadow-xl shadow-purple-900/30">
-              <Logo className="w-16 h-16 text-white" />
-            </div>
+          <div className="mb-12 flex justify-center">
+            <img 
+              src="/images/services/logo-raiz-radgen-site-semfundo.webp" 
+              alt="Raiz Energética" 
+              className="w-32 h-32 md:w-40 md:h-40 object-contain"
+            />
           </div>
 
-          {/* Badge de ÚLTIMA urgência */}
+          {/* Badge de urgência - redesenhado */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-3 bg-red-500/90 backdrop-blur-sm px-8 py-4 rounded-full border-2 border-red-300 mb-8 shadow-2xl animate-pulse"
+            className="bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 rounded-full inline-block mb-8 shadow-2xl"
           >
-            <AlertCircle className="w-6 h-6 text-white" />
-            <div className="text-left">
-              <p className="text-white font-extrabold text-lg">⚠️ ÚLTIMA CHAMADA</p>
-              <p className="text-white/90 text-sm">Apenas 3 vagas restantes hoje • Próxima disponibilidade em 7 dias</p>
-            </div>
+            <p className="text-white font-extrabold text-xl md:text-2xl tracking-wide">Agenda Limitada</p>
           </motion.div>
 
           {/* Título com urgência */}
@@ -76,18 +74,18 @@ const CTAFinalRadiestesia = () => {
                 <Clock className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-white font-semibold">Vagas esgotam rápido</p>
-                  <p className="text-white/80 text-sm">Limitamos a 8 sessões/dia. Próxima disponibilidade pode ser daqui 1 semana.</p>
+                  <p className="text-white/80 text-sm">Limitamos a 8 sessões/dia.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-white font-semibold">Oferta exclusiva</p>
-                  <p className="text-white/80 text-sm">30% OFF + Bônus de R$ 349,90 válidos apenas para novos clientes hoje.</p>
+                  <p className="text-white/80 text-sm">30% OFF + Bônus de R$ 149,90 da Limpeza Energética para presentear quem você ama e precisa de cuidado.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-white font-semibold">Risco zero</p>
                   <p className="text-white/80 text-sm">7 dias de garantia total. Se não transformar, devolvemos 100% do investimento.</p>
@@ -107,9 +105,9 @@ const CTAFinalRadiestesia = () => {
             <Button
               onClick={handleBooking}
               size="lg"
-              className="bg-white text-[#582c81] hover:bg-purple-50 text-xl px-12 py-8 rounded-full font-black shadow-2xl shadow-purple-900/40 hover:shadow-purple-900/50 transform hover:scale-110 transition-all duration-300 animate-pulse"
+              className="w-full sm:w-auto bg-white text-[#582c81] hover:bg-purple-50 text-base sm:text-xl px-8 sm:px-12 py-6 sm:py-8 rounded-full font-black shadow-2xl shadow-purple-900/40 hover:shadow-purple-900/50 transform hover:scale-105 sm:hover:scale-110 transition-all duration-300"
             >
-              🔥 SIM! Quero Minha Transformação AGORA
+              SIM! Quero Minha Transformação AGORA
             </Button>
             <p className="text-white/90 text-sm mt-4">👉 Clique e escolha o melhor horário para você</p>
           </motion.div>
@@ -146,7 +144,7 @@ const CTAFinalRadiestesia = () => {
             {/* Badge 4 */}
             <div className="flex flex-col items-center p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
               <CheckCircle className="w-8 h-8 text-purple-300 mb-2" />
-              <p className="text-white font-bold text-sm sm:text-base">Garantia 7d</p>
+              <p className="text-white font-bold text-sm sm:text-base">Garantia 7 dias</p>
               <p className="text-white/70 text-xs text-center">reembolso total</p>
             </div>
           </motion.div>

@@ -21,7 +21,10 @@ const ProvaCientifica = () => {
   ];
 
   return (
-    <section id="ciencia" className="py-24 md:py-32 bg-slate-50">
+    <section id="ciencia" className="py-24 md:py-32 bg-white relative">
+      {/* Transição decorativa */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#582c81]/30 to-transparent"></div>
+      
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -174,10 +177,10 @@ const ProvaCientifica = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-white border-2 border-green-200 rounded-2xl p-6 shadow-lg"
+              className="bg-white border-2 border-amber-200 rounded-2xl p-6 shadow-lg"
             >
               <div className="mb-4 text-center">
-                <span className="inline-block bg-green-100 text-green-700 font-bold px-4 py-2 rounded-full text-sm">
+                <span className="inline-block bg-amber-100 text-amber-700 font-bold px-4 py-2 rounded-full text-sm">
                   APÓS A SESSÃO
                 </span>
               </div>
@@ -216,7 +219,7 @@ const ProvaCientifica = () => {
               <div className="text-center">
                 <p className="text-sm font-bold text-[#582c81] mb-1">Autora Principal</p>
                 <p className="text-xs text-slate-600">Patricia Bortone</p>
-                <p className="text-xs text-slate-500">Especialista em Radiestesia Genética</p>
+                <p className="text-xs text-slate-500">Especialista e Criadora da Técnica Radiestesia Genética</p>
               </div>
               <div className="text-center">
                 <p className="text-sm font-bold text-[#582c81] mb-1">Validação Oficial</p>

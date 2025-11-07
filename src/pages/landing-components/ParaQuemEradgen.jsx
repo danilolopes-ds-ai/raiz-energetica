@@ -26,8 +26,28 @@ const ParaQuemEradgen = () => {
   ];
 
   return (
-    <section id="para-quem" className="py-24 md:py-32 bg-white">
+    <section id="para-quem" className="py-24 md:py-32 bg-white relative">
+      {/* Transição decorativa */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#582c81]/30 to-transparent"></div>
+      
       <div className="container mx-auto px-6 lg:px-8">
+        {/* Espaçador visual com imagem do pêndulo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-16"
+        >
+          <div className="w-24 h-24 md:w-28 md:h-28 flex items-center justify-center">
+            <img 
+              src="/images/services/pendulo-cristal-semfundo.webp" 
+              alt="Pêndulo de Cristal Ametista" 
+              className="w-full h-full object-contain drop-shadow-lg"
+            />
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

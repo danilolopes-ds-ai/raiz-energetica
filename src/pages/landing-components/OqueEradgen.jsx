@@ -21,49 +21,8 @@ const OqueEradgen = () => {
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-6">
               O que é Radiestesia Genética?
             </h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
               Criada por <strong className="text-slate-900">Patrícia Bortone</strong>, é uma técnica terapêutica completa que identifica e trata todas as possíveis causas de doenças: desde causas físicas, energias de imóveis doentes, até padrões energéticos herdados de antepassados que influenciam sua saúde, comportamentos e emoções.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm"
-          >
-            <h3 className="text-2xl font-semibold text-slate-900 mb-4 flex items-center">
-              <Sparkles className="w-7 h-7 text-[#582c81] mr-3" />
-              Base Científica Comprovada
-            </h3>
-            <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              Estudo aprovado pelo <strong className="text-slate-900">Hospital Israelita Albert Einstein</strong> (TCC Pós-Graduação 2020) validou a técnica através de metodologia rigorosa:
-            </p>
-            <ul className="space-y-2 text-slate-700">
-              <li className="flex items-start">
-                <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>30 voluntários</strong> (21 mulheres, 9 homens, 13-62 anos)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>Mapeamento cerebral</strong> antes e depois de cada sessão</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>Sessões 100% à distância</strong> (sem contato físico)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>Equipamento BRAIN-WAVE II</strong> para análise objetiva</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#582c81] font-bold mr-2">•</span>
-                <span><strong>Laudos por especialista</strong> em Neurofisiologia</span>
-              </li>
-            </ul>
-            <p className="text-sm text-slate-500 mt-4 italic">
-              Registrado pelo MEC • Análise não-subjetiva (dados gerados por equipamento)
             </p>
           </motion.div>
         </div>

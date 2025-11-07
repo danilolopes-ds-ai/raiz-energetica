@@ -43,7 +43,7 @@ const SintomasRadgen = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
               >
-                <Check className="w-6 h-6 text-green-500 mr-4 flex-shrink-0 mt-0.5" />
+                <Check className="w-6 h-6 text-amber-600 mr-4 flex-shrink-0 mt-0.5" />
                 <p className="text-slate-700 text-lg leading-relaxed">{symptom}</p>
               </motion.div>
             ))}

@@ -31,7 +31,7 @@ const ComoAgeRadgen = () => {
   ];
 
   return (
-    <section id="como-age" className="py-24 md:py-32 bg-white">
+    <section id="como-age" className="py-24 md:py-32 bg-slate-50">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.h2 

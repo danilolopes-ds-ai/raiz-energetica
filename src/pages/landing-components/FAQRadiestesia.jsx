@@ -40,7 +40,7 @@ const FAQRadiestesia = () => {
     },
     {
       question: "Posso fazer Radiestesia Genética junto com tratamento médico?",
-      answer: "Sim, a RadGen é reconhecida como Prática Integrativa e Complementar, alinhada às diretrizes da OMS e Ministério da Saúde. Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico. Funciona como terapia complementar que trata o campo energético."
+      answer: "Sim! Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico. Funciona como terapia complementar e integrativa que trata o campo energético."
     },
     {
       question: "Como funciona a garantia de 7 dias?",
