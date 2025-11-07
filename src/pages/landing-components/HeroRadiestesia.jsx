@@ -31,12 +31,13 @@ const HeroRadiestesia = () => {
             </h1>
             
             <p className="text-xl text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-3">
-              E se a causa não fosse o que você pensa?
+              E se a causa não for o que você pensa?
             </p>
 
             <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4">
-              Pode estar no DNA dos antepassados, nas paredes da sua casa,
-              em objetos que você usa diariamente, ou em pessoas próximas.
+              Pode estar no DNA dos antepassados, na energia da sua casa,
+              em objetos que você usa diariamente, no tipo música que você escuta,
+              em pessoas próximas ou em muitas outras origens que você nem imagina.
             </p>
 
             <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-2">
