@@ -5,12 +5,12 @@ const ProvaCientifica = () => {
   const stats = [
     {
       icon: <BarChart3 className="w-12 h-12 text-[#582c81]" />,
-      description: "Ritmo alfa mais estruturado e definido (27 de 30 voluntários)",
+      description: "Ritmo alfa mais estruturado e definido",
       percentage: "90%"
     },
     {
       icon: <BrainCircuit className="w-12 h-12 text-[#582c81]" />,
-      description: "Redução de traços epileptiformes (28 de 30 participantes)",
+      description: "Redução de traços epileptiformes",
       percentage: "93%"
     },
     {

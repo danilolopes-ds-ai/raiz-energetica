@@ -30,12 +30,21 @@ const HeroRadiestesia = () => {
               A terapia que <span className="text-[#582c81]">redefine sua vida</span> com <span className="text-slate-900">comprovação científica</span>
             </h1>
             
-            <p className="text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-              Identifique e trate informações energéticas herdadas, interferências externas e bloqueios emocionais que você não precisa mais carregar.
+            <p className="text-xl text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-3">
+              E se a causa não fosse o que você pensa?
             </p>
 
-            <p className="text-2xl text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 font-medium">
-              <strong className="text-slate-900">E se não for culpa sua?</strong> E se você está carregando algo que veio de gerações atrás e pode ser tratado em 60 minutos?
+            <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4">
+              Pode estar no DNA dos antepassados, nas paredes da sua casa,
+              em objetos que você usa diariamente, ou em pessoas próximas.
+            </p>
+
+            <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-2">
+              A RadGen investiga todas as dimensões: visíveis e invisíveis.
+            </p>
+
+            <p className="text-lg text-[#582c81] max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 font-medium">
+              Tratamento completo em 60 minutos.
             </p>
 
             <motion.div
