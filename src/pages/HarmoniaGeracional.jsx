@@ -8,6 +8,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Helmet } from 'react-helmet-async';
 import LandingHeader from "./landing-components/LandingHeader";
 import LandingFooter from "./landing-components/LandingFooter";
+import FAQHarmoniaGeracional from "./landing-components/FAQHarmoniaGeracional";
 import CountdownTimer from '@/components/atoms/CountdownTimer';
 import { SecurityBadges } from '@/components/atoms/SecurityBadges';
 
@@ -179,25 +180,25 @@ const HarmoniaGeracional = () => {
 
   // Memoização dos dados estáticos
   const painPoints = useMemo(() => [
-    { icon: BrainCircuit, text: "Você olha para seu/sua filho(a) e sente falta daquele brilho nos olhos?" },
-    { icon: HeartHand, text: "Encontrou algo no quarto e seu coração disparou?" },
+    { icon: BrainCircuit, text: "Você olha para seu/sua filho(a) adolescente e sente falta daquele brilho nos olhos?" },
+    { icon: HeartHand, text: "Encontrou algo preocupante no quarto dele(a) e seu coração disparou?" },
     { icon: Users, text: "Seu/sua filho(a) responde com agressividade quando você só quer ajudar?" },
-    { icon: Sparkles, text: "As amizades de seu/sua filho(a) te deixam inquieta, mas você não sabe como intervir?" },
-    { icon: Home, text: "Tudo que você ensinou com amor... parece ter se perdido?" },
+    { icon: Sparkles, text: "As amizades do(a) adolescente te deixam inquieta, mas você não sabe como intervir?" },
+    { icon: Home, text: "Tudo que você ensinou com amor... parece ter se perdido na adolescência?" },
   ], []);
 
   const hopeCards = useMemo(() => [
     { icon: MessageSquare, title: "Imagine seu/sua filho(a) te chamando para conversar, do nada.", subtitle: "Um gesto simples, mas que diz: 'eu confio em você, mãe.'" },
-    { icon: Ear, title: "Imagine ele(a) te ouvindo — sem brigar.", subtitle: "Palavras fluindo, sem tensão. Só conexão." },
-    { icon: Heart, title: "Imagine vocês dois rindo juntos de novo.", subtitle: "Como nos velhos tempos — e melhor ainda." },
+    { icon: Ear, title: "Imagine ele(a) te ouvindo, sem brigar.", subtitle: "Palavras fluindo, sem tensão. Só conexão." },
+    { icon: Heart, title: "Imagine vocês dois rindo juntos de novo.", subtitle: "Como nos velhos tempos, e melhor ainda." },
     { icon: Home, title: "Imagine sua casa cheia de paz, e o medo dando lugar à confiança.", subtitle: "Seu lar pode ser um templo de harmonia novamente." },
   ], []);
 
   const transformations = useMemo(() => [
     { icon: Flower2, title: "Reconexão Familiar", description: "O diálogo volta, os olhos se encontram. Vocês se entendem de novo." },
-    { icon: ShieldCheck, title: "Proteção Energética", description: "Blindagem contra más influências e comportamentos de risco — sem confrontos, sem desgaste." },
+    { icon: ShieldCheck, title: "Proteção Energética", description: "Blindagem contra más influências e comportamentos de risco, sem confrontos, sem desgaste." },
     { icon: Home, title: "Paz no Lar", description: "A agressividade se dissolve. O ambiente muda. A casa volta a ser um lar seguro." },
-    { icon: HeartHand, title: "Resgate dos Valores", description: "O que você ensinou com tanto amor começa a florescer de novo — naturalmente." },
+    { icon: HeartHand, title: "Resgate dos Valores", description: "O que você ensinou com tanto amor começa a florescer de novo, naturalmente." },
   ], []);
 
   const pricingTiers = useMemo(() => [
@@ -278,12 +279,13 @@ const HarmoniaGeracional = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Harmonia Geracional - Reconectando Mães e Filhos(as)</title>
-        <meta name="description" content="Método exclusivo para mães que desejam resgatar a conexão com seus filhos e trazer harmonia de volta para o lar." />
-        <meta name="keywords" content="harmonia geracional, relacionamento mãe filho, terapia familiar, reconexão familiar" />
-        <meta property="og:title" content="Harmonia Geracional - Reconectando Mães e Filhos" />
-        <meta property="og:description" content="Método exclusivo para mães que desejam resgatar a conexão com seus filhos e trazer harmonia de volta para o lar." />
+        <title>Harmonia Geracional - Reconecte-se com seu Filho Adolescente | Terapia para Mães</title>
+        <meta name="description" content="Seu filho adolescente se afastou? Terapia especializada para mães que desejam resgatar a conexão familiar. Radiestesia Genética com acolhimento premium. Garantia de 30 dias." />
+        <meta name="keywords" content="filho adolescente agressivo, reconexão mãe e filho, terapia familiar, filho se afastou, comportamento adolescente, harmonia familiar, radiestesia genética, terapia para mães" />
+        <meta property="og:title" content="Harmonia Geracional - Reconecte-se com seu Filho Adolescente" />
+        <meta property="og:description" content="Terapia especializada para mães que querem resgatar a conexão com filhos adolescentes. Radiestesia Genética + acolhimento premium de 10 anos de experiência." />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.raizenergetica.com.br/harmonia-geracional" />
       </Helmet>
       
       <LandingHeader />
@@ -323,6 +325,78 @@ const HarmoniaGeracional = () => {
           </div>
         </section>
 
+        {/* Seção Explicativa do Serviço Premium - Simplificada */}
+        <section className="py-20 md:py-24 bg-gradient-to-br from-white to-rose-50/30" aria-labelledby="premium-service-heading">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-12"
+              >
+                <h2 id="premium-service-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight mb-4">
+                  Mais Que Uma Terapia Energética: Um Acolhimento Completo
+                </h2>
+                <p className="text-xl text-rose-700 leading-relaxed max-w-2xl mx-auto">
+                  A Harmonia Geracional utiliza a <strong>Radiestesia Genética</strong> comprovada cientificamente (estudo validado pelo Hospital Albert Einstein, 2020), mas vai muito além da técnica.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-rose-200"
+              >
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <BrainCircuit className="w-10 h-10 text-rose-600" />
+                      <h3 className="text-2xl font-bold text-rose-900">O Diferencial Premium</h3>
+                    </div>
+                    <p className="text-rose-700 leading-relaxed mb-6">
+                      Você não recebe apenas uma sessão energética. Você recebe um acompanhamento completo e humanizado:
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-rose-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold text-rose-900">10 anos de experiência</p>
+                        <p className="text-sm text-rose-600">em terapias familiares e reconexão</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-rose-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold text-rose-900">Acolhimento especializado</p>
+                        <p className="text-sm text-rose-600">com quem entende a dor de mãe</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-rose-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold text-rose-900">Estratégias práticas</p>
+                        <p className="text-sm text-rose-600">de reconexão para aplicar no dia a dia</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-rose-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold text-rose-900">Espaço seguro</p>
+                        <p className="text-sm text-rose-600">para compartilhar sem julgamentos</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Seção de Dores Otimizada */}
         <section className="py-20 md:py-24 bg-rose-50/90" aria-labelledby="pain-points-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,28 +422,41 @@ const HarmoniaGeracional = () => {
           </div>
         </section>
 
-        {/* Seção de Esperança Otimizada */}
+        {/* Seção de Esperança - Timeline */}
         <section className="py-20 md:py-24 bg-gradient-to-br from-rose-50 to-pink-50" aria-labelledby="hope-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 id="hope-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight">
-                Mas Eu Tenho Uma Boa Notícia Para Você...
+                A Boa Notícia: É Possível Reconectar com Seu/Sua Filho(a)
               </h2>
               <p className="mt-4 text-lg text-rose-700">
-                Ainda dá tempo de resgatar a conexão. De trazer seu/sua filho(a) de volta. De ter a família que você sempre sonhou.
+                Mesmo que o distanciamento pareça grande, ainda é possível resgatar a conexão. Trazer seu/sua filho(a) de volta. Reconstruir a relação mãe-filho que você sempre sonhou.
               </p>
             </div>
-            <motion.div 
-              className="grid md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
+
+            <div className="max-w-3xl mx-auto space-y-8">
               {hopeCards.map((card, i) => (
-                <HopeCard key={i} card={card} index={i} />
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="flex gap-6 items-start"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center shadow-lg">
+                      <card.icon className="w-7 h-7 text-white" />
+                    </div>
+                  </div>
+                  <div className="flex-1 bg-white rounded-xl p-6 shadow-md border border-rose-200/60">
+                    <h3 className="text-xl font-bold text-rose-900 mb-2">{card.title}</h3>
+                    <p className="text-rose-700 leading-relaxed">{card.subtitle}</p>
+                  </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
+
             <div className="text-center mt-12">
               <img 
                 src="/images/services/harmonia-geracional-reconexao.webp" 
@@ -383,28 +470,42 @@ const HarmoniaGeracional = () => {
           </div>
         </section>
 
-        {/* Seção de Transformação Otimizada */}
+        {/* Seção de Transformação - Grid Compacto */}
         <section id="transformacao" className="py-20 md:py-24 bg-white" aria-labelledby="transformation-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 id="transformation-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight">
-                Como a Terapia de Harmonia Geracional Vai Transformar a Relação de Vocês
+                Como a Terapia Transforma a Relação de Vocês
               </h2>
               <p className="mt-4 text-lg text-rose-700">
                 Através de técnicas energéticas específicas, quebramos os padrões que criam conflito e ativamos a reconexão natural entre mãe e filho(a).
               </p>
             </div>
-            <motion.div 
-              className="grid md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {transformations.map((transformation, i) => (
-                <TransformationCard key={i} transformation={transformation} index={i} />
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-gradient-to-br from-rose-50 to-white border border-rose-200/60 p-6 rounded-xl hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-rose-100 flex items-center justify-center">
+                        <transformation.icon className="w-6 h-6 text-rose-600" aria-hidden="true" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-rose-900 mb-2">{transformation.title}</h3>
+                      <p className="text-rose-700 text-sm leading-relaxed">{transformation.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -429,10 +530,10 @@ const HarmoniaGeracional = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 id="urgency-heading" className="text-3xl lg:text-4xl font-bold text-rose-900 mb-6">
-                Seu/Sua Filho(a) Precisa de Você Agora. Antes Que Seja Tarde Demais.
+                Quanto Mais Cedo, Mais Fácil a Reconexão
               </h2>
               <p className="text-lg text-rose-700 mb-8">
-                Cada dia que passa, o distanciamento se aprofunda. Mas ainda há tempo para agir. Ainda há tempo para resgatar o que vocês perderam.
+                Cada dia que passa, os padrões se aprofundam. Mas você pode agir agora e começar a transformação que sua família precisa.
               </p>
               
               <motion.div 
@@ -510,14 +611,17 @@ const HarmoniaGeracional = () => {
           </div>
         </section>
 
+        {/* FAQ Section */}
+        <FAQHarmoniaGeracional />
+
         {/* CTA Final Otimizado */}
         <section className="py-20 md:py-24 bg-gradient-to-br from-rose-600 to-pink-500 text-white" aria-labelledby="final-cta-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 id="final-cta-heading" className="text-3xl lg:text-4xl font-bold mb-6">
-              Sua Família Merece Uma Segunda Chance
+              Transforme a Relação com Seu/Sua Filho(a) Adolescente
             </h2>
             <p className="text-xl text-rose-100 mb-8 max-w-2xl mx-auto">
-              Não deixe que mais um dia passe sem agir. Seu/sua filho(a) está esperando por você — mesmo que não demonstre.
+              Dê o primeiro passo para resgatar a conexão familiar e trazer harmonia de volta para o seu lar.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
@@ -526,7 +630,7 @@ const HarmoniaGeracional = () => {
                 size="lg" 
                 className="bg-white text-rose-600 font-bold hover:bg-rose-50 shadow-lg transition-all transform hover:-translate-y-1 hover:scale-105"
               >
-                Resgatar Meu/Minha Filho(a) Agora
+                Quero Reconectar com Meu/Minha Filho(a)
               </Button>
             </div>
             

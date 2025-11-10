@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Hand as HeartHand } from 'lucide-react';
 
 const LandingHeader = () => (
-    <header className="bg-rose-50/80 backdrop-blur-lg sticky top-0 z-50 border-b border-rose-200/80">
-                <div className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
-            <Link to="/" className="flex items-center space-x-2">
-                <HeartHand className="w-8 h-8 text-rose-600" />
-                <span className="font-bold text-xl text-rose-800 tracking-tight">Harmonia Geracional</span>
+    <header className="bg-rose-50/95 backdrop-blur-md sticky top-0 z-50 border-b border-rose-200/60">
+        <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
+            <Link to="/" className="text-rose-900 hover:text-rose-700 transition-colors duration-300">
+                <span className="font-bold text-lg sm:text-xl tracking-tight">Harmonia Geracional</span>
             </Link>
-            <Button asChild className="bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm px-3 sm:text-base sm:px-4">
-                <a href="#planos">Ver Planos de Cura</a>
+            <Button asChild className="bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-full px-4 sm:px-6 py-2 text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300">
+                <a href="#pricing-heading">
+                    <span className="hidden sm:inline">Ver Planos</span>
+                    <span className="sm:hidden">Planos</span>
+                </a>
             </Button>
         </div>
     </header>
