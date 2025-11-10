@@ -36,7 +36,7 @@ const Home = () => {
     },
     {
       emoji: "🧬",
-      number: 9,
+      number: 10,
       suffix: "+",
       label: "Anos de Experiência",
       description: "Anos de prática, pesquisa e resultados com terapias vibracionais profundas e integrativas."

@@ -107,7 +107,7 @@ const CTAFinalRadiestesia = () => {
               size="lg"
               className="w-full sm:w-auto bg-white text-[#582c81] hover:bg-purple-50 text-base sm:text-xl px-8 sm:px-12 py-6 sm:py-8 rounded-full font-black shadow-2xl shadow-purple-900/40 hover:shadow-purple-900/50 transform hover:scale-105 sm:hover:scale-110 transition-all duration-300"
             >
-              SIM! Quero Minha Transformação AGORA
+              Quero Minha Transformação AGORA
             </Button>
             <p className="text-white/90 text-sm mt-4">👉 Clique e escolha o melhor horário para você</p>
           </motion.div>

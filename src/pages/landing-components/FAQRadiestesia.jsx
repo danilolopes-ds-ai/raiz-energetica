@@ -36,7 +36,7 @@ const FAQRadiestesia = () => {
     },
     {
       question: "Preciso estar presente fisicamente ou pode ser à distância mesmo?",
-      answer: "A Radiestesia Genética é realizada 100% à distância. Através de campos mórficos eletromagnéticos, seu supraconsciente se conecta ao do terapeuta durante a sessão. Estudos científicos sobre comunicação quântica contrafactual comprovam que a informação pode ser transmitida a grandes distâncias sem partículas viajando entre receptores."
+      answer: "A Radiestesia Genética é realizada 100% à distância. Através de campos energéticos sutis, a conexão entre você e o terapeuta acontece independentemente da localização física. Similar ao WiFi, mas no campo sutil. A ciência quântica comprova que a informação transcende o espaço físico, permitindo que o tratamento seja tão efetivo quanto presencial."
     },
     {
       question: "Posso fazer Radiestesia Genética junto com tratamento médico?",

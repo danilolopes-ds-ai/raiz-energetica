@@ -23,7 +23,7 @@ const listItems = [
     color: "text-[#4ca626]", // Verde Limão
   },
   {
-    text: "Mais de 9 anos acompanhando transformações reais",
+    text: "Mais de 10 anos acompanhando transformações reais",
     emoji: "📆",
     color: "text-[#cc4e00]", // Laranja Coral
   },
@@ -48,7 +48,7 @@ const DaniloLopesSection = () => {
               Fundador da Raiz Energética e terapeuta integrativo especializado em causas profundas.
             </Text>
             <Text as="p" className="mb-4">
-              Com mais de <strong>9 anos de experiência em terapias energéticas</strong>, Danilo conduz um processo terapêutico integrativo, que investiga e trata as <strong>raízes invisíveis</strong> de dores físicas, emocionais e comportamentais.
+              Com mais de <strong>10 anos de experiência em terapias energéticas</strong>, Danilo conduz um processo terapêutico integrativo, que investiga e trata as <strong>raízes invisíveis</strong> de dores físicas, emocionais e comportamentais.
             </Text>
             <Text as="p" className="mb-4">
               Seu trabalho tem como base a <strong>Radiestesia Genética</strong>, expandindo-se com saberes como <strong>Medicina Tradicional Chinesa</strong>, <strong>Linguagem do Corpo</strong>, <strong>Chakras</strong>, <strong>Cristais</strong> e outras abordagens complementares — aplicadas com sensibilidade, clareza e direção, de acordo com cada pessoa.

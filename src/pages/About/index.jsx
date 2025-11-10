@@ -40,7 +40,7 @@ const AboutPage = () => {
     },
     {
       emoji: "📆",
-      number: 9,
+      number: 10,
       suffix: "+",
       label: "Anos de Experiência",
       description: "Uma trajetória de escuta, prática e resultados com terapias vibracionais profundas e personalizadas."

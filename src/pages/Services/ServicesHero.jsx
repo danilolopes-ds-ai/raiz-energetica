@@ -65,9 +65,9 @@ const ServicesHero = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
           >
-            Cure com Propósito.{' '}
+            Sua transformação{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 dark:from-emerald-400 dark:via-teal-400 dark:to-emerald-500">
-              Comece Pela Raiz.
+              começa pela Raiz.
             </span>
           </motion.h1>
 
