@@ -408,7 +408,7 @@ const HarmoniaGeracional = () => {
                   Mais Que Uma Terapia Energética: Um Acolhimento Completo
                 </h2>
                 <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                  A Harmonia Geracional utiliza a <strong>Radiestesia Genética</strong> comprovada cientificamente (estudo validado pelo Hospital Albert Einstein, 2020), mas vai muito além da técnica.
+                  A Harmonia Geracional utiliza a <strong>Radiestesia Genética</strong> reconhecida pela ABRADGEN (Associação Brasileira de Radiestesia Genética), mas vai muito além da técnica.
                 </p>
               </motion.div>
 

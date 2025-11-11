@@ -24,7 +24,7 @@ const FAQRadiestesia = () => {
     },
     {
       question: "A técnica tem comprovação científica?",
-      answer: "Sim. Estudo realizado com 30 voluntários e validado pelo Hospital Israelita Albert Einstein (2020) comprovou através de mapeamento cerebral: 90% apresentaram melhora nos ritmos cerebrais alfa e beta, 93% tiveram redução de traços epileptiformes, e 100% mantiveram traçados dentro da normalidade, demonstrando estado de maior relaxamento."
+      answer: "Sim. A técnica é reconhecida pela ABRADGEN (Associação Brasileira de Radiestesia Genética). Estudos realizados com voluntários demonstraram através de mapeamento cerebral: 90% apresentaram melhora nos ritmos cerebrais alfa e beta, 93% tiveram redução de traços epileptiformes, e 100% mantiveram traçados dentro da normalidade, demonstrando estado de maior relaxamento."
     },
     {
       question: "Como a Radiestesia Genética é diferente de outras terapias?",

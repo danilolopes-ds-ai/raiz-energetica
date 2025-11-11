@@ -251,7 +251,7 @@ const RadiestesiaGenetica = () => {
                         />
                         <div className="relative flex items-start space-x-3 py-3 px-4">
                           <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
-                          <span className="text-gray-700 leading-relaxed font-medium">Validado pelo MEC e Hospital Albert Einstein</span>
+                          <span className="text-gray-700 leading-relaxed font-medium">Reconhecido pela ABRADGEN (Associação Brasileira de Radiestesia Genética)</span>
                         </div>
                     </motion.div>
 

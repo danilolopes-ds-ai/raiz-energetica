@@ -210,21 +210,16 @@ const ProvaCientifica = () => {
             </p>
             
             {/* Credenciais técnicas */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-[#582c81]/20">
-              <div className="text-center">
-                <p className="text-sm font-bold text-[#582c81] mb-1">Aprovação Institucional</p>
-                <p className="text-xs text-slate-600">Hospital Israelita Albert Einstein</p>
-                <p className="text-xs text-slate-500">(TCC Pós-Graduação 2020)</p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6 border-t border-[#582c81]/20">
               <div className="text-center">
                 <p className="text-sm font-bold text-[#582c81] mb-1">Autora Principal</p>
                 <p className="text-xs text-slate-600">Patricia Bortone</p>
                 <p className="text-xs text-slate-500">Especialista e Criadora da Técnica Radiestesia Genética</p>
               </div>
               <div className="text-center">
-                <p className="text-sm font-bold text-[#582c81] mb-1">Validação Oficial</p>
-                <p className="text-xs text-slate-600">Registrado pelo MEC</p>
-                <p className="text-xs text-slate-500">Sistema Internacional 10-20</p>
+                <p className="text-sm font-bold text-[#582c81] mb-1">Reconhecimento Oficial</p>
+                <p className="text-xs text-slate-600">ABRADGEN</p>
+                <p className="text-xs text-slate-500">Associação Brasileira de Radiestesia Genética</p>
               </div>
             </div>
             
