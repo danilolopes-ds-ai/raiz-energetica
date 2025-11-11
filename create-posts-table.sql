@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS posts (
 INSERT INTO posts (title, excerpt, content, category, status, featured, image, author, slug, read_time, date) VALUES
 (
   'Influência da Radiestesia Genética nos Padrões Cerebrais',
-  'Estudo científico conduzido no Hospital Albert Einstein demonstra através de mapeamento cerebral as evidências objetivas dos efeitos da Radiestesia Genética nos padrões neurológicos.',
-  'Estudo científico conduzido no Hospital Albert Einstein demonstra como a técnica de Radiestesia Genética pode alterar padrões de atividade cerebral, promovendo bem-estar e equilíbrio energético.',
+  'Estudos reconhecidos pela ABRADGEN (Associação Brasileira de Radiestesia Genética) demonstram através de mapeamento cerebral as evidências objetivas dos efeitos da Radiestesia Genética nos padrões neurológicos.',
+  'Estudos reconhecidos pela ABRADGEN demonstram como a técnica de Radiestesia Genética pode alterar padrões de atividade cerebral, promovendo bem-estar e equilíbrio energético.',
   'radiestesia-genetica',
   'published',
   true,
