@@ -88,7 +88,7 @@ const OfertaLimpeza = ({ slots, handlePurchaseClick }) => {
                       <span className="text-2xl text-teal-700 font-bold">,90</span>
                     </div>
                     
-                    <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 14,96</span> sem juros</p>
+                    <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 15,41</span></p>
                     
                     {/* Badge de economia */}
                     <div className="inline-flex items-center gap-2 bg-amber-50 border-2 border-amber-300 text-amber-900 px-4 py-2 rounded-xl">
