@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Raiz Energética</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Investigamos a raiz, curamos a causa. Aqui você encontra as respostas que seus sintomas escondem.
+              Investigamos a Raiz, descobrimos a causa. Aqui você encontra as respostas que seus sintomas escondem.
             </p>
           </div>
 

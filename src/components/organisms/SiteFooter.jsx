@@ -15,7 +15,7 @@ const SiteFooter = () => {
               <span className="text-xl font-bold">Raiz Energética</span>
             </div>
             <Text variant="caption" className="text-gray-300">
-              Investigamos a raiz, curamos a causa. Aqui você encontra as respostas que seus sintomas escondem.
+              Investigamos a Raiz, descobrimos a causa. Aqui você encontra as respostas que seus sintomas escondem.
             </Text>
           </div>
 
