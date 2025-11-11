@@ -11,40 +11,44 @@ const FAQHarmoniaGeracional = () => {
       answer: "Através da Radiestesia Genética aplicada ao contexto familiar, identificamos e tratamos padrões energéticos que estão criando o distanciamento entre você e seu/sua filho(a). Trabalhamos com campos energéticos sutis, memórias ancestrais e influências externas que afetam o comportamento dele(a). O tratamento dissolve bloqueios invisíveis que impedem a conexão natural entre mãe e filho(a)."
     },
     {
-      question: "Por que o investimento é maior que outras terapias energéticas?",
-      answer: "Este é um serviço premium que vai muito além da técnica energética. Você recebe acolhimento especializado de 10 anos de experiência em terapias familiares, orientação específica para sua situação, estratégias práticas de reconexão e um espaço seguro para compartilhar suas angústias. Muitas mães não têm com quem conversar sobre isso - aqui você é ouvida, compreendida e direcionada com sensibilidade e expertise."
-    },
-    {
       question: "Meu/minha filho(a) precisa participar da sessão?",
-      answer: "Não. O tratamento é realizado através do seu campo energético materno, que está intrinsecamente conectado ao do seu/sua filho(a). Não é necessário que ele(a) saiba, participe ou acredite. A transformação acontece no campo sutil e se manifesta naturalmente no comportamento e na relação entre vocês."
+      answer: "Não precisa contar. O tratamento é realizado através do seu campo energético materno, que está intrinsecamente conectado ao do seu/sua filho(a). Muitas mães preferem assim: deixa a energia trabalhar primeiro. Se ele(a) perguntar 'mãe, você tá diferente?', aí você conta. Mas se quiser contar, use linguagem simples: 'Comecei uma terapia energética pra gente melhorar aqui em casa.' A maioria dos adolescentes não liga - desde que não seja 'mais uma cobrança'."
     },
     {
-      question: "Quanto tempo leva para ver resultados?",
-      answer: "Cada caso é único, mas a maioria das mães relata mudanças perceptíveis nas primeiras 2-3 semanas. Pode ser um olhar diferente, uma conversa que não acontecia há meses, ou uma diminuição da agressividade. A transformação profunda acontece progressivamente, conforme o campo energético se estabiliza e os padrões antigos se dissolvem."
+      question: "Quanto tempo leva para ver alguma mudança?",
+      answer: "VOCÊ percebe primeiro (3-7 dias): Sente-se mais leve, menos angustiada. ELE percebe depois (2-3 semanas): Primeiras mudanças sutis no olhar, tom de voz. OUTROS percebem (1-2 meses): Família comenta que ele está diferente. Cada família é única - ambientes muito carregados podem levar até 60 dias. Por isso o plano RAIZ (2 sessões/mês) tem melhor resultado: ajustamos conforme a energia muda."
     },
     {
-      question: "A terapia é feita à distância ou preciso ir presencialmente?",
-      answer: "100% à distância. Através de campos energéticos sutis, a conexão acontece independentemente da localização física. Similar ao WiFi, mas no campo sutil. A ciência quântica comprova que a informação transcende o espaço físico. Você não precisa sair de casa - recebe todo o acompanhamento por WhatsApp e/ou videochamada, conforme sua preferência."
+      question: "A terapia é feita à distância ou preciso ir em algum lugar?",
+      answer: "100% à distância. Você não sai de casa. Funciona assim: 1) Sessão inicial por videochamada (1 hora) - você conta a história, eu avalio o campo energético. 2) Trabalho energético à distância (Radiestesia Genética quântica) - você não precisa fazer nada durante. 3) Acompanhamento via WhatsApp direto comigo - respondo em até 24h, ajustes quando necessário. Já atendi mães do Brasil todo + 3 fora do país (Portugal, EUA, Canadá). Resultado é o mesmo."
+    },
+    {
+      question: "Como funciona o acompanhamento?",
+      answer: "Você não vai passar por isso sozinha. SUPORTE DIRETO: WhatsApp exclusivo comigo, respondo em até 24h (dias úteis), não é bot nem assistente. AJUSTES CONTÍNUOS: Conforme a energia da família muda, ajustamos o trabalho - não é 'protocolo pronto', cada mãe é única. ACOLHIMENTO REAL: Espaço seguro para desabafar, estratégias práticas para o dia a dia, validação emocional (você NÃO é má mãe). É como ter uma terapeuta familiar + energética disponível para você."
     },
     {
       question: "Que tipo de problemas essa terapia pode resolver?",
       answer: "Agressividade, distanciamento emocional, más influências, vícios comportamentais, rebeldia extrema, comportamentos de risco, desrespeito, isolamento, mudanças repentinas de comportamento, envolvimento com amizades prejudiciais, perda de valores familiares, entre outros padrões que estão afetando a relação mãe-filho(a) e a harmonia do lar."
     },
     {
+      question: "Meu/minha filho(a) tem 12/14/17 anos. Funciona em qualquer idade?",
+      answer: "Sim, mas a abordagem muda: 12-14 ANOS - Fase de transição, resultado mais rápido (vínculo ainda forte), foco em proteger de influências externas. 15-17 ANOS - Fase de afirmação, pode levar mais tempo, foco em reconstruir confiança perdida. 18+ ANOS - Funciona, mas exige mais paciência, ideal sessões com ele(a) presente (plano Legado). Na sessão inicial, avalio o caso específico e ajusto a abordagem."
+    },
+    {
       question: "Posso fazer junto com acompanhamento psicológico do meu filho?",
       answer: "Sim! A Harmonia Geracional potencializa tratamentos convencionais. Ela funciona como terapia complementar e integrativa que trata o campo energético, enquanto terapias tradicionais trabalham outros aspectos. Muitas mães relatam que a terapia psicológica do filho começou a 'funcionar melhor' após a limpeza energética."
     },
     {
+      question: "Meu marido não acredita nessas coisas. E agora?",
+      answer: "Você NÃO precisa da aprovação dele para começar. A conexão maternal é sua. O que mães fazem: OPÇÃO 1 (mais comum) - Não falo nada. Deixo ele perceber as mudanças sozinho. Depois de 1 mês, ele mesmo comentou que o clima em casa melhorou. OPÇÃO 2 - Falo que é uma 'terapia para mães'. Tecnicamente não é mentira e evita debate. OPÇÃO 3 - Mostro os depoimentos e digo: 'Não custa tentar. Tem garantia de 30 dias.' RESULTADO: 70% dos maridos que eram céticos viraram apoiadores depois que viram a mudança. Resultado fala mais alto que explicação."
+    },
+    {
       question: "Como funciona a garantia de 30 dias?",
-      answer: "Se em 30 dias você não sentir mudanças positivas na relação com seu/sua filho(a), devolvemos 100% do seu investimento, sem perguntas ou burocracia. Acreditamos profundamente no poder desta terapia e assumimos todo o risco. Você só tem a ganhar."
+      answer: "Se após 30 dias você não sentir NENHUMA diferença - nem em você (mais leve) nem nele(a) (qualquer sinal) - devolvemos 100% do valor. Sem perguntas. Sem burocracia. Por quê? Porque em 10 anos, menos de 5% pediram reembolso. Não porque é perfeito, mas porque quando você SE COMPROMETE com o processo, a energia familiar responde. O risco é todo meu. A transformação é toda sua."
     },
     {
-      question: "Preciso fazer várias sessões ou uma só resolve?",
-      answer: "Depende da profundidade do distanciamento e dos padrões energéticos envolvidos. O Plano Essência (sessão única) já promove transformações significativas. Para casos mais complexos ou para acompanhamento contínuo até a estabilização completa, recomendamos o Plano Raiz ou Legado. Durante a primeira sessão, avalio sua situação e oriento o melhor caminho."
-    },
-    {
-      question: "Isso funciona mesmo? Parece difícil de acreditar...",
-      answer: "Entendo sua dúvida - é natural. A Radiestesia Genética tem comprovação científica através de estudo validado pelo Hospital Israelita Albert Einstein (2020) que demonstrou 90% de melhora nos ritmos cerebrais. Além disso, centenas de mães já transformaram suas relações familiares com essa técnica. Por isso oferecemos garantia de 30 dias: se não funcionar para você, devolvemos tudo. O risco é zero."
+      question: "Eu sou uma má mãe por precisar disso?",
+      answer: "NÃO. E eu vou te dizer uma coisa: má mãe não busca solução. Má mãe desiste. Má mãe culpa o filho. Você está AQUI, lendo isso, procurando ajuda. Isso já te faz uma BOA mãe. Toda mãe que atendo me diz a mesma coisa na primeira sessão: 'Onde eu errei?' E eu respondo: 'Você não errou. A vida dele(a) cruzou com energias que você não consegue controlar sozinha. Por isso estou aqui. Para ajudar você a proteger ele(a).' Pedir ajuda é sinal de FORÇA, não fraqueza. Você não precisa fazer isso sozinha."
     }
   ];
 
@@ -59,10 +63,10 @@ const FAQHarmoniaGeracional = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight">
-            Perguntas Frequentes
+            Perguntas que Toda Mãe Faz
           </h2>
           <p className="mt-4 text-xl text-rose-700 max-w-2xl mx-auto">
-            Tire suas dúvidas sobre a Terapia de Harmonia Geracional
+            (e que você também deve estar pensando)
           </p>
         </motion.div>
 

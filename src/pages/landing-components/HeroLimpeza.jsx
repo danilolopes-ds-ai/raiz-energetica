@@ -77,10 +77,12 @@ const HeroLimpeza = () => {
             >
               <Button
                 size="lg"
+                asChild
                 className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white shadow-lg shadow-teal-500/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-teal-500/40 rounded-full text-base sm:text-lg px-8 py-6"
-                onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Renovar Minha Energia Agora
+                <a href="https://pay.kiwify.com.br/XExYlUB" target="_blank" rel="noopener noreferrer">
+                  Renovar Minha Energia Agora
+                </a>
               </Button>
               <Button
                 size="lg"

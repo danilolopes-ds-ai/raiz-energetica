@@ -100,10 +100,13 @@ const OfertaLimpeza = ({ slots, handlePurchaseClick }) => {
                   {/* CTA Button */}
                   <Button 
                     onClick={handlePurchaseClick} 
-                    size="lg" 
+                    size="lg"
+                    asChild
                     className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-full py-7"
                   >
-                    Quero Minha Limpeza
+                    <a href="https://pay.kiwify.com.br/XExYlUB" target="_blank" rel="noopener noreferrer">
+                      Quero Minha Limpeza
+                    </a>
                   </Button>
                   
                   {/* Slots urgency */}

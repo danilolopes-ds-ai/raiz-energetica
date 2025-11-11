@@ -90,11 +90,13 @@ const CTAFinalLimpeza = ({ slots = 8 }) => {
             >
               <Button
                 size="lg"
-                onClick={scrollToOferta}
+                asChild
                 className="group bg-white hover:bg-amber-50 text-teal-700 font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 rounded-full text-base md:text-lg px-8 py-6 h-auto"
               >
-                Quero Minha Limpeza Agora
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <a href="https://pay.kiwify.com.br/XExYlUB" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  Quero Minha Limpeza Agora
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
               </Button>
             </motion.div>
 

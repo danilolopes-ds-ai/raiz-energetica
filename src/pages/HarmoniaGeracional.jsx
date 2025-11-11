@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Hand as HeartHand, ShieldCheck, CheckCircle, Home, Flower2, Star, Sparkles, HeartHandshake, Users, BrainCircuit, Leaf, MessageSquare, Ear, Heart } from 'lucide-react';
+import { Hand as HeartHand, ShieldCheck, CheckCircle, Home, Flower2, Star, Sparkles, HeartHandshake, Users, BrainCircuit, Leaf, MessageSquare, Ear, Heart, ChevronDown } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Helmet } from 'react-helmet-async';
 import LandingHeader from "./landing-components/LandingHeader";
@@ -34,7 +34,15 @@ const PainPointCard = React.memo(({ point, index }) => {
         <div className="bg-rose-100 p-4 rounded-full mb-4 transition-all duration-300 ease-out group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-rose-400/30">
           <point.icon className="w-8 h-8 text-rose-500" aria-hidden="true" />
         </div>
-        <p className="text-rose-800 font-medium leading-relaxed">{point.text}</p>
+        <p className="text-rose-800 font-medium leading-relaxed mb-4">{point.text}</p>
+        
+        {/* Checkbox visual */}
+        <div className="mt-auto flex items-center gap-2 text-rose-600">
+          <div className="w-5 h-5 border-2 border-rose-300 rounded flex items-center justify-center hover:border-rose-500 transition-colors">
+            <span className="text-xs">✓</span>
+          </div>
+          <span className="text-sm font-medium">Sim, sinto isso</span>
+        </div>
       </Card>
     </motion.div>
   );
@@ -157,18 +165,66 @@ const TestimonialCard = React.memo(({ testimonial, index }) => {
       viewport={{ once: true, amount: 0.3 }}
       className="h-full"
     >
-      <Card className="h-full border-rose-200/80 shadow-md p-6 flex flex-col bg-white">
-        <div className="flex mb-3" aria-label="Avaliação: 5 estrelas">
-          {[...Array(5)].map((_, j) => (
-            <Star key={j} className="w-5 h-5 text-yellow-400 fill-yellow-400" aria-hidden="true" />
-          ))}
+      <Card className="h-full border-rose-200/80 shadow-md overflow-hidden bg-white">
+        {/* Header com foto e nome */}
+        <div className="bg-gradient-to-r from-rose-50 to-pink-50 p-6 border-b border-rose-200">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 flex items-center justify-center text-white font-bold text-lg">
+              {testimonial.name.charAt(0)}
+            </div>
+            <div>
+              <h4 className="font-bold text-rose-900">{testimonial.name}</h4>
+              <p className="text-sm text-rose-600">{testimonial.location}</p>
+            </div>
+          </div>
+          <div className="flex" aria-label="Avaliação: 5 estrelas">
+            {[...Array(5)].map((_, j) => (
+              <Star key={j} className="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" />
+            ))}
+          </div>
         </div>
-        <blockquote className="text-rose-700 italic mb-4 flex-grow leading-relaxed">
-          "{testimonial.text}"
-        </blockquote>
-        <cite className="font-bold text-rose-800 text-right not-italic">
-          - {testimonial.name}
-        </cite>
+
+        {/* Conteúdo do depoimento */}
+        <div className="p-6 space-y-4">
+          {/* ANTES */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
+                <span className="text-red-600 font-bold text-xs">🔴</span>
+              </div>
+              <h5 className="text-sm font-bold text-rose-900 uppercase tracking-wide">Antes:</h5>
+            </div>
+            <p className="text-rose-700 text-sm leading-relaxed pl-8">
+              "{testimonial.before}"
+            </p>
+          </div>
+
+          {/* DEPOIS */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                <span className="text-green-600 font-bold text-xs">🟢</span>
+              </div>
+              <h5 className="text-sm font-bold text-rose-900 uppercase tracking-wide">Depois:</h5>
+            </div>
+            <p className="text-rose-700 text-sm leading-relaxed pl-8">
+              "{testimonial.after}"
+            </p>
+          </div>
+
+          {/* O QUE MAIS AJUDOU */}
+          <div className="bg-rose-50/50 rounded-lg p-4 border-l-4 border-rose-400">
+            <div className="flex items-start gap-2">
+              <span className="text-lg">💡</span>
+              <div>
+                <h5 className="text-xs font-bold text-rose-900 uppercase tracking-wide mb-1">O que mais ajudou:</h5>
+                <p className="text-rose-700 text-sm leading-relaxed italic">
+                  "{testimonial.highlight}"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </Card>
     </motion.div>
   );
@@ -180,11 +236,11 @@ const HarmoniaGeracional = () => {
 
   // Memoização dos dados estáticos
   const painPoints = useMemo(() => [
-    { icon: BrainCircuit, text: "Você olha para seu/sua filho(a) adolescente e sente falta daquele brilho nos olhos?" },
-    { icon: HeartHand, text: "Encontrou algo preocupante no quarto dele(a) e seu coração disparou?" },
-    { icon: Users, text: "Seu/sua filho(a) responde com agressividade quando você só quer ajudar?" },
-    { icon: Sparkles, text: "As amizades do(a) adolescente te deixam inquieta, mas você não sabe como intervir?" },
-    { icon: Home, text: "Tudo que você ensinou com amor... parece ter se perdido na adolescência?" },
+    { icon: Home, text: "Ele(a) mal olha na sua cara quando chega em casa" },
+    { icon: MessageSquare, text: "Você pergunta como foi o dia... ele(a) responde com monossílabos" },
+    { icon: Users, text: "Qualquer conversa vira briga. Você tem medo de falar com ele(a)" },
+    { icon: BrainCircuit, text: "Ele(a) vive trancado(a) no quarto, grudado(a) no celular. Você não sabe mais quem ele(a) é" },
+    { icon: HeartHand, text: "Você vai dormir com aquele aperto: 'E se ele(a) está se envolvendo com algo perigoso?'" },
   ], []);
 
   const hopeCards = useMemo(() => [
@@ -229,8 +285,20 @@ const HarmoniaGeracional = () => {
   ], []);
 
   const testimonials = useMemo(() => [
-    { name: "Ana P., mãe de um adolescente de 16 anos", text: "Meu filho não me ouvia, só vivia trancado. Depois da limpeza, ele veio me abraçar e disse: 'Mãe, obrigado por não desistir de mim'. Chorei. Fazia anos que não ouvia isso." },
-    { name: "Sofia R., mãe de um jovem de 18 anos", text: "As amizades dele me tiravam o sono. Depois da terapia, ele mesmo se afastou. Hoje temos paz, e ele voltou a estudar com vontade." }
+    { 
+      name: "Camila M., 44 anos", 
+      location: "São Paulo - SP",
+      before: "Meu filho de 16 anos começou a chegar tarde, mentindo sobre onde estava. Eu tinha certeza que eram más influências. Tentei psicólogo - ele ia mas não falava nada. Eu não dormia mais.",
+      after: "Na 3ª semana, ele me pediu desculpa do nada. Hoje ele me apresentou os amigos novos e conheci a namorada dele. Voltei a dormir.",
+      highlight: "Não foi só a sessão. Foi você me dizendo 'você não é má mãe' quando eu desabei chorando. Isso me salvou."
+    },
+    { 
+      name: "Roberta S., 38 anos", 
+      location: "Belo Horizonte - MG",
+      before: "Meu filho de 14 anos vivia trancado no quarto, no celular. Qualquer conversa virava briga. Eu tinha medo de falar com ele. O pai disse que eu estava exagerando, mas eu sabia que algo estava errado.",
+      after: "Depois de 4 semanas, ele saiu do quarto e perguntou 'mãe, vamos assistir filme?'. Fazia 8 meses que isso não acontecia. Hoje jantamos juntos todo dia.",
+      highlight: "O acompanhamento fez toda diferença. Toda vez que eu duvidava, você me lembrava: 'confie no processo'. E funcionou."
+    }
   ], []);
 
   // Gestão de slots otimizada
@@ -336,10 +404,10 @@ const HarmoniaGeracional = () => {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-12"
               >
-                <h2 id="premium-service-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight mb-4">
+                <h2 id="premium-service-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight mb-4">
                   Mais Que Uma Terapia Energética: Um Acolhimento Completo
                 </h2>
-                <p className="text-xl text-rose-700 leading-relaxed max-w-2xl mx-auto">
+                <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
                   A Harmonia Geracional utiliza a <strong>Radiestesia Genética</strong> comprovada cientificamente (estudo validado pelo Hospital Albert Einstein, 2020), mas vai muito além da técnica.
                 </p>
               </motion.div>
@@ -398,18 +466,18 @@ const HarmoniaGeracional = () => {
         </section>
 
         {/* Seção de Dores Otimizada */}
-        <section className="py-20 md:py-24 bg-rose-50/90" aria-labelledby="pain-points-heading">
+        <section className="py-20 md:py-24 bg-slate-50" aria-labelledby="pain-points-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 id="pain-points-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight text-center">
-                Você se Reconhece Nestas Situações?
+              <h2 id="pain-points-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight text-center">
+                Você Também Sente Que...
               </h2>
-              <p className="mt-4 text-lg text-rose-700">
-                Se o seu coração de mãe sentiu cada palavra, saiba: ainda dá tempo de reverter. E você não está sozinha.
+              <p className="mt-4 text-lg text-slate-600 italic">
+                Marque mentalmente quantas você reconhece
               </p>
             </div>
             <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-16 max-w-6xl mx-auto"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -419,17 +487,42 @@ const HarmoniaGeracional = () => {
                 <PainPointCard key={i} point={point} index={i} />
               ))}
             </motion.div>
+
+            {/* Transição para Esperança */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="max-w-2xl mx-auto mt-16 text-center"
+            >
+              <div className="bg-white rounded-2xl p-8 border-2 border-rose-400 shadow-lg">
+                <p className="text-xl text-slate-900 font-semibold mb-3">
+                  Se você marcou 2 ou mais...
+                </p>
+                <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                  Você não está sozinha. E não é tarde demais.
+                </p>
+                <button
+                  onClick={() => document.querySelector('#hope-heading').scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center gap-2 text-rose-600 font-semibold hover:text-rose-700 transition-colors group"
+                >
+                  Ver Como Outras Mães Superaram
+                  <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Seção de Esperança - Timeline */}
-        <section className="py-20 md:py-24 bg-gradient-to-br from-rose-50 to-pink-50" aria-labelledby="hope-heading">
+        <section className="py-20 md:py-24 bg-white" aria-labelledby="hope-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 id="hope-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight">
+              <h2 id="hope-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
                 A Boa Notícia: É Possível Reconectar com Seu/Sua Filho(a)
               </h2>
-              <p className="mt-4 text-lg text-rose-700">
+              <p className="mt-4 text-lg text-slate-600">
                 Mesmo que o distanciamento pareça grande, ainda é possível resgatar a conexão. Trazer seu/sua filho(a) de volta. Reconstruir a relação mãe-filho que você sempre sonhou.
               </p>
             </div>
@@ -474,10 +567,10 @@ const HarmoniaGeracional = () => {
         <section id="transformacao" className="py-20 md:py-24 bg-white" aria-labelledby="transformation-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 id="transformation-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight">
+              <h2 id="transformation-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
                 Como a Terapia Transforma a Relação de Vocês
               </h2>
-              <p className="mt-4 text-lg text-rose-700">
+              <p className="mt-4 text-lg text-slate-600">
                 Através de técnicas energéticas específicas, quebramos os padrões que criam conflito e ativamos a reconexão natural entre mãe e filho(a).
               </p>
             </div>
@@ -490,7 +583,7 @@ const HarmoniaGeracional = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-gradient-to-br from-rose-50 to-white border border-rose-200/60 p-6 rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="bg-white border border-slate-200 p-6 rounded-xl hover:shadow-lg hover:border-rose-300 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
@@ -499,8 +592,8 @@ const HarmoniaGeracional = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-rose-900 mb-2">{transformation.title}</h3>
-                      <p className="text-rose-700 text-sm leading-relaxed">{transformation.description}</p>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">{transformation.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{transformation.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -510,29 +603,92 @@ const HarmoniaGeracional = () => {
         </section>
 
         {/* Seção de Depoimentos Otimizada */}
-        <section className="py-20 md:py-24 bg-rose-50/90" aria-labelledby="testimonials-heading">
+        <section className="py-20 md:py-24 bg-slate-50" aria-labelledby="testimonials-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 id="testimonials-heading" className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-900 via-pink-500 to-rose-900 bg-clip-text text-transparent tracking-tight">
+              <h2 id="testimonials-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
                 Elas Transformaram Suas Famílias. Você Pode Ser a Próxima.
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
               {testimonials.map((testimonial, i) => (
                 <TestimonialCard key={i} testimonial={testimonial} index={i} />
               ))}
+            </div>
+
+            {/* Micro-quotes */}
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:border-rose-300 transition-colors"
+              >
+                <p className="text-slate-700 italic text-sm mb-3 leading-relaxed">
+                  "Meu filho me abraçou sem eu pedir. Fazia 8 meses."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-slate-900 font-semibold text-xs">Paula, 41 anos</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:border-rose-300 transition-colors"
+              >
+                <p className="text-slate-700 italic text-sm mb-3 leading-relaxed">
+                  "Ele voltou a jantar com a gente. Parece simples, mas pra mim é tudo."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-slate-900 font-semibold text-xs">Júlia, 39 anos</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:border-rose-300 transition-colors"
+              >
+                <p className="text-slate-700 italic text-sm mb-3 leading-relaxed">
+                  "Ele me disse 'mãe, desculpa'. Eu não esperava mais ouvir isso."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-slate-900 font-semibold text-xs">Fernanda, 43 anos</p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* Seção de Urgência Otimizada */}
-        <section className="py-20 md:py-24 bg-gradient-to-br from-rose-100 to-pink-100" aria-labelledby="urgency-heading">
+        <section className="py-20 md:py-24 bg-white" aria-labelledby="urgency-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 id="urgency-heading" className="text-3xl lg:text-4xl font-bold text-rose-900 mb-6">
+              <h2 id="urgency-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
                 Quanto Mais Cedo, Mais Fácil a Reconexão
               </h2>
-              <p className="text-lg text-rose-700 mb-8">
+              <p className="text-lg text-slate-600 mb-8">
                 Cada dia que passa, os padrões se aprofundam. Mas você pode agir agora e começar a transformação que sua família precisa.
               </p>
               

@@ -23,7 +23,7 @@ const LandingHeader = () => (
                 <span className="font-bold text-lg sm:text-xl tracking-tight">Limpeza Energética</span>
             </Link>
             <Button asChild className="bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-full px-4 sm:px-6 py-2 text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300">
-                <a href="#oferta">
+                <a href="https://pay.kiwify.com.br/XExYlUB" target="_blank" rel="noopener noreferrer">
                     <span className="hidden sm:inline">Renovar Minha Energia</span>
                     <span className="sm:hidden">Renovar Energia</span>
                 </a>
@@ -246,7 +246,7 @@ const LimpezaEnergetica = () => {
                         asChild 
                         className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 rounded-full px-8 py-6 text-base md:text-lg"
                       >
-                        <a href="#oferta">Solicitar Limpeza Sem Risco</a>
+                        <a href="https://pay.kiwify.com.br/XExYlUB" target="_blank" rel="noopener noreferrer">Solicitar Limpeza Sem Risco</a>
                       </Button>
                     </div>
                   </div>
