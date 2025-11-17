@@ -100,7 +100,16 @@ const RichTextEditor = ({ content, onChange }) => {
     const selectedText = content.substring(start, end);
     
     if (selectedText.includes('![')) {
-      const centered = `<div style="text-align: center; margin: 20px 0;">${selectedText}</div>`;
+      // Se já está envolvido em div, remove a div para evitar duplicação
+      let textToCenter = selectedText;
+      if (selectedText.includes('<div style="text-align: center')) {
+        // Remove a div externa se existir
+        textToCenter = selectedText
+          .replace(/<div style="text-align: center; margin: 20px 0;">/, '')
+          .replace(/<\/div>\s*$/, '');
+      }
+      
+      const centered = `<div style="text-align: center; margin: 20px 0;">${textToCenter}</div>`;
       const newContent = 
         content.substring(0, start) + 
         centered + 
