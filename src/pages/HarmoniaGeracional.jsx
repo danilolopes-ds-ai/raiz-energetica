@@ -681,6 +681,86 @@ const HarmoniaGeracional = () => {
           </div>
         </section>
 
+        {/* Seção de Autoridade do Terapeuta */}
+        <section className="py-20 md:py-24 bg-gradient-to-b from-slate-50 to-white" aria-labelledby="therapist-heading">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto">
+              <h2 id="therapist-heading" className="text-3xl lg:text-4xl font-bold text-slate-900 text-center mb-12 tracking-tight">
+                Quem Vai Guiar Você (e Seu/Sua Filho(a)) Nesta Jornada?
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-12 items-center bg-white rounded-3xl shadow-xl shadow-rose-500/10 p-8 md:p-12 border border-rose-100">
+                {/* Foto do Terapeuta */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="relative"
+                >
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-rose-500/20 border-4 border-rose-100">
+                    <img
+                      src="/images/services/foto-perfil-raiz-site.webp"
+                      alt="Danilo Lopes - Terapeuta especialista em Radiestesia Genética"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Badge de Credibilidade */}
+                  <div className="absolute -bottom-4 -right-4 bg-rose-600 text-white px-6 py-3 rounded-full shadow-lg shadow-rose-600/40 rotate-3">
+                    <p className="text-sm font-bold">10+ Anos</p>
+                    <p className="text-xs opacity-90">de Experiência</p>
+                  </div>
+                </motion.div>
+
+                {/* Texto de Apresentação */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="space-y-6"
+                >
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Danilo Lopes</h3>
+                    <p className="text-rose-600 font-semibold">Especialista em Dinâmicas Familiares & Radiestesia Genética</p>
+                  </div>
+
+                  <div className="h-1 w-20 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full"></div>
+
+                  <p className="text-lg text-slate-700 leading-relaxed">
+                    Eu não sou apenas um terapeuta. Sou especialista em dinâmicas familiares e uso a Radiestesia Genética há mais de 10 anos para reconectar mães e filhos.
+                  </p>
+
+                  <p className="text-lg text-slate-700 leading-relaxed">
+                    <strong className="text-slate-900">Eu entendo a dor de não ser ouvida.</strong> Minha missão é restaurar a comunicação na sua casa, começando pela raiz energética do conflito.
+                  </p>
+
+                  {/* Badges de Credibilidade */}
+                  <div className="flex flex-wrap gap-3 pt-4">
+                    <div className="flex items-center gap-2 bg-rose-50 px-4 py-2 rounded-full border border-rose-200">
+                      <ShieldCheck className="w-5 h-5 text-rose-600" />
+                      <span className="text-sm font-semibold text-rose-900">Reconhecido pela ABRADGEN</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-rose-50 px-4 py-2 rounded-full border border-rose-200">
+                      <Users className="w-5 h-5 text-rose-600" />
+                      <span className="text-sm font-semibold text-rose-900">500+ Famílias Atendidas</span>
+                    </div>
+                  </div>
+
+                  {/* Quote destacada */}
+                  <div className="bg-gradient-to-r from-rose-50 to-pink-50 p-6 rounded-xl border-l-4 border-rose-500 mt-6">
+                    <p className="text-slate-800 italic leading-relaxed">
+                      "Cada mãe que me procura não é um caso perdido. É uma oportunidade de reconexão que a família inteira estava esperando."
+                    </p>
+                    <p className="text-rose-700 font-semibold mt-2 text-sm">— Danilo Lopes</p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Seção de Urgência Otimizada */}
         <section className="py-20 md:py-24 bg-white" aria-labelledby="urgency-heading">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
