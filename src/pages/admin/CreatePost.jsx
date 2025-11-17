@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
 import { useAdminAuth } from '@/pages/admin/AdminLogin';
 import RichTextEditor from '@/components/admin/RichTextEditor';
@@ -12,8 +12,10 @@ import ReactMarkdown from 'react-markdown';
 
 const CreatePost = () => {
   const navigate = useNavigate();
+  const { id } = useParams(); // Pega o :id da URL para modo edição
   const { isAuthenticated, loading: authLoading } = useAdminAuth();
   const [loading, setLoading] = useState(false);
+  const [loadingPost, setLoadingPost] = useState(!!id); // true se está carregando post para edição
   const [preview, setPreview] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -43,6 +45,59 @@ const CreatePost = () => {
     return null;
   }
 
+  // Carregar dados do post quando em modo edição
+  useEffect(() => {
+    if (id) {
+      const loadPost = async () => {
+        try {
+          const { data, error } = await supabase
+            .from('posts')
+            .select('*')
+            .eq('id', id)
+            .single();
+
+          if (error) throw error;
+
+          if (data) {
+            setFormData({
+              title: data.title || '',
+              slug: data.slug || '',
+              excerpt: data.excerpt || '',
+              image: data.image || '',
+              content: data.content || '',
+              category: data.category || '',
+              status: data.status || 'draft',
+              featured: data.featured || false,
+              author: data.author || 'Helena Raiz',
+              read_time: data.read_time || '5 min',
+            });
+          }
+        } catch (error) {
+          console.error('Erro ao carregar post:', error);
+          alert('Erro ao carregar post: ' + error.message);
+        } finally {
+          setLoadingPost(false);
+        }
+      };
+
+      loadPost();
+    } else {
+      setLoadingPost(false);
+    }
+  }, [id]);
+
+  // Mostrar tela de carregamento enquanto está buscando o post
+  if (loadingPost) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando post...</p>
+        </div>
+      </div>
+    );
+  }
+
   // Gera slug automaticamente do título
   const generateSlug = (title) => {
     return title
@@ -66,7 +121,7 @@ const CreatePost = () => {
 
   const handleSubmit = async (e, status = 'draft') => {
     e.preventDefault();
-    
+
     if (!formData.title || !formData.content) {
       alert('Título e conteúdo são obrigatórios!');
       return;
@@ -86,20 +141,41 @@ const CreatePost = () => {
         featured: formData.featured,
         author: formData.author,
         read_time: formData.read_time,
-        created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-        date: new Date().toISOString(),
       };
 
-      const { data, error } = await supabase
-        .from('posts')
-        .insert([postData])
-        .select()
-        .single();
+      let response;
+
+      if (id) {
+        // Modo edição: UPDATE
+        response = await supabase
+          .from('posts')
+          .update(postData)
+          .eq('id', id)
+          .select()
+          .single();
+      } else {
+        // Modo novo: INSERT
+        response = await supabase
+          .from('posts')
+          .insert([{
+            ...postData,
+            created_at: new Date().toISOString(),
+            date: new Date().toISOString(),
+          }])
+          .select()
+          .single();
+      }
+
+      const { data, error } = response;
 
       if (error) throw error;
 
-      alert(status === 'published' ? 'Post publicado com sucesso!' : 'Rascunho salvo!');
+      alert(
+        id 
+          ? (status === 'published' ? 'Post atualizado e publicado!' : 'Rascunho atualizado!')
+          : (status === 'published' ? 'Post publicado com sucesso!' : 'Rascunho salvo!')
+      );
       navigate('/admin/blog/gerenciar');
     } catch (error) {
       console.error('Erro ao salvar post:', error);
@@ -107,9 +183,7 @@ const CreatePost = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  if (preview) {
+  };  if (preview) {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-4xl mx-auto px-4">
@@ -168,7 +242,9 @@ const CreatePost = () => {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Voltar
             </Button>
-            <h1 className="text-2xl font-bold text-gray-900">Criar Novo Post</h1>
+            <h1 className="text-2xl font-bold text-gray-900">
+              {id ? 'Editar Post' : 'Criar Novo Post'}
+            </h1>
           </div>
 
           <Button
