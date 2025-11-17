@@ -12,13 +12,14 @@ import ReactMarkdown from 'react-markdown';
 
 const CreatePost = () => {
   const navigate = useNavigate();
-  const { id } = useParams(); // Pega o :id da URL para modo edição
+  const { id } = useParams();
   const { isAuthenticated, loading: authLoading } = useAdminAuth();
   
   console.log('🔄 CreatePost renderizando com ID:', id);
   
+  // TODOS OS HOOKS DEVEM SER DECLARADOS AQUI, NO TOPO, INCONDICIONALMENTE
   const [loading, setLoading] = useState(false);
-  const [loadingPost, setLoadingPost] = useState(!!id); // true se está carregando post para edição
+  const [loadingPost, setLoadingPost] = useState(!!id);
   const [preview, setPreview] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -33,23 +34,9 @@ const CreatePost = () => {
     read_time: '5 min',
   });
 
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-gray-600">Verificando autenticação...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return null;
-  }
-
-  // Carregar dados do post quando em modo edição
+  // HOOK INCONDICIONALMENTE NO TOPO
   const loadPost = useCallback(async () => {
+    // A lógica condicional vai DENTRO do hook, não FORA
     if (!id) {
       setLoadingPost(false);
       return;
@@ -88,9 +75,26 @@ const CreatePost = () => {
     }
   }, [id]);
 
+  // OUTRO HOOK INCONDICIONALMENTE NO TOPO
   useEffect(() => {
     loadPost();
   }, [id, loadPost]);
+
+  // AGORA os condicionais de autenticação (mas DEPOIS de todos os hooks)
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-600">Verificando autenticação...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   // Mostrar tela de carregamento enquanto está buscando o post
   if (loadingPost) {
