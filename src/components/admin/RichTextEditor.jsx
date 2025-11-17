@@ -9,14 +9,17 @@ import {
   Link as LinkIcon,
   Image as ImageIcon,
   Eye,
-  Code
+  Code,
+  Loader2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { supabase } from '@/lib/supabase';
 
 const RichTextEditor = ({ content, onChange }) => {
   const [preview, setPreview] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
 
   const insertMarkdown = (before, after = '') => {
     const textarea = document.getElementById('markdown-editor');
@@ -40,6 +43,53 @@ const RichTextEditor = ({ content, onChange }) => {
     }, 0);
   };
 
+  const handleImageUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Por favor, selecione apenas arquivos de imagem.');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('A imagem deve ter no máximo 5MB.');
+      return;
+    }
+
+    setUploadingImage(true);
+
+    try {
+      // Gerar nome único para o arquivo
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      const filePath = `posts/${fileName}`;
+
+      // Upload para Supabase Storage
+      const { data, error } = await supabase.storage
+        .from('blog-images')
+        .upload(filePath, file, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (error) throw error;
+
+      // Obter URL pública
+      const { data: { publicUrl } } = supabase.storage
+        .from('blog-images')
+        .getPublicUrl(filePath);
+
+      // Inserir markdown de imagem
+      insertMarkdown(`![imagem](${publicUrl})\n\n`);
+    } catch (error) {
+      console.error('Erro ao fazer upload:', error);
+      alert('Erro ao fazer upload da imagem. Tente novamente.');
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
   const toolbar = [
     { icon: Heading, label: 'H2', action: () => insertMarkdown('## ', '\n\n') },
     { icon: Bold, label: 'Negrito', action: () => insertMarkdown('**', '**') },
@@ -48,7 +98,6 @@ const RichTextEditor = ({ content, onChange }) => {
     { icon: ListOrdered, label: 'Lista Numerada', action: () => insertMarkdown('\n1. ', '\n') },
     { icon: Quote, label: 'Citação', action: () => insertMarkdown('\n> ', '\n\n') },
     { icon: LinkIcon, label: 'Link', action: () => insertMarkdown('[', '](url)') },
-    { icon: ImageIcon, label: 'Imagem', action: () => insertMarkdown('![alt](', ')') },
     { icon: Code, label: 'Código', action: () => insertMarkdown('`', '`') },
   ];
 
@@ -86,6 +135,34 @@ const RichTextEditor = ({ content, onChange }) => {
                 <tool.icon className="w-4 h-4" />
               </Button>
             ))}
+
+            {/* Separador */}
+            <div className="border-l border-gray-300 mx-1"></div>
+
+            {/* Upload de Imagem */}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              disabled={uploadingImage}
+              className="hidden"
+              id="markdown-image-upload"
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() => document.getElementById('markdown-image-upload').click()}
+              disabled={uploadingImage}
+              title="Fazer upload de imagem"
+              className="hover:bg-gray-200"
+            >
+              {uploadingImage ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <ImageIcon className="w-4 h-4" />
+              )}
+            </Button>
           </div>
 
           {/* Editor */}
