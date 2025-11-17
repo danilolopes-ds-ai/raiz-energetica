@@ -174,8 +174,7 @@ const CreatePost = () => {
           .from('posts')
           .update(postData)
           .eq('id', id)
-          .select()
-          .single();
+          .select();
           
         console.log('Resposta do UPDATE:', response);
       } else {
@@ -189,8 +188,7 @@ const CreatePost = () => {
             created_at: new Date().toISOString(),
             date: new Date().toISOString(),
           }])
-          .select()
-          .single();
+          .select();
           
         console.log('Resposta do INSERT:', response);
       }
@@ -207,7 +205,9 @@ const CreatePost = () => {
         throw error;
       }
 
-      console.log('✅ POST SALVO COM SUCESSO:', data);
+      // data é um array quando não usa .single()
+      const savedPost = Array.isArray(data) ? data[0] : data;
+      console.log('✅ POST SALVO COM SUCESSO:', savedPost);
 
       alert(
         id 

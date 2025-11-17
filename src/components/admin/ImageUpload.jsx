@@ -93,11 +93,12 @@ const ImageUpload = ({ value, onChange, label = "Imagem Destaque" }) => {
             onChange={handleFileUpload}
             disabled={uploading}
             className="hidden"
-            id="image-upload"
+            id={`image-upload-${Math.random()}`}
+            ref={(ref) => window.imageInputRef = ref}
           />
-          <label 
-            htmlFor="image-upload" 
+          <div 
             className="cursor-pointer flex flex-col items-center space-y-2"
+            onClick={() => document.querySelector('input[accept="image/*"]').click()}
           >
             {uploading ? (
               <>
@@ -115,13 +116,23 @@ const ImageUpload = ({ value, onChange, label = "Imagem Destaque" }) => {
                     PNG, JPG, WebP até 5MB
                   </p>
                 </div>
-                <Button type="button" size="sm" variant="outline" className="mt-2">
+                <Button 
+                  type="button" 
+                  size="sm" 
+                  variant="outline" 
+                  className="mt-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.querySelector('input[accept="image/*"]').click();
+                  }}
+                >
                   <Upload className="w-4 h-4 mr-2" />
                   Escolher Arquivo
                 </Button>
               </>
             )}
-          </label>
+          </div>
         </div>
       )}
     </div>
