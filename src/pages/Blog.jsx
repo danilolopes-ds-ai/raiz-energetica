@@ -4,6 +4,7 @@ import BlogFilters from '@/pages/Blog/BlogFilters';
 import FeaturedPostsSection from '@/pages/Blog/FeaturedPostsSection';
 import AllPostsSection from '@/pages/Blog/AllPostsSection';
 import NewsletterSection from '@/pages/Blog/NewsletterSection';
+import Logo from '@/components/atoms/Logo';
 import { supabase } from '@/lib/supabase';
 import { BookOpen, Heart, Lightbulb, Target, Atom, Home, Pyramid, Wand2, Gem, Sparkles, Palette, Users, Feather, Leaf, Brain, Utensils, FolderHeart as HandHeart, Users2 } from 'lucide-react';
 
@@ -101,6 +102,13 @@ const Blog = () => {
 
   return (
     <>
+      {/* Header com Logo */}
+      <div className="border-b border-gray-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <Logo />
+        </div>
+      </div>
+
       <BlogHero />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <BlogFilters

@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 
 const BlogHero = () => {
   return (
-    <section className="hero-pattern section-padding">
+    <section className="hero-pattern section-padding bg-gradient-to-br from-primary/5 via-white to-accent/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -12,7 +12,7 @@ const BlogHero = () => {
           transition={{ duration: 0.8 }}
           className="text-center space-y-6"
         >
-          <Badge className="bg-[#2D8C5C]/10 text-[#2D8C5C] border-[#2D8C5C]/20">
+          <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
             Blog Raiz Energética
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold">

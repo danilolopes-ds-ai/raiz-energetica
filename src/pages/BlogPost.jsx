@@ -7,6 +7,10 @@ import { supabase } from '@/lib/supabase';
 import NewsletterSection from '@/pages/Blog/NewsletterSection';
 import BlogQuizBanner from '@/components/organisms/BlogQuizBanner';
 import BlogPostQuizCTA from '@/components/organisms/BlogPostQuizCTA';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeSanitize from 'rehype-sanitize';
+import Logo from '@/components/atoms/Logo';
 
 const RelatedPostsSection = ({ currentSlug, category, posts }) => {
     const related = posts
@@ -77,6 +81,8 @@ const BlogPost = () => {
 
       if (error) throw error;
       setPost(data);
+      console.log('Post data:', data);
+      console.log('Image URL:', data?.image);
     } catch (error) {
       console.error('Erro ao buscar post:', error);
     } finally {
@@ -158,13 +164,20 @@ const BlogPost = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white"
+      className="bg-white min-h-screen"
     >
+      {/* Header com Logo */}
+      <div className="border-b border-gray-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <Logo />
+        </div>
+      </div>
+
       <BlogQuizBanner />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <Button asChild variant="ghost" className="text-blue-600 hover:text-blue-800 hover:bg-blue-50">
+            <Button asChild variant="ghost" className="text-primary hover:text-primary/80 hover:bg-primary/10">
               <Link to="/blog">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Voltar para o Blog
@@ -177,9 +190,9 @@ const BlogPost = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            {post.tags?.[0] && (
-              <p className="text-blue-600 font-semibold mb-2 uppercase tracking-wide">
-                {post.tags[0]}
+            {post.category && (
+              <p className="text-primary font-semibold mb-2 uppercase tracking-wide">
+                {post.category}
               </p>
             )}
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
@@ -189,16 +202,16 @@ const BlogPost = () => {
             <div className="flex flex-wrap items-center justify-between text-gray-500 text-sm mb-6">
               <div className="flex flex-wrap items-center">
                 <div className="flex items-center mr-6 mb-2">
-                  <User className="h-4 w-4 mr-2 text-blue-500" />
+                  <User className="h-4 w-4 mr-2 text-primary" />
                   <span>Helena</span>
                 </div>
                 <div className="flex items-center mr-6 mb-2">
-                  <Calendar className="h-4 w-4 mr-2 text-blue-500" />
+                  <Calendar className="h-4 w-4 mr-2 text-primary" />
                   <span>{formatDate(post.created_at)}</span>
                 </div>
                 {post.tags && post.tags.length > 0 && (
                   <div className="flex items-center mb-2">
-                    <Tag className="h-4 w-4 mr-2 text-blue-500" />
+                    <Tag className="h-4 w-4 mr-2 text-primary" />
                     <span>{post.tags.join(', ')}</span>
                   </div>
                 )}
@@ -214,26 +227,42 @@ const BlogPost = () => {
               </Button>
             </div>
 
-            {post.image_url && (
+            {post.image && (
               <div className="my-8 rounded-lg overflow-hidden shadow-2xl">
                 <img 
-                  src={post.image_url} 
+                  src={post.image} 
                   alt={post.title} 
                   className="w-full h-auto object-cover"
                 />
               </div>
             )}
 
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-              {post.description && (
-                <p className="text-xl font-medium text-gray-800 mb-6">
-                  {post.description}
-                </p>
-              )}
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            </div>
-            
-            <BlogPostQuizCTA />
+                                {/* Content */}
+                                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                                    {post.excerpt && (
+                                        <p className="text-xl font-medium text-gray-800 mb-6">
+                                            {post.excerpt}
+                                        </p>
+                                    )}
+                                    <ReactMarkdown 
+                                        remarkPlugins={[remarkGfm]}
+                                        rehypePlugins={[rehypeSanitize]}
+                                        components={{
+                                            h2: ({node, ...props}) => <h2 className="text-3xl font-bold mt-8 mb-4 text-gray-900" {...props} />,
+                                            h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-6 mb-3 text-gray-900" {...props} />,
+                                            h4: ({node, ...props}) => <h4 className="text-xl font-bold mt-5 mb-2 text-gray-900" {...props} />,
+                                            p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
+                                            ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
+                                            ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
+                                            li: ({node, ...props}) => <li className="mb-1" {...props} />,
+                                            blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-primary pl-4 italic my-4 text-gray-700 bg-primary/5 py-2" {...props} />,
+                                            strong: ({node, ...props}) => <strong className="font-bold text-gray-900" {...props} />,
+                                            a: ({node, ...props}) => <a className="text-primary hover:text-primary/80 underline" {...props} />,
+                                        }}
+                                    >
+                                        {post.content}
+                                    </ReactMarkdown>
+                                </div>            <BlogPostQuizCTA />
           </motion.article>
         </div>
       </div>

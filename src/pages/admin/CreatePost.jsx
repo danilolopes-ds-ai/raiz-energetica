@@ -18,11 +18,14 @@ const CreatePost = () => {
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
-    description: '',
-    image_url: '',
+    excerpt: '',
+    image: '',
     content: '',
-    tags: '',
+    category: '',
     status: 'draft',
+    featured: false,
+    author: 'Helena Raiz',
+    read_time: '5 min',
   });
 
   // Gera slug automaticamente do título
@@ -58,10 +61,19 @@ const CreatePost = () => {
 
     try {
       const postData = {
-        ...formData,
+        title: formData.title,
+        slug: formData.slug,
+        excerpt: formData.excerpt,
+        image: formData.image,
+        content: formData.content,
+        category: formData.category,
         status,
-        author_id: user.id,
-        tags: formData.tags ? formData.tags.split(',').map(t => t.trim()) : [],
+        featured: formData.featured,
+        author: formData.author,
+        read_time: formData.read_time,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        date: new Date().toISOString(),
       };
 
       const { data, error } = await supabase
@@ -96,40 +108,32 @@ const CreatePost = () => {
           </Button>
 
           <article className="bg-white rounded-lg shadow-lg overflow-hidden">
-            {formData.image_url && (
+            {formData.image && (
               <img
-                src={formData.image_url}
+                src={formData.image}
                 alt={formData.title}
                 className="w-full h-96 object-cover"
               />
             )}
             
             <div className="p-8">
+              {formData.category && (
+                <p className="text-primary font-semibold mb-2 uppercase tracking-wide">
+                  {formData.category}
+                </p>
+              )}
+
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
                 {formData.title || 'Título do Post'}
               </h1>
               
               <p className="text-lg text-gray-600 mb-6">
-                {formData.description || 'Descrição do post...'}
+                {formData.excerpt || 'Resumo do post...'}
               </p>
 
-              {formData.tags && (
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {formData.tags.split(',').map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-[#C19A6B]/10 text-[#C19A6B] rounded-full text-sm"
-                    >
-                      {tag.trim()}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <div 
-                className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: formData.content }}
-              />
+              <div className="prose prose-lg max-w-none">
+                <ReactMarkdown>{formData.content}</ReactMarkdown>
+              </div>
             </div>
           </article>
         </div>
@@ -193,37 +197,71 @@ const CreatePost = () => {
               </p>
             </div>
 
-            {/* Descrição */}
+            {/* Resumo/Excerpt */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Descrição (SEO)
+                Resumo (Excerpt) *
               </label>
               <Textarea
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                placeholder="Breve descrição do post para SEO e compartilhamento"
+                value={formData.excerpt}
+                onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
+                placeholder="Breve resumo do post (aparece na listagem e SEO)"
                 rows={3}
+                required
               />
             </div>
 
             {/* Imagem de capa */}
             <ImageUpload
-              value={formData.image_url}
-              onChange={(url) => setFormData({ ...formData, image_url: url })}
+              value={formData.image}
+              onChange={(url) => setFormData({ ...formData, image: url })}
               label="Imagem de Capa"
             />
 
-            {/* Tags */}
+            {/* Categoria */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tags
+                Categoria *
               </label>
               <Input
                 type="text"
-                value={formData.tags}
-                onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                placeholder="Energia, Terapia, Radiestesia (separadas por vírgula)"
+                value={formData.category}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                placeholder="relacionamento-familiar"
+                required
               />
+              <p className="text-xs text-gray-500 mt-1">
+                Exemplos: relacionamento-familiar, radiestesia-genetica, bem-estar-holistico
+              </p>
+            </div>
+
+            {/* Featured e Read Time */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={formData.featured}
+                    onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
+                    className="rounded border-gray-300"
+                  />
+                  <span className="text-sm font-medium text-gray-700">
+                    Post em Destaque
+                  </span>
+                </label>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Tempo de Leitura
+                </label>
+                <Input
+                  type="text"
+                  value={formData.read_time}
+                  onChange={(e) => setFormData({ ...formData, read_time: e.target.value })}
+                  placeholder="8 min"
+                />
+              </div>
             </div>
 
             {/* Editor */}

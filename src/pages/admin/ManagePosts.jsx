@@ -197,9 +197,9 @@ const ManagePosts = () => {
               >
                 <div className="flex items-start gap-6">
                   {/* Imagem */}
-                  {post.image_url && (
+                  {post.image && (
                     <img
-                      src={post.image_url}
+                      src={post.image}
                       alt={post.title}
                       className="w-32 h-32 object-cover rounded-lg flex-shrink-0"
                     />
@@ -209,26 +209,38 @@ const ManagePosts = () => {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
+                        {post.category && (
+                          <span className="text-primary text-sm font-semibold uppercase tracking-wide mb-1 block">
+                            {post.category}
+                          </span>
+                        )}
                         <h3 className="text-xl font-semibold text-gray-900 mb-2">
                           {post.title}
                         </h3>
-                        {post.description && (
+                        {post.excerpt && (
                           <p className="text-gray-600 mb-3 line-clamp-2">
-                            {post.description}
+                            {post.excerpt}
                           </p>
                         )}
                       </div>
 
                       {/* Status Badge */}
-                      <span
-                        className={`px-3 py-1 rounded-full text-sm font-medium flex-shrink-0 ${
-                          post.status === 'published'
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-yellow-100 text-yellow-800'
-                        }`}
-                      >
-                        {post.status === 'published' ? 'Publicado' : 'Rascunho'}
-                      </span>
+                      <div className="flex flex-col gap-2 flex-shrink-0">
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-medium ${
+                            post.status === 'published'
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-yellow-100 text-yellow-800'
+                          }`}
+                        >
+                          {post.status === 'published' ? 'Publicado' : 'Rascunho'}
+                        </span>
+                        {post.featured && (
+                          <span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
+                            Destaque
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     {/* Meta Info */}
@@ -237,11 +249,9 @@ const ManagePosts = () => {
                         <Calendar className="w-4 h-4" />
                         {formatDate(post.created_at)}
                       </div>
-                      {post.tags && post.tags.length > 0 && (
-                        <div className="flex items-center gap-1">
-                          <Tag className="w-4 h-4" />
-                          {post.tags.slice(0, 3).join(', ')}
-                          {post.tags.length > 3 && ` +${post.tags.length - 3}`}
+                      {post.read_time && (
+                        <div className="text-gray-500">
+                          {post.read_time}
                         </div>
                       )}
                       <div className="text-gray-400">
