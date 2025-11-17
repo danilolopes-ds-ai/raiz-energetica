@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAdminAuth } from '@/pages/admin/AdminLogin';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 import ImageUpload from '@/components/admin/ImageUpload';
 import { Button } from '@/components/ui/button';
@@ -12,9 +12,24 @@ import ReactMarkdown from 'react-markdown';
 
 const CreatePost = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { isAuthenticated, loading: authLoading } = useAdminAuth();
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(false);
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-600">Verificando autenticação...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
   const [formData, setFormData] = useState({
     title: '',
     slug: '',

@@ -22,6 +22,7 @@ import GerarDiagnostico from '@/pages/admin/gerar-diagnostico';
 import CMSGuide from '@/pages/admin/CMSGuide';
 import CreatePost from '@/pages/admin/CreatePost';
 import ManagePosts from '@/pages/admin/ManagePosts';
+import AdminLogin from '@/pages/admin/AdminLogin';
 import ProtectedRoute from '@/components/utils/ProtectedRoute';
 import ScrollToTop from '@/components/utils/ScrollToTop';
 import AnalyticsProvider from '@/components/utils/AnalyticsProvider';
@@ -65,6 +66,8 @@ function App() {
                 <Route path="agendar" element={<Agendar />} />
                 <Route path="obrigado" element={<Obrigado />} />
               </Route>
+
+              <Route path="/admin/login" element={<AdminLogin />} />
 
               <Route path="/admin" element={
                 <ProtectedRoute>
