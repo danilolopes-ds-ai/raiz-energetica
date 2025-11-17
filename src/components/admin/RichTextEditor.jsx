@@ -10,7 +10,8 @@ import {
   Image as ImageIcon,
   Eye,
   Code,
-  Loader2
+  Loader2,
+  AlignCenter
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';
@@ -80,13 +81,39 @@ const RichTextEditor = ({ content, onChange }) => {
         .from('blog-images')
         .getPublicUrl(filePath);
 
-      // Inserir markdown de imagem
-      insertMarkdown(`![imagem](${publicUrl})\n\n`);
+      // Inserir markdown de imagem centralizada
+      // HTML inline no markdown para centralizar
+      insertMarkdown(`<div style="text-align: center; margin: 20px 0;">![imagem](${publicUrl})</div>\n\n`);
     } catch (error) {
       console.error('Erro ao fazer upload:', error);
       alert('Erro ao fazer upload da imagem. Tente novamente.');
     } finally {
       setUploadingImage(false);
+    }
+  };
+
+  const centerImage = () => {
+    // Pega a linha atual e centraliza se tiver uma imagem
+    const textarea = document.getElementById('markdown-editor');
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    if (selectedText.includes('![')) {
+      const centered = `<div style="text-align: center; margin: 20px 0;">${selectedText}</div>`;
+      const newContent = 
+        content.substring(0, start) + 
+        centered + 
+        content.substring(end);
+      
+      onChange(newContent);
+      
+      setTimeout(() => {
+        textarea.focus();
+        textarea.setSelectionRange(start + centered.length, start + centered.length);
+      }, 0);
+    } else {
+      alert('Selecione uma imagem ![...] para centralizar');
     }
   };
 
@@ -135,6 +162,21 @@ const RichTextEditor = ({ content, onChange }) => {
                 <tool.icon className="w-4 h-4" />
               </Button>
             ))}
+
+            {/* Separador */}
+            <div className="border-l border-gray-300 mx-1"></div>
+
+            {/* Botão Centralizar Imagem */}
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={centerImage}
+              title="Centralizar imagem selecionada"
+              className="hover:bg-gray-200"
+            >
+              <AlignCenter className="w-4 h-4" />
+            </Button>
 
             {/* Separador */}
             <div className="border-l border-gray-300 mx-1"></div>
