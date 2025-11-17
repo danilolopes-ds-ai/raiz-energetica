@@ -347,7 +347,7 @@ const HarmoniaGeracional = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Harmonia Geracional - Reconecte-se com seu Filho Adolescente | Terapia para Mães</title>
+        <title>Reconexão Mãe e Filho Adolescente | Terapia Harmonia Geracional</title>
         <meta name="description" content="Seu filho adolescente se afastou? Terapia especializada para mães que desejam resgatar a conexão familiar. Radiestesia Genética com acolhimento premium. Garantia de 30 dias." />
         <meta name="keywords" content="filho adolescente agressivo, reconexão mãe e filho, terapia familiar, filho se afastou, comportamento adolescente, harmonia familiar, radiestesia genética, terapia para mães" />
         <meta property="og:title" content="Harmonia Geracional - Reconecte-se com seu Filho Adolescente" />
@@ -365,10 +365,10 @@ const HarmoniaGeracional = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-center lg:text-left">
                 <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-rose-900 mb-6 leading-tight">
-                  Ele(a) se afastou. Mas o amor de mãe ainda pode <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">trazê-lo(a) de volta.</span>
+                  Reconexão Mãe e Filho Adolescente: <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">Da Agressividade à Harmonia</span>
                 </h1>
                 <p className="text-xl text-rose-800 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Transforme conflito em reconexão com a Terapia de Harmonia Geracional.
+                  Ele(a) se afastou? Transforme o conflito em reconexão. O amor de mãe ainda pode (e vai) trazê-lo(a) de volta.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Button asChild size="lg" className="bg-gradient-to-r from-rose-600 to-pink-500 text-white font-bold shadow-lg shadow-rose-500/30 hover:shadow-xl hover:shadow-pink-500/40 transition-all transform hover:-translate-y-1 hover:scale-105">
