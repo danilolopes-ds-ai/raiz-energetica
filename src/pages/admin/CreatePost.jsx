@@ -140,6 +140,7 @@ const CreatePost = () => {
     }
 
     setLoading(true);
+    console.log('🚀 Iniciando salvamento...', { id, status });
 
     try {
       const postData = {
@@ -156,9 +157,12 @@ const CreatePost = () => {
         updated_at: new Date().toISOString(),
       };
 
+      console.log('📝 Dados para salvar:', postData);
+
       let response;
 
       if (id) {
+        console.log('✏️ Modo EDIÇÃO - fazendo UPDATE para ID:', id);
         // Modo edição: UPDATE
         response = await supabase
           .from('posts')
@@ -167,6 +171,7 @@ const CreatePost = () => {
           .select()
           .single();
       } else {
+        console.log('➕ Modo NOVO - fazendo INSERT');
         // Modo novo: INSERT
         response = await supabase
           .from('posts')
@@ -181,16 +186,28 @@ const CreatePost = () => {
 
       const { data, error } = response;
 
-      if (error) throw error;
+      if (error) {
+        console.error('❌ Erro completo do Supabase:', error);
+        throw error;
+      }
+
+      console.log('✅ Post salvo com sucesso:', data);
 
       alert(
         id 
           ? (status === 'published' ? 'Post atualizado e publicado!' : 'Rascunho atualizado!')
           : (status === 'published' ? 'Post publicado com sucesso!' : 'Rascunho salvo!')
       );
-      navigate('/admin/blog/gerenciar');
+      
+      // Se foi edição, recarregar os dados do post
+      if (id) {
+        console.log('🔄 Recarregando dados do post...');
+        await loadPost();
+      } else {
+        navigate('/admin/blog/gerenciar');
+      }
     } catch (error) {
-      console.error('Erro ao salvar post:', error);
+      console.error('❌ Erro ao salvar post:', error);
       alert('Erro ao salvar post: ' + error.message);
     } finally {
       setLoading(false);
