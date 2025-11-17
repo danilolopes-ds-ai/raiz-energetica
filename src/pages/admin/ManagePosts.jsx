@@ -23,6 +23,13 @@ const ManagePosts = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
 
+  // Todos os hooks SEMPRE devem ser chamados, antes de qualquer condicional
+  useEffect(() => {
+    if (isAuthenticated && !authLoading) {
+      fetchPosts();
+    }
+  }, [isAuthenticated, authLoading]);
+
   if (authLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -37,10 +44,6 @@ const ManagePosts = () => {
   if (!isAuthenticated) {
     return null;
   }
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
 
   const fetchPosts = async () => {
     try {

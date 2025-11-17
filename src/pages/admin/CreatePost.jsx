@@ -15,6 +15,18 @@ const CreatePost = () => {
   const { isAuthenticated, loading: authLoading } = useAdminAuth();
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [formData, setFormData] = useState({
+    title: '',
+    slug: '',
+    excerpt: '',
+    image: '',
+    content: '',
+    category: '',
+    status: 'draft',
+    featured: false,
+    author: 'Helena Raiz',
+    read_time: '5 min',
+  });
 
   if (authLoading) {
     return (
@@ -30,18 +42,6 @@ const CreatePost = () => {
   if (!isAuthenticated) {
     return null;
   }
-  const [formData, setFormData] = useState({
-    title: '',
-    slug: '',
-    excerpt: '',
-    image: '',
-    content: '',
-    category: '',
-    status: 'draft',
-    featured: false,
-    author: 'Helena Raiz',
-    read_time: '5 min',
-  });
 
   // Gera slug automaticamente do título
   const generateSlug = (title) => {

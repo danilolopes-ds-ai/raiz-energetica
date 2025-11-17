@@ -69,11 +69,7 @@ function App() {
 
               <Route path="/admin/login" element={<AdminLogin />} />
 
-              <Route path="/admin" element={
-                <ProtectedRoute>
-                  <AdminLayout />
-                </ProtectedRoute>
-              }>
+              <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<CMSGuide />} />
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="posts" element={<AdminPosts />} />
