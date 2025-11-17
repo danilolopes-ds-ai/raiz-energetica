@@ -88,12 +88,20 @@ const BlogPost = () => {
     try {
       const { data, error } = await supabase
         .from('posts')
-        .select('id, title, slug, description, image_url, tags')
+        .select('id, title, slug, excerpt, image, category')
         .eq('status', 'published')
         .limit(10);
 
       if (error) throw error;
-      setAllPosts(data || []);
+      
+      // Adaptar estrutura
+      const adaptedPosts = (data || []).map(post => ({
+        ...post,
+        description: post.excerpt,
+        image: post.image || '/images/hero-home.webp'
+      }));
+      
+      setAllPosts(adaptedPosts);
     } catch (error) {
       console.error('Erro ao buscar posts relacionados:', error);
     }

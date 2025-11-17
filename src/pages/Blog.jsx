@@ -45,7 +45,7 @@ const Blog = () => {
       try {
         const { data, error } = await supabase
           .from('posts')
-          .select('id, title, slug, description, image_url, content, tags, created_at, author_id')
+          .select('id, title, slug, excerpt, image, content, category, created_at, author, read_time, featured')
           .eq('status', 'published')
           .order('created_at', { ascending: false });
 
@@ -55,9 +55,10 @@ const Blog = () => {
         // Adapta estrutura para compatibilidade com componentes existentes
         const adaptedPosts = (data || []).map(post => ({
           ...post,
-          image: post.image_url,
-          category: post.tags?.[0] || 'geral',
-          author: 'Helena'
+          description: post.excerpt,
+          image: post.image || '/images/hero-home.webp',
+          readTime: post.read_time,
+          date: post.created_at
         }));
         setPosts(adaptedPosts);
       } catch (err) {
