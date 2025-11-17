@@ -45,14 +45,21 @@ const Blog = () => {
       try {
         const { data, error } = await supabase
           .from('posts')
-          .select('id, title, content, category, created_at, status, slug, image, author')
+          .select('id, title, slug, description, image_url, content, tags, created_at, author_id')
           .eq('status', 'published')
           .order('created_at', { ascending: false });
 
         if (error) {
           throw error;
         }
-        setPosts(data || []);
+        // Adapta estrutura para compatibilidade com componentes existentes
+        const adaptedPosts = (data || []).map(post => ({
+          ...post,
+          image: post.image_url,
+          category: post.tags?.[0] || 'geral',
+          author: 'Helena'
+        }));
+        setPosts(adaptedPosts);
       } catch (err) {
         setError('Não foi possível carregar os posts. Tente novamente mais tarde.');
         console.error('Erro ao buscar posts:', err);

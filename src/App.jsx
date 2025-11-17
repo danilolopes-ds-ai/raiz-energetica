@@ -20,6 +20,8 @@ import ServiceForm from '@/pages/admin/ServiceForm';
 import AdminTestimonials from '@/pages/admin/AdminTestimonials';
 import GerarDiagnostico from '@/pages/admin/gerar-diagnostico';
 import CMSGuide from '@/pages/admin/CMSGuide';
+import CreatePost from '@/pages/admin/CreatePost';
+import ManagePosts from '@/pages/admin/ManagePosts';
 import ProtectedRoute from '@/components/utils/ProtectedRoute';
 import ScrollToTop from '@/components/utils/ScrollToTop';
 import AnalyticsProvider from '@/components/utils/AnalyticsProvider';
@@ -57,7 +59,7 @@ function App() {
                 <Route path="sobre" element={<About />} />
                 <Route path="servicos" element={<Services />} />
                 <Route path="blog" element={<Blog />} />
-                <Route path="blog/:postId" element={<BlogPost />} />
+                <Route path="blog/:slug" element={<BlogPost />} />
                 <Route path="contato" element={<Contact />} />
                 <Route path="helena" element={<Helena />} />
                 <Route path="agendar" element={<Agendar />} />
@@ -74,6 +76,9 @@ function App() {
                 <Route path="posts" element={<AdminPosts />} />
                 <Route path="posts/new" element={<PostForm />} />
                 <Route path="posts/edit/:id" element={<PostForm />} />
+                <Route path="blog/novo" element={<CreatePost />} />
+                <Route path="blog/gerenciar" element={<ManagePosts />} />
+                <Route path="blog/editar/:id" element={<CreatePost />} />
                 <Route path="services" element={<AdminServices />} />
                 <Route path="services/new" element={<ServiceForm />} />
                 <Route path="services/edit/:id" element={<ServiceForm />} />
