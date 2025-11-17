@@ -140,7 +140,13 @@ const CreatePost = () => {
     }
 
     setLoading(true);
-    console.log('🚀 Iniciando salvamento...', { id, status });
+    console.clear();
+    console.log('═══════════════════════════════════════');
+    console.log('🚀 INICIANDO SALVAMENTO DE POST');
+    console.log('═══════════════════════════════════════');
+    console.log('ID do Post:', id);
+    console.log('Status:', status);
+    console.log('Supabase:', supabase ? '✅ Conectado' : '❌ NÃO CONECTADO');
 
     try {
       const postData = {
@@ -162,7 +168,9 @@ const CreatePost = () => {
       let response;
 
       if (id) {
-        console.log('✏️ Modo EDIÇÃO - fazendo UPDATE para ID:', id);
+        console.log('✏️ MODO EDIÇÃO - UPDATE');
+        console.log('Executando: supabase.from("posts").update(...).eq("id", "' + id + '")');
+        
         // Modo edição: UPDATE
         response = await supabase
           .from('posts')
@@ -170,8 +178,11 @@ const CreatePost = () => {
           .eq('id', id)
           .select()
           .single();
+          
+        console.log('Resposta do UPDATE:', response);
       } else {
-        console.log('➕ Modo NOVO - fazendo INSERT');
+        console.log('➕ MODO NOVO - INSERT');
+        
         // Modo novo: INSERT
         response = await supabase
           .from('posts')
@@ -182,16 +193,23 @@ const CreatePost = () => {
           }])
           .select()
           .single();
+          
+        console.log('Resposta do INSERT:', response);
       }
 
       const { data, error } = response;
 
+      console.log('Data retornada:', data);
+      console.log('Erro retornado:', error);
+
       if (error) {
-        console.error('❌ Erro completo do Supabase:', error);
+        console.error('❌ ERRO SUPABASE:', error);
+        console.error('Código:', error.code);
+        console.error('Mensagem:', error.message);
         throw error;
       }
 
-      console.log('✅ Post salvo com sucesso:', data);
+      console.log('✅ POST SALVO COM SUCESSO:', data);
 
       alert(
         id 
@@ -203,14 +221,19 @@ const CreatePost = () => {
       if (id) {
         console.log('🔄 Recarregando dados do post...');
         await loadPost();
+        console.log('✅ Dados recarregados');
       } else {
         navigate('/admin/blog/gerenciar');
       }
     } catch (error) {
-      console.error('❌ Erro ao salvar post:', error);
+      console.error('❌ ERRO GERAL:', error);
+      console.error('Stack:', error.stack);
       alert('Erro ao salvar post: ' + error.message);
     } finally {
       setLoading(false);
+      console.log('═══════════════════════════════════════');
+      console.log('SALVAMENTO FINALIZADO');
+      console.log('═══════════════════════════════════════');
     }
   };
 
