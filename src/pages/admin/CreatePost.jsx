@@ -56,7 +56,6 @@ const CreatePost = () => {
     }
 
     setLoadingPost(true);
-    let isMounted = true;
 
     try {
       const { data, error } = await supabase
@@ -67,7 +66,7 @@ const CreatePost = () => {
 
       if (error) throw error;
 
-      if (data && isMounted) {
+      if (data) {
         setFormData({
           title: data.title || '',
           slug: data.slug || '',
@@ -80,21 +79,13 @@ const CreatePost = () => {
           author: data.author || 'Helena Raiz',
           read_time: data.read_time || '5 min',
         });
-      }
-    } catch (error) {
-      if (isMounted) {
-        console.error('Erro ao carregar post:', error);
-        alert('Erro ao carregar post: ' + error.message);
-      }
-    } finally {
-      if (isMounted) {
         setLoadingPost(false);
       }
+    } catch (error) {
+      console.error('Erro ao carregar post:', error);
+      alert('Erro ao carregar post: ' + error.message);
+      setLoadingPost(false);
     }
-
-    return () => {
-      isMounted = false;
-    };
   }, [id]);
 
   useEffect(() => {
