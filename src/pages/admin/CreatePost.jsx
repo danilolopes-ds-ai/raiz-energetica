@@ -14,6 +14,9 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const { id } = useParams(); // Pega o :id da URL para modo edição
   const { isAuthenticated, loading: authLoading } = useAdminAuth();
+  
+  console.log('🔄 CreatePost renderizando com ID:', id);
+  
   const [loading, setLoading] = useState(false);
   const [loadingPost, setLoadingPost] = useState(!!id); // true se está carregando post para edição
   const [preview, setPreview] = useState(false);
@@ -310,7 +313,10 @@ const CreatePost = () => {
           </Button>
         </div>
 
-        <form onSubmit={(e) => handleSubmit(e, 'draft')} className="space-y-6">
+        <form onSubmit={(e) => {
+          console.log('📋 FORM SUBMIT DISPARADO');
+          handleSubmit(e, 'draft');
+        }} className="space-y-6">
           <div className="bg-white rounded-lg shadow p-6 space-y-6">
             {/* Título */}
             <div>
