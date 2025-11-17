@@ -47,44 +47,54 @@ const CreatePost = () => {
 
   // Carregar dados do post quando em modo edição
   useEffect(() => {
-    if (id) {
-      const loadPost = async () => {
-        try {
-          const { data, error } = await supabase
-            .from('posts')
-            .select('*')
-            .eq('id', id)
-            .single();
+    if (!id) {
+      setLoadingPost(false);
+      return;
+    }
 
-          if (error) throw error;
+    let isMounted = true; // Prevenir state updates após unmount
 
-          if (data) {
-            setFormData({
-              title: data.title || '',
-              slug: data.slug || '',
-              excerpt: data.excerpt || '',
-              image: data.image || '',
-              content: data.content || '',
-              category: data.category || '',
-              status: data.status || 'draft',
-              featured: data.featured || false,
-              author: data.author || 'Helena Raiz',
-              read_time: data.read_time || '5 min',
-            });
-          }
-        } catch (error) {
-          console.error('Erro ao carregar post:', error);
-          alert('Erro ao carregar post: ' + error.message);
-        } finally {
+    const loadPost = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('posts')
+          .select('*')
+          .eq('id', id)
+          .single();
+
+        if (error) throw error;
+
+        if (data && isMounted) {
+          setFormData({
+            title: data.title || '',
+            slug: data.slug || '',
+            excerpt: data.excerpt || '',
+            image: data.image || '',
+            content: data.content || '',
+            category: data.category || '',
+            status: data.status || 'draft',
+            featured: data.featured || false,
+            author: data.author || 'Helena Raiz',
+            read_time: data.read_time || '5 min',
+          });
           setLoadingPost(false);
         }
-      };
+      } catch (error) {
+        if (isMounted) {
+          console.error('Erro ao carregar post:', error);
+          alert('Erro ao carregar post: ' + error.message);
+          setLoadingPost(false);
+        }
+      }
+    };
 
-      loadPost();
-    } else {
-      setLoadingPost(false);
-    }
-  }, [id]);
+    loadPost();
+
+    // Cleanup function
+    return () => {
+      isMounted = false;
+    };
+  }, [id]); // Dependência apenas de 'id'
 
   // Mostrar tela de carregamento enquanto está buscando o post
   if (loadingPost) {
