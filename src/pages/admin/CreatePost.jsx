@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
 import { useAdminAuth } from '@/pages/admin/AdminLogin';
@@ -46,55 +46,57 @@ const CreatePost = () => {
   }
 
   // Carregar dados do post quando em modo edição
-  useEffect(() => {
+  const loadPost = useCallback(async () => {
     if (!id) {
       setLoadingPost(false);
       return;
     }
 
-    let isMounted = true; // Prevenir state updates após unmount
+    setLoadingPost(true);
+    let isMounted = true;
 
-    const loadPost = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('posts')
-          .select('*')
-          .eq('id', id)
-          .single();
+    try {
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('id', id)
+        .single();
 
-        if (error) throw error;
+      if (error) throw error;
 
-        if (data && isMounted) {
-          setFormData({
-            title: data.title || '',
-            slug: data.slug || '',
-            excerpt: data.excerpt || '',
-            image: data.image || '',
-            content: data.content || '',
-            category: data.category || '',
-            status: data.status || 'draft',
-            featured: data.featured || false,
-            author: data.author || 'Helena Raiz',
-            read_time: data.read_time || '5 min',
-          });
-          setLoadingPost(false);
-        }
-      } catch (error) {
-        if (isMounted) {
-          console.error('Erro ao carregar post:', error);
-          alert('Erro ao carregar post: ' + error.message);
-          setLoadingPost(false);
-        }
+      if (data && isMounted) {
+        setFormData({
+          title: data.title || '',
+          slug: data.slug || '',
+          excerpt: data.excerpt || '',
+          image: data.image || '',
+          content: data.content || '',
+          category: data.category || '',
+          status: data.status || 'draft',
+          featured: data.featured || false,
+          author: data.author || 'Helena Raiz',
+          read_time: data.read_time || '5 min',
+        });
       }
-    };
+    } catch (error) {
+      if (isMounted) {
+        console.error('Erro ao carregar post:', error);
+        alert('Erro ao carregar post: ' + error.message);
+      }
+    } finally {
+      if (isMounted) {
+        setLoadingPost(false);
+      }
+    }
 
-    loadPost();
-
-    // Cleanup function
     return () => {
       isMounted = false;
     };
-  }, [id]); // Dependência apenas de 'id'
+  }, [id]);
+
+  useEffect(() => {
+    loadPost();
+  }, [id, loadPost]);
 
   // Mostrar tela de carregamento enquanto está buscando o post
   if (loadingPost) {
@@ -193,7 +195,9 @@ const CreatePost = () => {
     } finally {
       setLoading(false);
     }
-  };  if (preview) {
+  };
+
+  if (preview) {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-4xl mx-auto px-4">
