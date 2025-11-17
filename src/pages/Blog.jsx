@@ -77,6 +77,19 @@ const Blog = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const getCategoryName = (categoryId) => {
+    const category = categories.find(cat => cat.id === categoryId);
+    return category ? category.name : categoryId;
+  };
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('pt-BR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   if (loading) {
     return <div className="flex justify-center items-center h-screen">Carregando posts...</div>;
   }
@@ -96,12 +109,18 @@ const Blog = () => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
-        <FeaturedPostsSection posts={filteredPosts} />
+        <FeaturedPostsSection 
+          posts={filteredPosts}
+          getCategoryName={getCategoryName}
+          formatDate={formatDate}
+        />
         <AllPostsSection
           posts={filteredPosts}
           categories={categories}
           searchTerm={searchTerm}
           selectedCategory={selectedCategory}
+          getCategoryName={getCategoryName}
+          formatDate={formatDate}
         />
       </div>
       <NewsletterSection />
