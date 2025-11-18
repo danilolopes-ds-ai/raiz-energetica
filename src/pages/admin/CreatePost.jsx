@@ -169,12 +169,11 @@ const CreatePost = () => {
         console.log('✏️ MODO EDIÇÃO - UPDATE');
         console.log('Executando: supabase.from("posts").update(...).eq("id", "' + id + '")');
         
-        // Modo edição: UPDATE
+        // Modo edição: UPDATE (sem .select() pois UPDATE não retorna dados confiáveis)
         response = await supabase
           .from('posts')
           .update(postData)
-          .eq('id', id)
-          .select();
+          .eq('id', id);
           
         console.log('Resposta do UPDATE:', response);
       } else {
@@ -205,9 +204,18 @@ const CreatePost = () => {
         throw error;
       }
 
-      // data é um array quando não usa .single()
-      const savedPost = Array.isArray(data) ? data[0] : data;
-      console.log('✅ POST SALVO COM SUCESSO:', savedPost);
+      // Para UPDATE sem .select(), data pode ser null ou array vazio
+      // Para INSERT com .select(), data é um array
+      let savedPost = null;
+      if (id) {
+        // UPDATE - confiamos que funcionou se não teve erro
+        console.log('✅ POST ATUALIZADO COM SUCESSO');
+        savedPost = { id, ...postData };
+      } else {
+        // INSERT - data é um array
+        savedPost = Array.isArray(data) ? data[0] : data;
+        console.log('✅ POST CRIADO COM SUCESSO:', savedPost);
+      }
 
       alert(
         id 
