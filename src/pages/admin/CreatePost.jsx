@@ -169,11 +169,12 @@ const CreatePost = () => {
         console.log('✏️ MODO EDIÇÃO - UPDATE');
         console.log('Executando: supabase.from("posts").update(...).eq("id", "' + id + '")');
         
-        // Modo edição: UPDATE (sem .select() pois UPDATE não retorna dados confiáveis)
+        // Modo edição: UPDATE COM .select() para detectar se RLS bloqueou a operação
         response = await supabase
           .from('posts')
           .update(postData)
-          .eq('id', id);
+          .eq('id', id)
+          .select();
           
         console.log('Resposta do UPDATE:', response);
       } else {
@@ -204,13 +205,23 @@ const CreatePost = () => {
         throw error;
       }
 
-      // Para UPDATE sem .select(), data pode ser null ou array vazio
+      // ⚠️ VALIDAÇÃO CRÍTICA: Se data for vazio, nada foi alterado no banco
+      // Isso acontece quando RLS (Row Level Security) bloqueia a operação silenciosamente
+      if (!data || (Array.isArray(data) && data.length === 0)) {
+        console.error('❌ NENHUMA LINHA AFETADA');
+        const errorMsg = id 
+          ? 'O post não foi atualizado. Verifique:\n• Você está realmente autenticado no Supabase (não em "modo simplificado")\n• O ID do post existe\n• Você tem permissão para editar'
+          : 'O post não foi criado. Erro de permissão ou dados inválidos.';
+        throw new Error(errorMsg);
+      }
+
+      // Para UPDATE com .select(), data é um array
       // Para INSERT com .select(), data é um array
       let savedPost = null;
       if (id) {
-        // UPDATE - confiamos que funcionou se não teve erro
-        console.log('✅ POST ATUALIZADO COM SUCESSO');
-        savedPost = { id, ...postData };
+        // UPDATE - data deve ter ao menos 1 elemento agora
+        savedPost = Array.isArray(data) ? data[0] : data;
+        console.log('✅ POST ATUALIZADO COM SUCESSO:', savedPost);
       } else {
         // INSERT - data é um array
         savedPost = Array.isArray(data) ? data[0] : data;
