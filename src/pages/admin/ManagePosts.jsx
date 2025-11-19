@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
-import { useAdminAuth } from '@/pages/admin/AdminLogin';
+import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { 
@@ -17,7 +17,7 @@ import {
 
 const ManagePosts = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, loading: authLoading } = useAdminAuth();
+  const { isAuthenticated, loading: authLoading } = useAuth();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');

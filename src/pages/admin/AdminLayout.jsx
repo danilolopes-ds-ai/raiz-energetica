@@ -21,11 +21,8 @@ const AdminLayout = () => {
   };
 
   const navItems = [
-    { name: 'Guia CMS', href: '/admin', icon: BookOpenCheck },
-    { name: 'Visão Geral', href: '/admin/dashboard', icon: LayoutDashboard },
-    { name: 'Posts', href: '/admin/posts', icon: Newspaper },
-    { name: 'Serviços', href: '/admin/services', icon: LifeBuoy },
-    { name: 'Depoimentos', href: '/admin/testimonials', icon: Heart },
+    { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+    { name: 'Gerenciar Posts', href: '/admin/blog/gerenciar', icon: Newspaper },
   ];
 
   const isActive = (path) => location.pathname === path;

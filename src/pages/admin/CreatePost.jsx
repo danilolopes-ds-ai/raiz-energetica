@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
-import { useAdminAuth } from '@/pages/admin/AdminLogin';
+import { useAuth } from '@/contexts/AuthContext';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 import ImageUpload from '@/components/admin/ImageUpload';
 import { Button } from '@/components/ui/button';
@@ -13,7 +13,7 @@ import ReactMarkdown from 'react-markdown';
 const CreatePost = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { isAuthenticated, loading: authLoading } = useAdminAuth();
+  const { isAuthenticated, loading: authLoading } = useAuth();
   
   console.log('🔄 CreatePost renderizando com ID:', id);
   
@@ -131,8 +131,12 @@ const CreatePost = () => {
 
   const handleSubmit = async (e, status = 'draft') => {
     e.preventDefault();
+    
+    console.log('🔴 BOTÃO CLICADO! handleSubmit foi chamado');
+    console.log('Status recebido:', status);
 
     if (!formData.title || !formData.content) {
+      console.log('❌ VALIDAÇÃO FALHOU - Título ou conteúdo vazio');
       alert('Título e conteúdo são obrigatórios!');
       return;
     }

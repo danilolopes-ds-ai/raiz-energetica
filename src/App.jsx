@@ -70,19 +70,10 @@ function App() {
               <Route path="/admin/login" element={<AdminLogin />} />
 
               <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<CMSGuide />} />
-                <Route path="dashboard" element={<Dashboard />} />
-                <Route path="posts" element={<AdminPosts />} />
-                <Route path="posts/new" element={<PostForm />} />
-                <Route path="posts/edit/:id" element={<PostForm />} />
+                <Route index element={<Dashboard />} />
                 <Route path="blog/novo" element={<CreatePost />} />
                 <Route path="blog/gerenciar" element={<ManagePosts />} />
                 <Route path="blog/editar/:id" element={<CreatePost />} />
-                <Route path="services" element={<AdminServices />} />
-                <Route path="services/new" element={<ServiceForm />} />
-                <Route path="services/edit/:id" element={<ServiceForm />} />
-                <Route path="testimonials" element={<AdminTestimonials />} />
-                <Route path="gerar-diagnostico" element={<GerarDiagnostico />} />
               </Route>
 
             </Routes>
