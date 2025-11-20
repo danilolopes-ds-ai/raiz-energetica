@@ -25,7 +25,6 @@ const Login = lazy(() => import('@/pages/Login'));
 const Register = lazy(() => import('@/pages/Register'));
 const Agendar = lazy(() => import('@/pages/Agendar'));
 const Obrigado = lazy(() => import('@/pages/Obrigado'));
-const Diagnostico = lazy(() => import('@/pages/Diagnostico'));
 const LimpezaEnergetica = lazy(() => import('@/pages/LimpezaEnergetica'));
 const RadiestesiaGenetica = lazy(() => import('@/pages/RadiestesiaGenetica'));
 const HarmoniaGeracional = lazy(() => import('@/pages/HarmoniaGeracional'));
@@ -39,7 +38,6 @@ const AdminPosts = lazy(() => import('@/pages/admin/AdminPosts'));
 const CreatePost = lazy(() => import('@/pages/admin/CreatePost'));
 const ManagePosts = lazy(() => import('@/pages/admin/ManagePosts'));
 const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
-const GerarDiagnostico = lazy(() => import('@/pages/admin/gerar-diagnostico'));
 
 // Componente de Loading para o Suspense
 const PageLoader = () => (
@@ -62,8 +60,6 @@ function App() {
                   {/* Public Routes */}
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
-                  <Route path="/test-pdf" element={<GerarDiagnostico />} />
-                  <Route path="/diagnostico" element={<Diagnostico />} />
                   <Route path="/limpeza-energetica" element={<LimpezaEnergetica />} />
                   <Route path="/radiestesia-genetica" element={<RadiestesiaGenetica />} />
                   <Route path="/harmonia-geracional" element={<HarmoniaGeracional />} />
