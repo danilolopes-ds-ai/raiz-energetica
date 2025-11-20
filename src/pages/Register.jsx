@@ -16,24 +16,25 @@ const Register = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  // Import tracking
+  const { tracking } = require('@/lib/tracking');
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       const { error } = await supabase.auth.signUp({
         email,
         password,
       });
-
       if (error) throw error;
-      
+      tracking.registerSuccess && tracking.registerSuccess(email);
       toast({
         title: 'Registro realizado com sucesso!',
         description: 'Verifique seu e-mail para confirmar a conta.',
       });
       navigate('/login');
     } catch (error) {
+      tracking.registerError && tracking.registerError(email, error.message);
       toast({
         title: 'Erro no Registro',
         description: error.message,

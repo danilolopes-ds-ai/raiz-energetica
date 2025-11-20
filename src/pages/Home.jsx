@@ -5,9 +5,9 @@ import MethodologySection from '@/pages/Home/MethodologySection';
 import DifferentialsSection from '@/pages/Home/DifferentialsSection';
 import TestimonialsSection from '@/pages/Home/TestimonialsSection';
 import DaniloLopesSection from '@/pages/Home/DaniloLopesSection';
-import CtaSection from './Home/CtaSection';
-import WhoIsItForSection from './Home/WhoIsItForSection';
-import BookingSection from './Home/BookingSection';
+import CtaSection from '@/pages/Home/CtaSection';
+import WhoIsItForSection from '@/pages/Home/WhoIsItForSection';
+import BookingSection from '@/pages/Home/BookingSection';
 import { 
   Search, 
   Target, 

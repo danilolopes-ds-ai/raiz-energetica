@@ -15,6 +15,7 @@ const ContactForm = ({ title = "Entre em Contato", className = "" }) => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  import { tracking } from '@/lib/tracking';
   const { toast } = useToast();
 
   const handleChange = (e) => {
@@ -59,6 +60,7 @@ const ContactForm = ({ title = "Entre em Contato", className = "" }) => {
     }
   };
 
+        tracking.leadCapture('formulario-contato', formData.email);
   return (
     <Card className={`card-hover ${className}`}>
       <CardHeader>

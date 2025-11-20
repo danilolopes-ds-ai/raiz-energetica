@@ -71,9 +71,9 @@ import { Badge } from '@/components/ui/badge';
 import { Hand as HeartHand, ShieldCheck, CheckCircle, Home, Flower2, Star, Sparkles, HeartHandshake, Users, BrainCircuit, Leaf, MessageSquare, Ear, Heart, ChevronDown } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Helmet } from 'react-helmet-async';
-import LandingHeader from "./landing-components/LandingHeader";
-import LandingFooter from "./landing-components/LandingFooter";
-import FAQHarmoniaGeracional from "./landing-components/FAQHarmoniaGeracional";
+import LandingHeader from "@/pages/landing-components/LandingHeader";
+import LandingFooter from "@/pages/landing-components/LandingFooter";
+import FAQHarmoniaGeracional from "@/pages/landing-components/FAQHarmoniaGeracional";
 import CountdownTimer from '@/components/atoms/CountdownTimer';
 import { SecurityBadges } from '@/components/atoms/SecurityBadges';
 

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import fs from 'fs';
 import path from 'path';
-import DiagnosticoTemplate from '../Raiz-Energetica-pdf/diagnostico.jsx';
+import DiagnosticoTemplate from '@/Raiz-Energetica-pdf/diagnostico.jsx';
 
 // Helper to convert image to base64
 const imageToBase64 = (filePath) => {

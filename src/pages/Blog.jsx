@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { tracking } from '@/lib/tracking';
 import BlogHero from '@/pages/Blog/BlogHero';
 import BlogFilters from '@/pages/Blog/BlogFilters';
 import FeaturedPostsSection from '@/pages/Blog/FeaturedPostsSection';
@@ -38,6 +39,18 @@ const Blog = () => {
     { id: 'dicas-saude', name: 'Dicas de Saúde', icon: Heart },
     { id: 'artigos-tecnicos', name: 'Artigos Técnicos', icon: BookOpen }
   ];
+
+  // Rastreia busca por termo
+  const handleSearchTermChange = (term) => {
+    setSearchTerm(term);
+    tracking.search(term, 'blog');
+  };
+
+  // Rastreia filtro de categoria
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    tracking.search(category, 'blog-category');
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {

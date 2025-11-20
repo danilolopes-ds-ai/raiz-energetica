@@ -21,6 +21,8 @@ const ManagePosts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  // Import tracking
+  const { tracking } = require('@/lib/tracking');
   const [filterStatus, setFilterStatus] = useState('all');
 
   // Todos os hooks SEMPRE devem ser chamados, antes de qualquer condicional
@@ -160,7 +162,10 @@ const ManagePosts = () => {
                 type="text"
                 placeholder="Buscar posts..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  tracking.search(e.target.value, 'admin-posts');
+                }}
                 className="pl-10"
               />
             </div>

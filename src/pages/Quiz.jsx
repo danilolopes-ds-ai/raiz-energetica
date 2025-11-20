@@ -207,6 +207,8 @@ const QuizHeader = () => (
 
 const Quiz = () => {
   const { toast } = useToast();
+  // Import tracking
+  const { tracking } = require('@/lib/tracking');
   const [quizState, setQuizState] = useState('not-started');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -221,13 +223,24 @@ const Quiz = () => {
   }, [currentQuestionIndex, quizState]);
 
   const handleStartQuiz = () => setQuizState('gender-selection');
+  // Dispara evento de início do quiz
+  const handleStartQuiz = () => {
+    tracking.quizStart({ page: window.location.pathname });
+    setQuizState('gender-selection');
+  };
 
   const handleGenderSelect = (gender) => {
     setUserData({ ...userData, gender });
+    tracking.quizStep('gender-selection', gender);
     setQuizState('in-progress');
   };
 
   const handleSelectOption = (value) => setSelectedOption(value);
+  // Dispara evento ao selecionar opção
+  const handleSelectOption = (value) => {
+    setSelectedOption(value);
+    tracking.quizStep(currentQuestionIndex, value);
+  };
 
   const handleNextQuestion = () => {
     if (selectedOption === null) {
@@ -243,6 +256,8 @@ const Quiz = () => {
     } else {
       calculateResult(newAnswers);
       setQuizState('finished');
+      // Dispara evento de conclusão do quiz
+      tracking.quizComplete(resultKey, userData.email);
     }
   };
 

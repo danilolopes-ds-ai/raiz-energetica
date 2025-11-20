@@ -1,15 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import AboutHero from './AboutHero';
-import MissionSection from './MissionSection';
-import DaniloLopesSection from './DaniloLopesSection';
-import PoemSection from './PoemSection';
-import BridgeImageSection from './BridgeImageSection';
-import TimelineSection from './TimelineSection';
-import MethodologySection from './MethodologySection';
-import AboutCTA from './AboutCTA';
-import WhyWeAreDifferentSection from './WhyWeAreDifferentSection';
-import CommunitySection from './CommunitySection';
+import AboutHero from '@/pages/About/AboutHero';
+import MissionSection from '@/pages/About/MissionSection';
+import DaniloLopesSection from '@/pages/About/DaniloLopesSection';
+import PoemSection from '@/pages/About/PoemSection';
+import BridgeImageSection from '@/pages/About/BridgeImageSection';
+import TimelineSection from '@/pages/About/TimelineSection';
+import MethodologySection from '@/pages/About/MethodologySection';
+import AboutCTA from '@/pages/About/AboutCTA';
+import WhyWeAreDifferentSection from '@/pages/About/WhyWeAreDifferentSection';
+import CommunitySection from '@/pages/About/CommunitySection';
 
 import { GraduationCap, Zap, Sparkles, Award, Rocket, BookOpen } from 'lucide-react';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { diagnosticoOptions } from '../../data/diagnostico-options';
+import { diagnosticoOptions } from '@/data/diagnostico-options';
 
 const GerarDiagnosticoPage = () => {
     const [formData, setFormData] = useState({

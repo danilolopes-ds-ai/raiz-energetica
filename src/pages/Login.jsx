@@ -16,26 +16,25 @@ const Login = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  // Import tracking
+  const { tracking } = require('@/lib/tracking');
   const handleLogin = async (e) => {
-                e.preventDefault();
-
-        setLoading(true);
-
+    e.preventDefault();
+    setLoading(true);
     try {
-                        const { error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email: email.trim(),
         password: password.trim(),
       });
-
       if (error) throw error;
-
+      tracking.loginSuccess && tracking.loginSuccess(email);
       toast({
         title: 'Login bem-sucedido!',
         description: 'Bem-vindo de volta!',
       });
       navigate('/admin');
     } catch (error) {
-
+      tracking.loginError && tracking.loginError(email, error.message);
       toast({
         title: 'Erro no Login',
         description: error.message,

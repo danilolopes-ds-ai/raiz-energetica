@@ -7,13 +7,13 @@ import { Zap, Gem, ShieldCheck, Sparkles, Wind, BrainCircuit, Sun, Star, CheckCi
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import HeroLimpeza from './landing-components/HeroLimpeza';
-import SinaisLimpeza from './landing-components/SinaisLimpeza';
-import MetodologiaLimpeza from './landing-components/MetodologiaLimpeza';
-import OfertaLimpeza from './landing-components/OfertaLimpeza';
-import BeneficiosLimpeza from './landing-components/BeneficiosLimpeza';
-import FAQLimpeza from './landing-components/FAQLimpeza';
-import CTAFinalLimpeza from './landing-components/CTAFinalLimpeza';
+import HeroLimpeza from '@/pages/landing-components/HeroLimpeza';
+import SinaisLimpeza from '@/pages/landing-components/SinaisLimpeza';
+import MetodologiaLimpeza from '@/pages/landing-components/MetodologiaLimpeza';
+import OfertaLimpeza from '@/pages/landing-components/OfertaLimpeza';
+import BeneficiosLimpeza from '@/pages/landing-components/BeneficiosLimpeza';
+import FAQLimpeza from '@/pages/landing-components/FAQLimpeza';
+import CTAFinalLimpeza from '@/pages/landing-components/CTAFinalLimpeza';
 import ServiceTestimonials from '@/pages/Services/ServiceTestimonials';
 
 const LandingHeader = () => (
