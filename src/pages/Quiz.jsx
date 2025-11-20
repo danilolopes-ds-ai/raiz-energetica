@@ -235,7 +235,6 @@ const Quiz = () => {
     setQuizState('in-progress');
   };
 
-  const handleSelectOption = (value) => setSelectedOption(value);
   // Dispara evento ao selecionar opção
   const handleSelectOption = (value) => {
     setSelectedOption(value);
