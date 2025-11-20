@@ -60,6 +60,8 @@ const ComoAgeRadgen = () => {
                 <img 
                   src="/images/services/raiz_diferente.webp" 
                   alt="Profissional realizando Radiestesia Genética - União entre ciência e energia"
+                  width={600}
+                  height={400}
                   className="w-full h-auto object-cover"
                 />
               </div>

@@ -17,7 +17,10 @@ const DifferentialsSection = ({ differentials }) => {
           >
             <img 
               className="rounded-2xl shadow-xl w-full h-[300px] md:h-[400px] object-cover"
-              alt="Mão segurando um pêndulo de cristal sobre um gráfico de radiestesia" src="/images/services/raiz_diferente.webp" />
+              alt="Mão segurando um pêndulo de cristal sobre um gráfico de radiestesia" src="/images/services/raiz_diferente.webp" 
+              width={600}
+              height={400}
+            />
           </motion.div>
 
           <motion.div

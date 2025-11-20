@@ -43,6 +43,8 @@ const ParaQuemEradgen = () => {
             <img 
               src="/images/services/pendulo-cristal-semfundo.webp" 
               alt="Pêndulo de Cristal Ametista" 
+              width={112}
+              height={112}
               className="w-full h-full object-contain drop-shadow-lg"
             />
           </div>

@@ -27,6 +27,8 @@ const CTAFinalRadiestesia = () => {
             <img 
               src="/images/services/logo-raiz-radgen-site-semfundo.webp" 
               alt="Raiz Energética" 
+              width={160}
+              height={160}
               className="w-32 h-32 md:w-40 md:h-40 object-contain"
             />
           </div>

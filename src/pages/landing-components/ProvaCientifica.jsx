@@ -122,6 +122,8 @@ const ProvaCientifica = () => {
               <img 
                 src="/images/services/frequencia-ondas.webp" 
                 alt="Gráfico mostrando melhora nas frequências das ondas cerebrais antes e depois da sessão"
+                width={800}
+                height={400}
                 className="w-full h-auto"
               />
             </div>
@@ -163,6 +165,8 @@ const ProvaCientifica = () => {
                 <img 
                   src="/images/services/mapeamento-cerebral-antes.webp" 
                   alt="Mapeamento cerebral antes da sessão mostrando padrões de estresse"
+                  width={400}
+                  height={400}
                   className="w-full h-auto"
                 />
               </div>
@@ -188,6 +192,8 @@ const ProvaCientifica = () => {
                 <img 
                   src="/images/services/mapeamento-cerebral-depois.webp" 
                   alt="Mapeamento cerebral depois da sessão mostrando equilíbrio e harmonia"
+                  width={400}
+                  height={400}
                   className="w-full h-auto"
                 />
               </div>

@@ -228,6 +228,8 @@ const LimpezaEnergetica = () => {
                       <img 
                         src="/images/services/selo-7-dias.webp" 
                         alt="Garantia de 7 Dias" 
+                        width={160}
+                        height={160}
                         className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl"
                       />
                     </motion.div>

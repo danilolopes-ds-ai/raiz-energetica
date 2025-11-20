@@ -42,6 +42,8 @@ const HeroHarmonia = () => {
             <img 
               src="/images/services/harmonia-geracional-conflito.webp" 
               alt="Mãe e filho adolescente em conflito, representando a desarmonia familiar."
+              width={900}
+              height={600}
               className="relative w-full rounded-3xl shadow-2xl"
             />
           </motion.div>

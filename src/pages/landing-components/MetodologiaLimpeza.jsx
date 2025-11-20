@@ -103,6 +103,8 @@ const MetodologiaLimpeza = () => {
           <motion.img 
             src="/images/services/chakras-limpeza-energetica.webp" 
             alt="Meditação com Cristais nos Chakras"
+            width={600}
+            height={400}
             className="w-full lg:max-w-2xl h-auto shadow-2xl"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}

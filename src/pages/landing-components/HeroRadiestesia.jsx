@@ -22,6 +22,8 @@ const HeroRadiestesia = () => {
               <img 
                 src="/images/services/logo-raiz-radgen-site-semfundo.webp" 
                 alt="Raiz Energética - Radiestesia Genética"
+                width={176}
+                height={176}
                 className="w-36 h-36 md:w-44 md:h-44 object-contain"
               />
             </motion.div>
@@ -71,6 +73,8 @@ const HeroRadiestesia = () => {
             <img 
               src="/images/services/LP-RADGEN-SITE.webp" 
               alt="Pêndulo formando coração - Radiestesia Genética"
+              width={900}
+              height={550}
               className="w-full h-auto object-contain rounded-2xl shadow-2xl"
               style={{ maxHeight: '550px' }}
             />

@@ -9,6 +9,8 @@ const LandingFooter = () => (
                 <img 
                     src="/images/services/logo-raiz-radgen-site-semfundo.webp" 
                     alt="Raiz Energética" 
+                    width={80}
+                    height={32}
                     className="h-8 w-auto object-contain"
                 />
                 <p>Todos os direitos reservados.</p>
