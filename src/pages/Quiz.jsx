@@ -222,7 +222,6 @@ const Quiz = () => {
     return ((currentQuestionIndex) / quizQuestions.length) * 100;
   }, [currentQuestionIndex, quizState]);
 
-  const handleStartQuiz = () => setQuizState('gender-selection');
   // Dispara evento de início do quiz
   const handleStartQuiz = () => {
     tracking.quizStart({ page: window.location.pathname });
