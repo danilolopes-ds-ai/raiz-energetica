@@ -421,6 +421,7 @@ const HarmoniaGeracional = () => {
   // Callback otimizado para CTA
   const [showCalEssencia, setShowCalEssencia] = useState(false);
   const [showCalRaiz, setShowCalRaiz] = useState(false);
+  const [showCalLegado, setShowCalLegado] = useState(false);
   const handleCTAClick = useCallback((plan) => {
     toast({
       title: "✨ Um passo de coragem!",
@@ -431,6 +432,9 @@ const HarmoniaGeracional = () => {
     }
     if (plan === 'Plano Raiz') {
       setShowCalRaiz(true);
+    }
+    if (plan === 'Plano Legado') {
+      setShowCalLegado(true);
     }
     if (slots > 0) {
       const newSlots = slots - 1;
@@ -959,7 +963,8 @@ const HarmoniaGeracional = () => {
         <CalEssenciaModal open={showCalEssencia} onClose={() => setShowCalEssencia(false)} />
         {/* Calendário de Agendamento Embebido - Plano Raiz (React Embed) */}
         <CalRaizModal open={showCalRaiz} onClose={() => setShowCalRaiz(false)} />
-      {/* CalRaizModal is defined below, outside the main render tree */}
+        {/* Calendário de Agendamento Embebido - Plano Legado (React Embed) */}
+        <CalLegadoModal open={showCalLegado} onClose={() => setShowCalLegado(false)} />
 
 
       </main>
