@@ -16,6 +16,8 @@ import ComoAgeRadgen from './landing-components/ComoAgeRadgen';
 import ParaQuemEradgen from './landing-components/ParaQuemEradgen';
 import FAQRadiestesia from './landing-components/FAQRadiestesia';
 import CTAFinalRadiestesia from './landing-components/CTAFinalRadiestesia';
+import Cal, { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
 
 const LandingHeader = () => (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/60">
@@ -44,15 +46,32 @@ const LandingFooter = () => (
 
 const RadiestesiaGenetica = () => {
   const { toast } = useToast();
+  const [showCalendar, setShowCalendar] = React.useState(false);
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "sessaoradgen" });
+      cal("ui", {
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#8800c7" },
+          dark: { "cal-brand": "#8800c7" }
+        },
+        hideEventTypeDetails: false,
+        layout: "week_view"
+      });
+    })();
+  }, []);
 
   const handleBookingClick = () => {
     toast({
       title: "✨ Agendamento Exclusivo",
-      description: "Você será redirecionado para finalizar seu agendamento. Sua transformação começa agora. 🚀",
+      description: "Escolha seu horário e prossiga para o checkout. Sua transformação começa agora. 🚀",
     });
+    setShowCalendar(true);
+    // Scroll suave até o calendário
     setTimeout(() => {
-      window.open('https://cal.com/raiz-energetica/sessaoradgen', '_blank');
-    }, 1500);
+      document.getElementById('calendario-agendamento')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
   };
 
   const containerVariants = {
@@ -331,15 +350,15 @@ const RadiestesiaGenetica = () => {
                                         
                                         <div className="flex items-baseline justify-center sm:justify-start gap-2 mb-2">
                                             <span className="text-xl text-[#582c81] font-semibold">R$</span>
-                                            <span className="text-6xl lg:text-7xl font-black text-[#582c81]">349</span>
-                                            <span className="text-2xl text-[#582c81] font-bold">,90</span>
+                                            <span className="text-6xl lg:text-7xl font-black text-[#582c81]">350</span>
+                                            <span className="text-2xl text-[#582c81] font-bold">,00</span>
                                         </div>
                                         
-                                        <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 33,99</span> sem juros</p>
+                                        <p className="text-slate-600 font-medium text-base mb-3">ou 12x de <span className="font-bold text-slate-900">R$ 36,20</span> sem juros</p>
                                         
                                         <div className="inline-flex items-center gap-2 bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-lg shadow-sm">
                                             <span className="text-lg">💰</span>
-                                            <span className="font-bold text-xs sm:text-sm">Você economiza R$ 150,10 + GANHA R$ 149,90 em bônus | Totalizando R$ 299,90 nessa oferta</span>
+                                            <span className="font-bold text-xs sm:text-sm">Você economiza R$ 150,00 + GANHA R$ 149,90 em bônus | Totalizando R$ 299,90 nessa oferta</span>
                                         </div>
                                     </div>
                                     <Button onClick={handleBookingClick} size="lg" className="w-full sm:w-auto bg-[#582c81] hover:bg-[#6d3a9b] text-white font-bold text-lg shadow-2xl hover:shadow-3xl transition-all py-7 px-12 h-auto rounded-full transform hover:scale-105">
@@ -353,6 +372,43 @@ const RadiestesiaGenetica = () => {
                 </motion.div>
             </div>
         </section>
+
+        {/* Calendário de Agendamento Embebido */}
+        {showCalendar && (
+          <section id="calendario-agendamento" className="py-20 bg-white">
+            <div className="container mx-auto px-6 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-5xl mx-auto"
+              >
+                <div className="text-center mb-10">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+                    Escolha Seu Horário
+                  </h2>
+                  <p className="text-lg text-slate-600">
+                    Selecione o melhor dia e horário para sua sessão de Radiestesia Genética
+                  </p>
+                </div>
+                <div className="bg-slate-50 rounded-2xl shadow-xl overflow-hidden border-2 border-[#582c81]/20">
+                  {/* Cal.com React embed */}
+                  <Cal
+                    namespace="sessaoradgen"
+                    calLink="raiz-energetica/sessaoradgen"
+                    style={{ width: "100%", height: "800px", overflow: "scroll" }}
+                    config={{ layout: "week_view" }}
+                  />
+                </div>
+                <div className="mt-8 text-center">
+                  <p className="text-sm text-slate-600">
+                    Após escolher seu horário, você será direcionado para o checkout seguro
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        )}
 
         <section className="py-24 md:py-32 bg-slate-50">
           <div className="container mx-auto px-6 lg:px-8">

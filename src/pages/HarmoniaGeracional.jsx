@@ -1,4 +1,69 @@
+// Componente Modal para Plano Legado
+function CalLegadoModal({ open, onClose }) {
+  useEffect(() => {
+    if (open) {
+      (async function () {
+        const cal = await getCalApi({ namespace: "plano-legado-hg" });
+        cal("ui", {
+          cssVarsPerTheme: {
+            light: { "cal-brand": "#e50000" },
+            dark: { "cal-brand": "#e50000" }
+          },
+          hideEventTypeDetails: false,
+          layout: "week_view"
+        });
+      })();
+    }
+  }, [open]);
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+      <div className="bg-white rounded-xl shadow-2xl p-6 max-w-2xl w-full relative">
+        <button onClick={onClose} className="absolute top-2 right-2 text-red-700 text-xl font-bold">×</button>
+        <Cal
+          namespace="plano-legado-hg"
+          calLink="raiz-energetica/plano-legado-hg"
+          style={{ width: "100%", height: "600px", overflow: "scroll" }}
+          config={{ layout: "week_view" }}
+        />
+      </div>
+    </div>
+  );
+}
+// Componente Modal para Plano Raiz
+function CalRaizModal({ open, onClose }) {
+  useEffect(() => {
+    if (open) {
+      (async function () {
+        const cal = await getCalApi({ namespace: "plano-raiz-hg" });
+        cal("ui", {
+          cssVarsPerTheme: {
+            light: { "cal-brand": "#e2b400" },
+            dark: { "cal-brand": "#e2b400" }
+          },
+          hideEventTypeDetails: false,
+          layout: "week_view"
+        });
+      })();
+    }
+  }, [open]);
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+      <div className="bg-white rounded-xl shadow-2xl p-6 max-w-2xl w-full relative">
+        <button onClick={onClose} className="absolute top-2 right-2 text-yellow-700 text-xl font-bold">×</button>
+        <Cal
+          namespace="plano-raiz-hg"
+          calLink="raiz-energetica/plano-raiz-hg"
+          style={{ width: "100%", height: "600px", overflow: "scroll" }}
+          config={{ layout: "week_view" }}
+        />
+      </div>
+    </div>
+  );
+}
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import Cal, { getCalApi } from "@calcom/embed-react";
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,8 +76,6 @@ import LandingFooter from "./landing-components/LandingFooter";
 import FAQHarmoniaGeracional from "./landing-components/FAQHarmoniaGeracional";
 import CountdownTimer from '@/components/atoms/CountdownTimer';
 import { SecurityBadges } from '@/components/atoms/SecurityBadges';
-
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 // Componente de Loading otimizado
 const SectionFallback = React.memo(() => (
@@ -120,12 +183,49 @@ const PricingCard = React.memo(({ tier, index, onCTAClick }) => {
           {tier.description}
         </p>
         <div className="mb-4">
-          <span className={`text-4xl font-bold ${tier.isFeatured ? 'text-white' : 'text-rose-900'}`}>
-            R$ {tier.price}
-          </span>
-          <span className={`text-lg ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>
-            /sessão
-          </span>
+          {/* Layout premium de preço com desconto, badges e economia, igual Limpeza Energética */}
+          {tier.title === "Plano Essência" && (
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-2">
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">10% OFF</span>
+              </div>
+              <span className={`text-lg font-semibold line-through ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>R$ 550,00</span>
+              <span className={`text-4xl font-bold ${tier.isFeatured ? 'text-white' : 'text-rose-900'}`}>R$ 500,00</span>
+              <span className={`text-sm font-medium ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>sessão individual</span>
+              <div className="inline-flex items-center gap-2 bg-yellow-50 border-2 border-yellow-200 text-yellow-700 px-4 py-2 rounded-lg shadow-sm mt-2">
+                <span className="text-lg">💰</span>
+                <span className="font-bold text-xs sm:text-sm">Economize R$ 50,00 hoje</span>
+              </div>
+            </div>
+          )}
+          {tier.title === "Plano Raiz" && (
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-2">
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">20% OFF</span>
+              </div>
+              <span className={`text-lg font-semibold line-through ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>R$ 1.100,00</span>
+              <span className={`text-4xl font-bold ${tier.isFeatured ? 'text-white' : 'text-rose-900'}`}>R$ 880,00</span>
+              <span className={`text-sm font-medium ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>tratamento de 2 sessões/mês</span>
+              <div className="inline-flex items-center gap-2 bg-yellow-50 border-2 border-yellow-200 text-yellow-700 px-4 py-2 rounded-lg shadow-sm mt-2">
+                <span className="text-lg">💰</span>
+                <span className="font-bold text-xs sm:text-sm">Economize R$ 220,00 hoje</span>
+              </div>
+            </div>
+          )}
+          {tier.title === "Plano Legado" && (
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-2">
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">27% OFF</span>
+              </div>
+              <span className={`text-lg font-semibold line-through ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>R$ 3.300,00</span>
+              <span className={`text-4xl font-bold ${tier.isFeatured ? 'text-white' : 'text-rose-900'}`}>R$ 2.400,00</span>
+              <span className={`text-sm font-medium ${tier.isFeatured ? 'text-rose-100' : 'text-rose-600'}`}>tratamento completo de 3 meses</span>
+              <div className="inline-flex items-center gap-2 bg-yellow-50 border-2 border-yellow-200 text-yellow-700 px-4 py-2 rounded-lg shadow-sm mt-2">
+                <span className="text-lg">💰</span>
+                <span className="font-bold text-xs sm:text-sm">Economize R$ 900,00 hoje</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       
@@ -233,6 +333,7 @@ const TestimonialCard = React.memo(({ testimonial, index }) => {
 const HarmoniaGeracional = () => {
   const { toast } = useToast();
   const [slots, setSlots] = useState(12);
+  const [showCalendarEssencia, setShowCalendarEssencia] = useState(false);
 
   // Memoização dos dados estáticos
   const painPoints = useMemo(() => [
@@ -260,7 +361,7 @@ const HarmoniaGeracional = () => {
   const pricingTiers = useMemo(() => [
     {
       title: "Plano Essência",
-      price: "397",
+      price: "500",
       description: "Desperte a conexão com seu/sua filho(a)",
       features: ["Análise energética completa mãe-filho", "Identificação dos padrões geracionais", "Relatório personalizado com orientações", "Plano de ação para os primeiros passos"],
       cta: "Agendar Minha Sessão",
@@ -268,7 +369,7 @@ const HarmoniaGeracional = () => {
     },
     {
       title: "Plano Raiz",
-      price: "897",
+      price: "880",
       description: "Cultive a harmonia com acompanhamento contínuo",
       features: ["Tudo do Diagnóstico Geracional", "2 sessões mensais de acompanhamento", "Suporte prioritário via WhatsApp", "Monitoramento energético contínuo", "Ajustes de frequência conforme necessário"],
       cta: "Iniciar Minha Jornada",
@@ -276,8 +377,8 @@ const HarmoniaGeracional = () => {
     },
     {
       title: "Plano Legado",
-      price: "2.297",
-      description: "Transforme a energia da sua família por gerações",
+      price: "2.400",
+      description: "Transformação completa em 3 meses",
       features: ["Tudo do Acompanhamento Continuado", "6 sessões distribuídas em 3 meses", "Monitoramento semanal personalizado", "Plano de blindagem energética familiar", "Acompanhamento até a estabilização completa"],
       cta: "Quero a Transformação Completa",
       isFeatured: false
@@ -318,12 +419,19 @@ const HarmoniaGeracional = () => {
   }, []);
 
   // Callback otimizado para CTA
+  const [showCalEssencia, setShowCalEssencia] = useState(false);
+  const [showCalRaiz, setShowCalRaiz] = useState(false);
   const handleCTAClick = useCallback((plan) => {
     toast({
       title: "✨ Um passo de coragem!",
-      description: `Você será redirecionada para agendar a sessão do plano ${plan}.`,
+      description: `Escolha seu horário e prossiga para o checkout do plano ${plan}.`,
     });
-    
+    if (plan === 'Plano Essência') {
+      setShowCalEssencia(true);
+    }
+    if (plan === 'Plano Raiz') {
+      setShowCalRaiz(true);
+    }
     if (slots > 0) {
       const newSlots = slots - 1;
       setSlots(newSlots);
@@ -785,7 +893,7 @@ const HarmoniaGeracional = () => {
                     <motion.div 
                       className="h-full bg-gradient-to-r from-rose-600 to-pink-500"
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${slotsPercentage}%` }}
+                      whileInView={{ width: (slotsPercentage + "%") }}
                       transition={{ duration: 1, ease: "easeOut" }}
                       viewport={{ once: true }}
                     />
@@ -847,43 +955,49 @@ const HarmoniaGeracional = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <FAQHarmoniaGeracional />
+        {/* Calendário de Agendamento Embebido - Plano Essência (React Embed) */}
+        <CalEssenciaModal open={showCalEssencia} onClose={() => setShowCalEssencia(false)} />
+        {/* Calendário de Agendamento Embebido - Plano Raiz (React Embed) */}
+        <CalRaizModal open={showCalRaiz} onClose={() => setShowCalRaiz(false)} />
+      {/* CalRaizModal is defined below, outside the main render tree */}
 
-        {/* CTA Final Otimizado */}
-        <section className="py-20 md:py-24 bg-gradient-to-br from-rose-600 to-pink-500 text-white" aria-labelledby="final-cta-heading">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 id="final-cta-heading" className="text-3xl lg:text-4xl font-bold mb-6">
-              Transforme a Relação com Seu/Sua Filho(a) Adolescente
-            </h2>
-            <p className="text-xl text-rose-100 mb-8 max-w-2xl mx-auto">
-              Dê o primeiro passo para resgatar a conexão familiar e trazer harmonia de volta para o seu lar.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <Button 
-                onClick={() => handleCTAClick('Transformação Familiar')}
-                size="lg" 
-                className="bg-white text-rose-600 font-bold hover:bg-rose-50 shadow-lg transition-all transform hover:-translate-y-1 hover:scale-105"
-              >
-                Quero Reconectar com Meu/Minha Filho(a)
-              </Button>
-            </div>
-            
-            <div className="mt-8">
-              <CountdownTimer />
-            </div>
-            
-            <p className="text-xs mt-6 max-w-2xl mx-auto text-rose-700/70">
-              Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico.
-            </p>
-          </div>
-        </section>
       </main>
-
       <LandingFooter />
     </div>
   );
-};
+}
+
+function CalEssenciaModal({ open, onClose }) {
+  useEffect(() => {
+    if (open) {
+      (async function () {
+        const cal = await getCalApi({ namespace: "plano-essencia-hg" });
+        cal("ui", {
+          cssVarsPerTheme: {
+            light: { "cal-brand": "#dad491" },
+            dark: { "cal-brand": "#dad491" }
+          },
+          hideEventTypeDetails: false,
+          layout: "week_view"
+        });
+      })();
+    }
+  }, [open]);
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+      <div className="bg-white rounded-xl shadow-2xl p-6 max-w-2xl w-full relative">
+        <button onClick={onClose} className="absolute top-2 right-2 text-rose-600 text-xl font-bold">×</button>
+        <Cal
+          namespace="plano-essencia-hg"
+          calLink="raiz-energetica/plano-essencia-hg"
+          style={{ width: "100%", height: "600px", overflow: "scroll" }}
+          config={{ layout: "week_view" }}
+        />
+      </div>
+    </div>
+  );
+}
+
 
 export default React.memo(HarmoniaGeracional);
