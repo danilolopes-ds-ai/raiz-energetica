@@ -1,4 +1,4 @@
-// Componente Modal para Plano Legado
+// Componente Modal para Plano Legado (padrão igual aos outros)
 function CalLegadoModal({ open, onClose }) {
   useEffect(() => {
     if (open) {
@@ -6,8 +6,8 @@ function CalLegadoModal({ open, onClose }) {
         const cal = await getCalApi({ namespace: "plano-legado-hg" });
         cal("ui", {
           cssVarsPerTheme: {
-            light: { "cal-brand": "#e50000" },
-            dark: { "cal-brand": "#e50000" }
+            light: { "cal-brand": "#d40064" },
+            dark: { "cal-brand": "#d40064" }
           },
           hideEventTypeDetails: false,
           layout: "week_view"
@@ -19,7 +19,7 @@ function CalLegadoModal({ open, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
       <div className="bg-white rounded-xl shadow-2xl p-6 max-w-2xl w-full relative">
-        <button onClick={onClose} className="absolute top-2 right-2 text-red-700 text-xl font-bold">×</button>
+        <button onClick={onClose} className="absolute top-2 right-2 text-pink-700 text-xl font-bold">×</button>
         <Cal
           namespace="plano-legado-hg"
           calLink="raiz-energetica/plano-legado-hg"
