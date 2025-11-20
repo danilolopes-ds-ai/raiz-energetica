@@ -2,38 +2,39 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import Layout from '@/components/Layout';
-import Home from '@/pages/Home';
-import About from '@/pages/About';
-import Services from './pages/Services';
-import Blog from '@/pages/Blog';
-import BlogPost from '@/pages/BlogPost';
-import Contact from '@/pages/Contact';
-import Helena from '@/pages/Helena';
-import Login from '@/pages/Login';
-import Register from '@/pages/Register';
-import AdminLayout from '@/pages/admin/AdminLayout';
-import Dashboard from '@/pages/admin/Dashboard';
-import AdminPosts from '@/pages/admin/AdminPosts';
-import AdminServices from '@/pages/admin/AdminServices';
-import PostForm from '@/pages/admin/PostForm';
-import ServiceForm from '@/pages/admin/ServiceForm';
-import AdminTestimonials from '@/pages/admin/AdminTestimonials';
-import GerarDiagnostico from '@/pages/admin/gerar-diagnostico';
-import CMSGuide from '@/pages/admin/CMSGuide';
-import CreatePost from '@/pages/admin/CreatePost';
-import ManagePosts from '@/pages/admin/ManagePosts';
-import AdminLogin from '@/pages/admin/AdminLogin';
-import ProtectedRoute from '@/components/utils/ProtectedRoute';
+import React, { Suspense, lazy } from 'react';
 import ScrollToTop from '@/components/utils/ScrollToTop';
 import AnalyticsProvider from '@/components/utils/AnalyticsProvider';
-import Agendar from '@/pages/Agendar';
-import Obrigado from '@/pages/Obrigado';
-import Diagnostico from '@/pages/Diagnostico';
-import LimpezaEnergetica from '@/pages/LimpezaEnergetica';
-import RadiestesiaGenetica from '@/pages/RadiestesiaGenetica';
-import HarmoniaGeracional from '@/pages/HarmoniaGeracional';
-import Quiz from '@/pages/Quiz';
 import { Toaster } from '@/components/ui/toaster';
+const Home = lazy(() => import('@/pages/Home'));
+const About = lazy(() => import('@/pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Blog = lazy(() => import('@/pages/Blog'));
+const BlogPost = lazy(() => import('@/pages/BlogPost'));
+const Contact = lazy(() => import('@/pages/Contact'));
+const Helena = lazy(() => import('@/pages/Helena'));
+const Login = lazy(() => import('@/pages/Login'));
+const Register = lazy(() => import('@/pages/Register'));
+const AdminLayout = lazy(() => import('@/pages/admin/AdminLayout'));
+const Dashboard = lazy(() => import('@/pages/admin/Dashboard'));
+const AdminPosts = lazy(() => import('@/pages/admin/AdminPosts'));
+const AdminServices = lazy(() => import('@/pages/admin/AdminServices'));
+const PostForm = lazy(() => import('@/pages/admin/PostForm'));
+const ServiceForm = lazy(() => import('@/pages/admin/ServiceForm'));
+const AdminTestimonials = lazy(() => import('@/pages/admin/AdminTestimonials'));
+const GerarDiagnostico = lazy(() => import('@/pages/admin/gerar-diagnostico'));
+const CMSGuide = lazy(() => import('@/pages/admin/CMSGuide'));
+const CreatePost = lazy(() => import('@/pages/admin/CreatePost'));
+const ManagePosts = lazy(() => import('@/pages/admin/ManagePosts'));
+const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
+const ProtectedRoute = lazy(() => import('@/components/utils/ProtectedRoute'));
+const Agendar = lazy(() => import('@/pages/Agendar'));
+const Obrigado = lazy(() => import('@/pages/Obrigado'));
+const Diagnostico = lazy(() => import('@/pages/Diagnostico'));
+const LimpezaEnergetica = lazy(() => import('@/pages/LimpezaEnergetica'));
+const RadiestesiaGenetica = lazy(() => import('@/pages/RadiestesiaGenetica'));
+const HarmoniaGeracional = lazy(() => import('@/pages/HarmoniaGeracional'));
+const Quiz = lazy(() => import('@/pages/Quiz'));
 
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from '@/contexts/AuthContext';
@@ -45,38 +46,40 @@ function App() {
         <Router>
           <AnalyticsProvider>
             <ScrollToTop />
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/test-pdf" element={<GerarDiagnostico />} />
-              <Route path="/diagnostico" element={<Diagnostico />} />
-              <Route path="/limpeza-energetica" element={<LimpezaEnergetica />} />
-              <Route path="/radiestesia-genetica" element={<RadiestesiaGenetica />} />
-              <Route path="/harmonia-geracional" element={<HarmoniaGeracional />} />
-              <Route path="/quiz" element={<Quiz />} />
-              
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="sobre" element={<About />} />
-                <Route path="servicos" element={<Services />} />
-                <Route path="blog" element={<Blog />} />
-                <Route path="blog/:slug" element={<BlogPost />} />
-                <Route path="contato" element={<Contact />} />
-                <Route path="helena" element={<Helena />} />
-                <Route path="agendar" element={<Agendar />} />
-                <Route path="obrigado" element={<Obrigado />} />
-              </Route>
+            <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-600"></div></div>}>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/test-pdf" element={<GerarDiagnostico />} />
+                <Route path="/diagnostico" element={<Diagnostico />} />
+                <Route path="/limpeza-energetica" element={<LimpezaEnergetica />} />
+                <Route path="/radiestesia-genetica" element={<RadiestesiaGenetica />} />
+                <Route path="/harmonia-geracional" element={<HarmoniaGeracional />} />
+                <Route path="/quiz" element={<Quiz />} />
+                
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="sobre" element={<About />} />
+                  <Route path="servicos" element={<Services />} />
+                  <Route path="blog" element={<Blog />} />
+                  <Route path="blog/:slug" element={<BlogPost />} />
+                  <Route path="contato" element={<Contact />} />
+                  <Route path="helena" element={<Helena />} />
+                  <Route path="agendar" element={<Agendar />} />
+                  <Route path="obrigado" element={<Obrigado />} />
+                </Route>
 
-              <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
 
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="blog/novo" element={<CreatePost />} />
-                <Route path="blog/gerenciar" element={<ManagePosts />} />
-                <Route path="blog/editar/:id" element={<CreatePost />} />
-              </Route>
+                <Route path="/admin" element={<AdminLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="blog/novo" element={<CreatePost />} />
+                  <Route path="blog/gerenciar" element={<ManagePosts />} />
+                  <Route path="blog/editar/:id" element={<CreatePost />} />
+                </Route>
 
-            </Routes>
+              </Routes>
+            </Suspense>
             <Toaster />
             <SpeedInsights />
           </AnalyticsProvider>
