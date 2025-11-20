@@ -961,6 +961,7 @@ const HarmoniaGeracional = () => {
         <CalRaizModal open={showCalRaiz} onClose={() => setShowCalRaiz(false)} />
       {/* CalRaizModal is defined below, outside the main render tree */}
 
+
       </main>
       <LandingFooter />
     </div>
