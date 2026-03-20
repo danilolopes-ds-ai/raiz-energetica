@@ -3,7 +3,7 @@
 Este documento resume o estado atual e o histórico do projeto do site 'Raiz Energética' para garantir a continuidade e eficiência em futuras sessões de desenvolvimento.
 
 **1. Objetivo do Projeto:**
-O site serve como uma plataforma para 'Raiz Energética', oferecendo serviços de terapia e cura energética. Ele inclui páginas de serviços, blog, autenticação de usuário e áreas administrativas para gerenciamento de conteúdo.
+O site serve como uma plataforma para 'Raiz Energética', oferecendo serviços de terapia e reequilíbrio energético. Ele inclui páginas de serviços, blog, autenticação de usuário e áreas administrativas para gerenciamento de conteúdo.
 
 **2. Stack de Tecnologia:**
 - **Frontend:** React 18 (com Hooks)

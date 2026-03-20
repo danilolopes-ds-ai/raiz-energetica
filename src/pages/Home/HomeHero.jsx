@@ -15,7 +15,7 @@ const HomeHero = ({ stats }) => {
       link: 'https://wa.me/message/QBS4LCD5777XM1',
     },
     secondaryCta: {
-      text: '🌀 Explorar Caminhos de Cura',
+      text: '🌀 Explorar Caminhos de reequilíbrio',
       link: '/servicos',
     },
     image: {

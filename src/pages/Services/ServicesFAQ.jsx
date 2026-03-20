@@ -20,7 +20,7 @@ const ServicesFAQ = () => {
     },
     {
       question: 'Quantas sessões vou precisar?',
-      answer: 'Depende do caso. Alguns clientes sentem resultados já na primeira sessão. Outros precisam de acompanhamento contínuo. Durante a primeira consulta, fazemos uma avaliação e sugerimos o melhor caminho.'
+      answer: 'Depende do caso. Alguns clientes sentem resultados já na primeira sessão. Outros precisam de acompanhamento contínuo. Durante a Primeiro Atendimento Terapêutico, fazemos uma avaliação e sugerimos o melhor caminho.'
     },
     {
       question: 'A Harmonia Geracional funciona mesmo sem o filho saber?',
@@ -36,7 +36,7 @@ const ServicesFAQ = () => {
     },
     {
       question: 'Vocês atendem casos graves ou só questões leves?',
-      answer: 'Atendemos desde questões pontuais até casos complexos e profundos. Nossa abordagem é integrativa e respeita cada processo individual. Se necessário, também orientamos sobre a importância do acompanhamento médico ou psicológico paralelo.'
+      answer: 'Atendemos desde questões pontuais até casos complexos e profundos. Nossa abordagem é integrativa e respeita cada processo individual. Se necessário, também orientamos sobre a importância do acompanhamento terapeuta holístico ou psicológico paralelo.'
     },
     {
       question: 'Não tenho tempo para sessão ao vivo. Posso receber o tratamento de outra forma?',
@@ -47,8 +47,8 @@ const ServicesFAQ = () => {
       answer: 'Sim! Tanto a Radiestesia Genética quanto a Harmonia Geracional trabalham no campo energético da pessoa, independente dela saber ou participar. O tratamento é realizado através de você, e os resultados aparecem naturalmente. Você recebe o resultado e orientações via WhatsApp.'
     },
     {
-      question: 'A terapia energética substitui tratamento médico ou psicológico?',
-      answer: 'NUNCA! Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico. Recomendamos que mantenha seus acompanhamentos com profissionais de saúde. Este trabalho energético é complementar e integrativo.'
+      question: 'A terapia energética substitui tratamento terapeuta holístico ou psicológico?',
+      answer: 'NUNCA! Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui avaliação ou acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos. Recomendamos que mantenha seus acompanhamentos com profissionais de saúde. Este trabalho energético é complementar e integrativo.'
     }
   ];
 

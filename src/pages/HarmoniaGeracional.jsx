@@ -371,7 +371,7 @@ const HarmoniaGeracional = () => {
       title: "Plano Raiz",
       price: "880",
       description: "Cultive a harmonia com acompanhamento contínuo",
-      features: ["Tudo do Diagnóstico Geracional", "2 sessões mensais de acompanhamento", "Suporte prioritário via WhatsApp", "Monitoramento energético contínuo", "Ajustes de frequência conforme necessário"],
+      features: ["Tudo do anamnese terapêutica Geracional", "2 sessões mensais de acompanhamento", "Suporte prioritário via WhatsApp", "Monitoramento energético contínuo", "Ajustes de frequência conforme necessário"],
       cta: "Iniciar Minha Jornada",
       isFeatured: true
     },

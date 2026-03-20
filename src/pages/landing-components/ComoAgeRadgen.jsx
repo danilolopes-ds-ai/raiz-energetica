@@ -5,7 +5,7 @@ const ComoAgeRadgen = () => {
   const features = [
     {
       icon: <Zap className="w-8 h-8 text-[#582c81]" />,
-      title: "Diagnóstico Completo e Diferenciado",
+      title: "Anamnese Terapêutica Completa e Diferenciada",
       description: "Identifica causas que vão além do convencional: desde físicas, energias de imóveis, vampiros energéticos, até padrões de antepassados."
     },
     {
@@ -21,7 +21,7 @@ const ComoAgeRadgen = () => {
     {
       icon: <BrainCircuit className="w-8 h-8 text-[#582c81]" />,
       title: "Pêndulo e Gráficos Próprios",
-      description: "Utiliza pêndulo para captar energia sutil em micromovimentos, direcionando diagnóstico e tratamento através de gráficos de ondas de formas exclusivos da técnica."
+      description: "Utiliza pêndulo para captar energia sutil em micromovimentos, direcionando anamnese terapêutica e tratamento através de gráficos de ondas de formas exclusivos da técnica."
     },
     {
       icon: <UserCheck className="w-8 h-8 text-[#582c81]" />,

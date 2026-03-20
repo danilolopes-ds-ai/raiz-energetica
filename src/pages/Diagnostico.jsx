@@ -17,8 +17,8 @@ const LandingHeader = () => (
             </Link>
             <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm px-2 sm:px-4 sm:text-base shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
                 <a href="#oferta">
-                    <span className="hidden sm:inline">Fazer Meu Diagnóstico</span>
-                    <span className="sm:hidden">Diagnóstico</span>
+                    <span className="hidden sm:inline">Fazer Meu anamnese terapêutica</span>
+                    <span className="sm:hidden">anamnese terapêutica</span>
                 </a>
             </Button>
         </div>
@@ -29,7 +29,7 @@ const LandingFooter = () => (
     <footer className="bg-slate-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-slate-400">
             <p>&copy; {new Date().getFullYear()} Raiz Energética. Todos os direitos reservados.</p>
-            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico.</p>
+            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui avaliação ou acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos.</p>
         </div>
     </footer>
 );
@@ -38,7 +38,7 @@ const Diagnostico = () => {
     const { toast } = useToast();
 
     const testimonials = [
-      { name: "Juliana S.", profession: "Terapeuta Holística", text: "Eu já trabalho com energia, mas o diagnóstico trouxe uma clareza que eu não conseguia acessar sozinha. Foi como acender uma luz numa sala escura. Vi exatamente onde estava o nó e o que fazer. Recomendo de olhos fechados." },
+    { name: "Juliana S.", profession: "Terapeuta Holística", text: "Eu já trabalho com energia, mas a anamnese terapêutica trouxe uma clareza que eu não conseguia acessar sozinha. Foi como acender uma luz numa sala escura. Vi exatamente onde estava o nó e o que fazer. Recomendo de olhos fechados." },
       { name: "Marcos P.", profession: "Empreendedor", text: "O relatório bateu 100% com o que eu sentia, mas não sabia nomear." },
       { name: "Carla M.", profession: "Advogada", text: "Me poupou meses de terapia. Profundo, prático e certeiro." }
     ];
@@ -65,7 +65,7 @@ const Diagnostico = () => {
       { icon: MessageSquare, text: "Relações repetitivas e desgastantes" },
       { icon: BarChart, text: "Vida financeira emperrada e dificuldade em prosperar" },
       { icon: HelpCircle, text: "Sensação de estagnação e sem direção na vida" },
-      { icon: ShieldCheck, text: "Sintomas físicos que vêm e vão sem diagnóstico e explicação" },
+      { icon: ShieldCheck, text: "Sintomas físicos que vêm e vão sem anamnese terapêutica e explicação" },
       { icon: Search, text: "Dúvidas sobre seu propósito e falta de clareza na vida" }
     ];
 
@@ -79,8 +79,8 @@ const Diagnostico = () => {
     return (
         <div className="bg-background font-sans text-slate-700">
             <Helmet>
-                <title>Desvendando a Raiz - Diagnóstico Energético Personalizado</title>
-                <meta name="description" content="Descubra em 24h o que está bloqueando sua energia com nosso diagnóstico personalizado. Clareza e direcionamento por um valor acessível." />
+                <title>Desvendando a Raiz - Anamnese Terapêutica Energética Personalizada</title>
+                <meta name="description" content="Descubra em 24h o que está bloqueando sua energia com nosso anamnese terapêutica personalizado. Clareza e direcionamento por um valor acessível." />
             </Helmet>
             <LandingHeader />
             <main>
@@ -98,13 +98,13 @@ const Diagnostico = () => {
                                     Descubra em <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-500">24h</span> o que está travando sua vida e como <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-500">começar a destravar</span>
                                 </motion.h1>
                                 <motion.p variants={itemVariants} className="mt-6 max-w-2xl mx-auto lg:mx-0 text-lg text-slate-600">
-                                    <sub className="text-base font-medium">Um diagnóstico energético claro, direto no seu e-mail. Feito à distância, com precisão e sensibilidade.</sub>
+                                    <sub className="text-base font-medium">Uma anamnese terapêutica energética clara, direto no seu e-mail. Feita à distância, com precisão e sensibilidade.</sub>
                                 </motion.p>
                                 <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                     <Button onClick={handleCTAClick} asChild className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-sm sm:text-lg px-3 py-3 sm:px-8">
                                         <a href="#oferta" className="flex items-center justify-center">
                                             <Search className="w-5 h-5 mr-2" />
-                                            Quero Meu Diagnóstico Agora
+                                            Quero Meu anamnese terapêutica Agora
                                         </a>
                                     </Button>
                                     <Button variant="outline" asChild className="border-slate-300 hover:bg-slate-100 font-semibold text-sm sm:text-lg px-3 py-3 sm:px-8">
@@ -161,10 +161,10 @@ const Diagnostico = () => {
                             viewport={{ once: true, amount: 0.3 }}
                         >
                             {[
-                                { icon: Gift, title: "Solicite o Diagnóstico", desc: "Realize o pagamento com total segurança em poucos cliques." },
+                                { icon: Gift, title: "Solicite a Anamnese Terapêutica", desc: "Realize o pagamento com total segurança em poucos cliques." },
                                 { icon: UserCheck, title: "Preencha Seus Dados", desc: "Você receberá um link com um formulário rápido (nome + data de nascimento)." },
                                 { icon: Sparkles, title: "Análise Energética à Distância", desc: "Realizamos sua leitura energética com precisão e sigilo, sem precisar de presença física ou online." },
-                                { icon: Send, title: "Receba seu Mapa em até 24h", desc: "Seu diagnóstico completo chega por e-mail, com insights e um plano prático de ação." }
+                                { icon: Send, title: "Receba seu Mapa em até 24h", desc: "Sua anamnese terapêutica completa chega por e-mail, com insights e um plano prático de ação." }
                             ].map((step, i) => (
                                 <motion.div key={i} variants={itemVariants} className="group">
                                     <Card className="h-full p-6 text-center relative overflow-hidden bg-slate-50/50 border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
@@ -221,7 +221,7 @@ const Diagnostico = () => {
                                 <p className="my-1 text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500 sm:my-2 sm:text-6xl drop-shadow-lg">R$79</p>
                                 <p className="text-slate-400 font-semibold text-sm sm:text-base">Pagamento único</p>
                                 <Button onClick={handleCTAClick} className="w-full mt-4 sm:mt-6 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white font-bold text-xs sm:text-base shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-600/60 transition-all transform hover:-translate-y-1 py-4 px-4 sm:px-6 h-auto">
-                                    🌀 Quero Meu Diagnóstico Agora
+                                    🌀 Quero Meu anamnese terapêutica Agora
                                 </Button>
                             </div>
                         </div>
@@ -257,7 +257,7 @@ const Diagnostico = () => {
                   <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
                       <div className="text-center">
                           <h2 className="text-3xl lg:text-4xl font-bold text-white tracking-tight">Dúvidas Frequentes</h2>
-                          <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-400">Respostas para as perguntas mais comuns sobre o diagnóstico.</p>
+                          <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-400">Respostas para as perguntas mais comuns sobre a anamnese terapêutica.</p>
                       </div>
                       <motion.div 
                           className="mt-12"
@@ -284,7 +284,7 @@ const Diagnostico = () => {
                     <div className="text-center bg-slate-100 p-6 sm:p-10 rounded-2xl max-w-3xl mx-auto border border-slate-200">
                         <ShieldCheck className="w-16 h-16 text-indigo-600 mx-auto mb-4" />
                         <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Risco zero. Clareza garantida.</h2>
-                        <p className="mt-4 text-slate-600">Confiamos tanto na precisão desse diagnóstico que oferecemos garantia incondicional. Se você não sentir clareza real, devolvemos 100% do seu investimento.</p>
+                        <p className="mt-4 text-slate-600">Confiamos tanto na precisão desse anamnese terapêutica que oferecemos garantia incondicional. Se você não sentir clareza real, devolvemos 100% do seu investimento.</p>
                         <div className="w-full max-w-xs mx-auto mt-8">
                             <div className="bg-slate-200 rounded-full h-2.5">
                                 <div className="bg-gradient-to-r from-amber-400 to-red-500 h-2.5 rounded-full" style={{ width: '85%' }}></div>
@@ -292,7 +292,7 @@ const Diagnostico = () => {
                         </div>
                         <p className="mt-2 text-slate-600 font-semibold text-sm text-center">⏳ Vagas limitadas por dia para garantir qualidade energética da análise.</p>
                         <Button onClick={handleCTAClick} size="lg" asChild className="mt-8 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white font-bold shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-600/60 transition-all transform hover:-translate-y-1 py-4 h-auto">
-                          <a href="#oferta">🌀 Quero Meu Diagnóstico Agora</a>
+                          <a href="#oferta">🌀 Quero Meu anamnese terapêutica Agora</a>
                         </Button>
                     </div>
                   </div>

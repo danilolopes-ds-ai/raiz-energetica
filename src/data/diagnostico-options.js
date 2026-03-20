@@ -5,7 +5,7 @@ export const diagnosticoOptions = {
         "70-100": "Energia boa, mas sempre podendo melhorar",
         "50-69": "Cansaço e/ou esgotamento",
         "40-49": "Zona de alerta, requer atenção",
-        "0-39": "Recomenda-se checkup médico completo"
+        "0-39": "Recomenda-se checkup terapeuta holístico completo"
       }
     },
     "psico": {

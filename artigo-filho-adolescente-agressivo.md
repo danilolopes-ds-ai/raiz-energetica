@@ -96,7 +96,7 @@ Ele acabou de explodir. Bateu a porta. Gritou algo ofensivo.
 
 Você respira fundo. Conta até 10. Vai até o quarto dele e diz:
 
-*"Precisamos conversar. Você não pode me tratar assim..."*
+*"Precisamos conversar. Você não pode agir assim comigo..."*
 
 **E começa a guerra.**
 
@@ -215,7 +215,7 @@ Trabalham o comportamento (o sintoma visível)
 **Harmonia Geracional:**  
 Trabalha a raiz energética (o padrão invisível que gera o sintoma)
 
-É como tratar uma planta doente:
+É como cuidar de uma planta em desequilíbrio:
 - ❌ Você pode pintar as folhas de verde (fingir que está tudo bem)
 - ❌ Você pode cortar as folhas murchas (punir o comportamento)
 - ✅ **Ou você pode cuidar da raiz** (e ver a planta inteira se regenerar)
@@ -273,8 +273,8 @@ Todas as abordagens que você tentou (terapia, conversas, limites, espaço) trab
 
 A Harmonia Geracional trabalha no nível **causal**.
 
-É como tratar uma infecção:
-- Você pode tomar analgésico (alivia a dor, mas não cura)
+É como lidar com uma infecção:
+- Você pode tomar analgésico (alivia a dor, mas não resolve a causa)
 - Ou você pode tomar antibiótico (elimina a causa raiz)
 
 ### Depoimento Real
@@ -380,7 +380,7 @@ E energeticamente, você está realmente limpando o campo entre vocês.
 
 ### ⚠️ Importante: Esses 3 Passos NÃO Vão Resolver Tudo Sozinhos
 
-Eles vão criar a **ABERTURA** necessária para que a cura real aconteça.
+Eles vão criar a **ABERTURA** necessária para que o reequilíbrio real aconteça.
 
 Pense neles como "preparar o solo" antes de plantar.
 

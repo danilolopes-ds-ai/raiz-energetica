@@ -19,7 +19,7 @@ const CommunitySection = () => {
                 Junte-se à Nossa <span className="text-gradient">Comunidade</span>
               </Text>
               <Text variant="lead" className="text-gray-600">
-                A jornada de cura é mais potente quando compartilhada. Convido você a fazer parte do nosso grupo exclusivo no WhatsApp, um espaço seguro para trocas, aprendizados e apoio mútuo.
+                A jornada de reequilíbrio é mais potente quando compartilhada. Convido você a fazer parte do nosso grupo exclusivo no WhatsApp, um espaço seguro para trocas, aprendizados e apoio mútuo.
               </Text>
             </div>
 

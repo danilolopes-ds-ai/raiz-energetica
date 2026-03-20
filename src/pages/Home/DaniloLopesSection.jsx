@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const listItems = [
   {
-    text: "Radiestesia Genética como eixo de diagnóstico e direção",
+    text: "Radiestesia Genética como eixo de anamnese terapêutica e direção",
     emoji: "🧬",
     color: "text-[#4ca626]", // Verde Limão
   },
@@ -87,7 +87,7 @@ const DaniloLopesSection = () => {
              <img 
               className="rounded-2xl shadow-xl w-full h-full max-h-[500px] object-cover object-top"
               alt="Danilo Lopes, fundador da Raiz Energética" 
-              src="/images/services/atendimento-paciente-clinica.webp" 
+              src="/images/services/atendimento-atendido-clinica.webp" 
               width={600}
               height={500}
             />

@@ -44,7 +44,7 @@ const AboutCTA = () => {
               className="border-gray-300 hover:bg-gray-100 transform hover:scale-105 transition-transform duration-300"
             >
               <Link to="/servicos">
-                🌀 Explorar Caminhos de Cura
+                🌀 Explorar Caminhos de reequilíbrio
               </Link>
             </Button>
           </div>

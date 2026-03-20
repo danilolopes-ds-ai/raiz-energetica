@@ -5,7 +5,7 @@ import { Heart, GraduationCap, Sparkles } from 'lucide-react';
 
 const MissionSection = () => {
   const missionPillars = [
-    { icon: Heart, title: "Curar", description: "Oferecer tratamentos que aliviam o sofrimento e restauram o equilíbrio energético." },
+    { icon: Heart, title: "Reequilibrar", description: "Oferecer tratamentos que aliviam o sofrimento e restauram o equilíbrio energético." },
     { icon: GraduationCap, title: "Educar", description: "Compartilhar conhecimento para que você compreenda as mensagens do seu corpo e se torne autônomo em seu autocuidado." },
     { icon: Sparkles, title: "Empoderar", description: "Fornecer ferramentas para que você sustente sua vitalidade e construa uma vida com mais presença, propósito e bem-estar." }
   ];
@@ -22,10 +22,10 @@ const MissionSection = () => {
           >
             <div className="px-4 sm:px-0">
               <Text as="h2" variant="h2" className="mb-4">
-                Nossa Missão: <span className="text-gradient">Curar, Educar e Empoderar</span>
+                Nossa Missão: <span className="text-gradient">Reequilibrar, Educar e Empoderar</span>
               </Text>
               <Text variant="lead">
-                Acreditamos que a verdadeira cura acontece quando o indivíduo se torna protagonista de sua própria jornada.
+                Acreditamos que a verdadeira reequilíbrio acontece quando o indivíduo se torna protagonista de sua própria jornada.
               </Text>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">

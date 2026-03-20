@@ -36,7 +36,7 @@ const LandingFooter = () => (
     <footer className="bg-slate-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-slate-400">
             <p>&copy; {new Date().getFullYear()} Raiz Energética. Todos os direitos reservados.</p>
-            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico.</p>
+            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui avaliação ou acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos.</p>
         </div>
     </footer>
 );
@@ -165,7 +165,7 @@ const LimpezaEnergetica = () => {
                     "name": "Posso fazer a limpeza para outra pessoa?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Sim! Você pode contratar a limpeza energética como presente para familiares ou amigos. Precisaremos das informações da pessoa que receberá a limpeza (nome completo, data de nascimento e endereço completo). Independente dela saber ou não, os resultados aparecem naturalmente e você recebe o resultado e orientações."
+                      "text": "Sim! Você pode conauxiliar na recuperação energética a limpeza energética como presente para familiares ou amigos. Precisaremos das informações da pessoa que receberá a limpeza (nome completo, data de nascimento e endereço completo). Independente dela saber ou não, os resultados aparecem naturalmente e você recebe o resultado e orientações."
                     }
                   },
                   {
@@ -178,10 +178,10 @@ const LimpezaEnergetica = () => {
                   },
                   {
                     "@type": "Question",
-                    "name": "A limpeza energética substitui tratamento médico?",
+                    "name": "A limpeza energética substitui acompanhamento de profissionais da saúde?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "NUNCA! A limpeza energética é uma ferramenta complementar poderosa de bem-estar e equilíbrio, mas não substitui diagnóstico, tratamento médico, psicológico ou psiquiátrico. Sempre mantenha acompanhamento com profissionais da saúde para questões clínicas."
+                      "text": "NUNCA! A limpeza energética é uma ferramenta complementar poderosa de bem-estar e equilíbrio, mas não substitui avaliação ou acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos. Sempre mantenha acompanhamento com profissionais da saúde para questões de saúde."
                     }
                   }
                 ]

@@ -33,15 +33,15 @@ const faqs = [
   },
   {
     question: "Posso fazer a limpeza para outra pessoa?",
-    answer: "Sim! Você pode contratar a limpeza energética como presente para familiares ou amigos. Precisaremos das informações da pessoa que receberá a limpeza (nome completo, data de nascimento e endereço completo). Independente dela saber ou não, os resultados aparecem naturalmente e você recebe o resultado e orientações."
+    answer: "Sim! Você pode conauxiliar na recuperação energética a limpeza energética como presente para familiares ou amigos. Precisaremos das informações da pessoa que receberá a limpeza (nome completo, data de nascimento e endereço completo). Independente dela saber ou não, os resultados aparecem naturalmente e você recebe o resultado e orientações."
   },
   {
     question: "E se eu não gostar do resultado?",
     answer: "Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito com o trabalho, devolvemos 100% do seu investimento, sem perguntas. Seu bem-estar e satisfação são nossa prioridade máxima."
   },
   {
-    question: "A limpeza energética substitui tratamento médico?",
-    answer: "NUNCA! A limpeza energética é uma ferramenta complementar poderosa de bem-estar e equilíbrio, mas não substitui diagnóstico, tratamento médico, psicológico ou psiquiátrico. Sempre mantenha acompanhamento com profissionais da saúde para questões clínicas."
+    question: "A limpeza energética substitui tratamento terapeuta holístico?",
+    answer: "NUNCA! A limpeza energética é uma ferramenta complementar poderosa de bem-estar e equilíbrio, mas não substitui avaliação ou acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos. Sempre mantenha acompanhamento com profissionais da saúde para questões de saúde."
   }
 ];
 

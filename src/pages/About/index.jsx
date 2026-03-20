@@ -18,7 +18,7 @@ const AboutPage = () => {
     { year: "2012", title: "Fisioterapia", description: "Início da jornada pelo corpo", icon: GraduationCap },
     { year: "2015", title: "Acupuntura", description: "Integração com os sistemas orientais", icon: Zap },
     { year: "2016", title: "Radiestesia Genética", description: "O encontro com a raiz energética", icon: Sparkles },
-    { year: "2017–2019", title: "Coordenação na ABRADGEN", description: "Consolidação da expertise clínica", icon: Award },
+    { year: "2017–2019", title: "Coordenação na ABRADGEN", description: "Consolidação da expertise centro terapêutico", icon: Award },
     { year: "2021", title: "Integração de Saberes Ancestrais", description: "Ampliação da visão terapêutica com práticas xamânicas e espirituais", icon: BookOpen },
     { year: "2024", title: "Fundação da Raiz Energética", description: "Quando a missão virou movimento", icon: Rocket }
   ];

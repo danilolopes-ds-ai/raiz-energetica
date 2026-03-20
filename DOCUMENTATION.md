@@ -5,7 +5,7 @@
 
 ## 1. Visão Geral do Projeto
 
-Este documento fornece uma visão técnica aprofundada do website "Raiz Energética". O projeto é uma aplicação web moderna (SPA - Single Page Application) construída com React, projetada para servir como a principal plataforma digital da marca. Suas funcionalidades incluem a apresentação de serviços, um blog informativo, agendamento, e uma área administrativa para gerenciamento de conteúdo e geração de relatórios de diagnóstico personalizados em PDF.
+Este documento fornece uma visão técnica aprofundada do website "Raiz Energética". O projeto é uma aplicação web moderna (SPA - Single Page Application) construída com React, projetada para servir como a principal plataforma digital da marca. Suas funcionalidades incluem a apresentação de serviços, um blog informativo, agendamento, e uma área administrativa para gerenciamento de conteúdo e geração de relatórios de anamnese terapêutica personalizados em PDF.
 
 O objetivo desta documentação é capacitar engenheiros de software a compreenderem rapidamente a arquitetura, as tecnologias empregadas, as convenções de código e a lógica de negócio, facilitando a manutenção, o desenvolvimento de novas features e o onboarding de novos membros na equipe.
 
@@ -50,7 +50,7 @@ A organização do código-fonte segue padrões bem definidos para garantir esca
 │   ├── Services/           # Componentes específicos da página de Serviços.
 │   ├── admin/              # Páginas da área administrativa.
 │   ├── api/                # Serverless Functions (APIs).
-│   │   └── generate-pdf.js # Endpoint para gerar o PDF de diagnóstico.
+│   │   └── generate-pdf.js # Endpoint para gerar o PDF de anamnese terapêutica.
 │   └── Home.jsx, Services.jsx ...
 |
 ├── lib/                    # Módulos e utilitários de propósito geral.
@@ -63,7 +63,7 @@ A organização do código-fonte segue padrões bem definidos para garantir esca
 ├── data/                   # Arquivos com dados estáticos (ex: opções de formulários).
 |
 └── pdf-templates/          # Componentes React usados como templates para a geração de PDFs.
-    └── diagnostico.jsx     # Template do relatório de diagnóstico.
+    └── diagnostico.jsx     # Template do relatório de anamnese terapêutica.
 ```
 
 ---

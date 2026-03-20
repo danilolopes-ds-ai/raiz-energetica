@@ -22,7 +22,7 @@ trackEvent.appointmentScheduled('Radiestesia Genética', '2025-08-25');
 trackEvent.leadCapture('formulario-contato', 'email@exemplo.com');
 trackEvent.completeRegistration('newsletter', 'homepage');
 
-5. QUIZ/DIAGNÓSTICO:
+5. QUIZ/anamnese terapêutica:
 trackEvent.quizStart('homepage');
 trackEvent.quizStep(1, 'sintoma-ansiedade');
 trackEvent.quizComplete('recomendacao-radiestesia', 'email@exemplo.com');
@@ -112,7 +112,7 @@ export const MetaPixelGuide = {
     trackEvent.completeRegistration('newsletter', 'website');
   },
 
-  // Eventos de quiz/diagnóstico
+  // Eventos de quiz/anamnese terapêutica
   diagnosticStart: (source) => {
     trackEvent.quizStart(source);
   },

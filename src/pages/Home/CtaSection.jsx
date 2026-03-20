@@ -21,7 +21,7 @@ const CtaSection = ({ onButtonClick }) => {
           >
           <Text as="h2" variant="h2" className="mb-4">
             <span className="block sm:inline mb-2 sm:mb-0">🌿</span>
-            <span className="block sm:inline"> A Cura Começa</span>
+            <span className="block sm:inline"> A reequilíbrio Começa</span>
             <span className="block sm:inline"> Quando Você</span>
             <span className="block sm:inline"> <span className="text-gradient">Decide Ouvir</span></span>
           </Text>

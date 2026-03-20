@@ -39,7 +39,7 @@ const Helena = () => {
   const helenaQuestions = [
     "O que é radiestesia genética?",
     "Qual tratamento é ideal para mim?",
-    "Como agendar uma consulta?",
+    "Como agendar uma atendimento terapêutico?",
     "Quanto custam os tratamentos?",
     "Vocês atendem online?",
     "Qual a duração das sessões?",
@@ -52,7 +52,7 @@ const Helena = () => {
   const testimonials = [
     {
       name: "Carla Mendes",
-      text: "Helena me ajudou a entender melhor sobre radiestesia antes da minha consulta. Muito atenciosa!",
+      text: "Helena me ajudou a entender melhor sobre radiestesia antes da minha atendimento terapêutico. Muito atenciosa!",
       rating: 5
     },
     {

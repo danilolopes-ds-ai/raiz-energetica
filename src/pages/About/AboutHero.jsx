@@ -27,7 +27,7 @@ const AboutHero = ({ stats }) => {
                 decoding="async"
               />
               <p className="text-sm italic text-gray-500 mt-3">
-                “Cura começa quando voltamos a nos conectar com aquilo que sustenta nossa essência.”
+                “reequilíbrio começa quando voltamos a nos conectar com aquilo que sustenta nossa essência.”
               </p>
             </div>
 
@@ -36,7 +36,7 @@ const AboutHero = ({ stats }) => {
                 Transformação verdadeira começa quando escutamos o que os sintomas tentam dizer.
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                O que começou com um olhar clínico e técnico sobre o corpo evoluiu ao longo de quase uma década para uma visão mais profunda, energética e verdadeiramente humana do processo de cura.
+                O que começou com um olhar clínico e técnico sobre o corpo evoluiu ao longo de quase uma década para uma visão mais profunda, energética e verdadeiramente humana do processo de reequilíbrio.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Hoje, a Raiz Energética é mais do que um projeto terapêutico: é um movimento de transformação que ajuda pessoas especialmente mulheres, mães e famílias a reconectarem com sua força vital, restaurarem sua energia e encontrarem direção onde antes parecia não haver caminho.

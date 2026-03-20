@@ -39,7 +39,7 @@ const LandingFooter = () => (
     <footer className="bg-slate-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-slate-400">
             <p>&copy; {new Date().getFullYear()} Raiz Energética. Todos os direitos reservados.</p>
-            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui diagnóstico ou tratamento médico, psicológico ou psiquiátrico.</p>
+            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta poderosa de bem-estar e equilíbrio. Não substitui avaliação ou acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos.</p>
         </div>
     </footer>
 );
@@ -94,18 +94,18 @@ const RadiestesiaGenetica = () => {
 
   const offerItems = [
     "Sessão ao vivo de 60 minutos - Mapeamento completo do seu padrão energético",
-    "Diagnóstico energético detalhado - Identificação das causas raiz dos seus desafios",
+    "Anamnese terapêutica energética detalhada - Identificação das causas raiz dos seus desafios",
     "Tratamento energético em tempo real - Limpeza e harmonização durante a sessão",
     "Relatório personalizado - Documento com suas descobertas e orientações específicas"
   ];
   
-  const bonusText = "1 acesso premium ao \"Desvendando a Raiz\" para presentear aquela pessoa que sua alma já sabe que está pronta para a transformação - porque quando curamos nossas raízes, nos libertamos para florescer e semear um mundo melhor.";
+  const bonusText = "1 acesso premium ao \"Desvendando a Raiz\" para presentear aquela pessoa que sua alma já sabe que está pronta para a transformação - porque quando reequilibramos nossas raízes, nos libertamos para florescer e semear um mundo melhor.";
 
   return (
     <div className="bg-slate-50 font-sans text-slate-800">
       <Helmet>
         <title>Radiestesia Genética - Transforme as Raízes da Sua Vida</title>
-        <meta name="description" content="Sessão exclusiva para investigar e tratar as causas energéticas hereditárias que governam sua vida. Liberte-se de padrões ancestrais e reescreva sua história." />
+        <meta name="description" content="Sessão exclusiva para investigar e auxiliar na recuperação energética as causas energéticas hereditárias que governam sua vida. Liberte-se de padrões ancestrais e reescreva sua história." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -185,10 +185,10 @@ const RadiestesiaGenetica = () => {
               },
               {
                 "@type": "Question",
-                "name": "A Radiestesia Genética substitui tratamento médico ou psicológico?",
+                "name": "A Radiestesia Genética substitui tratamento terapeuta holístico ou psicológico?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Não. A Radiestesia Genética é uma terapia complementar que trabalha no campo energético. Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico quando necessário."
+                  "text": "Não. A Radiestesia Genética é uma terapia complementar que trabalha no campo energético. Ela potencializa tratamentos convencionais, mas não substitui acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos quando necessário."
                 }
               }
             ]
@@ -331,7 +331,7 @@ const RadiestesiaGenetica = () => {
                                     <p className="font-bold text-amber-900 text-xl">BÔNUS EXCLUSIVO (Valor R$ 149,90)</p>
                                 </div>
                                 <p className="text-slate-700 text-lg max-w-md mx-auto leading-relaxed">
-                                    <strong>1 Sessão de Limpeza Energética de presente</strong> para aquela pessoa especial que você sabe que está pronta para transformação. Quando você cura suas raízes, pode estender essa luz a quem você ama.
+                                    <strong>1 Sessão de Limpeza Energética de presente</strong> para aquela pessoa especial que você sabe que está pronta para transformação. Quando você reequilíbrio suas raízes, pode estender essa luz a quem você ama.
                                 </p>
                             </div>
 

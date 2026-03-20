@@ -15,8 +15,8 @@ const HowItWorksSection = () => {
     },
     {
       icon: FaClock,
-      title: "Primeira Consulta: 60 minutos",
-      description: "Diagnóstico completo e detalhado. Tempo necessário para entender sua história e necessidades.",
+      title: "Primeiro Atendimento Terapêutico: 60 minutos",
+      description: "Anamnese terapêutica completa e detalhada. Tempo necessário para entender sua história e necessidades.",
       color: "from-blue-500 to-blue-600"
     },
     {

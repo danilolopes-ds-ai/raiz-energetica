@@ -22,7 +22,7 @@ const OqueEradgen = () => {
               O que é Radiestesia Genética?
             </h2>
             <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-              Criada por <strong className="text-slate-900">Patrícia Bortone</strong>, é uma técnica terapêutica completa que identifica e trata todas as possíveis causas de doenças: desde causas físicas, energias de imóveis doentes, até padrões energéticos herdados de antepassados que influenciam sua saúde, comportamentos e emoções.
+              Criada por <strong className="text-slate-900">Patrícia Bortone</strong>, é uma técnica terapêutica completa que identifica e trata todas as possíveis causas de desequilíbrios: desde causas físicas, energias de imóveis doentes, até padrões energéticos herdados de antepassados que influenciam sua saúde, comportamentos e emoções.
             </p>
           </motion.div>
         </div>

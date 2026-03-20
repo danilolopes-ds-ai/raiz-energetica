@@ -69,7 +69,7 @@ const CTAFinalRadiestesia = () => {
                 <Zap className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-white font-semibold">Cada dia conta</p>
-                  <p className="text-white/80 text-sm">Padrões se fortalecem com o tempo. Quanto antes tratar, mais rápida a transformação.</p>
+                  <p className="text-white/80 text-sm">Padrões se fortalecem com o tempo. Quanto antes auxiliar na recuperação energética, mais rápida a transformação.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">

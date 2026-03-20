@@ -6,12 +6,12 @@ const ParaQuemEradgen = () => {
     {
       icon: <UserCheck className="w-8 h-8 text-[#582c81]" />,
       title: "Pessoas com Padrões que Se Repetem",
-      description: "Histórias que se repetem entre gerações (falências, doenças, relacionamentos). DNA energético está carregando padrões vibracionais de antepassados que precisam ser tratados."
+      description: "Histórias que se repetem entre gerações (falências, desequilíbrios, relacionamentos). DNA energético está carregando padrões vibracionais de antepassados que precisam ser tratados."
     },
     {
       icon: <Search className="w-8 h-8 text-[#582c81]" />,
       title: "Quem Busca a Causa Raiz Real",
-      description: "Casos que a medicina ocidental não explica: hepatite sem histórico familiar, dores crônicas sem diagnóstico, ansiedade sem causa aparente. A RadGen investiga causas que vão além do físico."
+      description: "Casos que a medicina ocidental não explica: hepatite sem histórico familiar, dores crônicas sem anamnese terapêutica, ansiedade sem causa aparente. A RadGen investiga causas que vão além do físico."
     },
     {
       icon: <HelpCircle className="w-8 h-8 text-[#582c81]" />,
@@ -21,7 +21,7 @@ const ParaQuemEradgen = () => {
     {
       icon: <Target className="w-8 h-8 text-[#582c81]" />,
       title: "Terapeutas e Profissionais da Saúde",
-      description: "Profissionais que buscam uma técnica completa de diagnóstico e tratamento para casos complexos, além de poder realizar auto-tratamento com a RadGen."
+      description: "Profissionais que buscam uma técnica completa de anamnese terapêutica e tratamento para casos complexos, além de poder realizar auto-tratamento com a RadGen."
     }
   ];
 

@@ -36,7 +36,7 @@ const OfertaLimpeza = ({ slots, handlePurchaseClick }) => {
               <ul className="space-y-4 text-slate-700">
                 {[
                   "Limpeza Energética Profunda à Distância",
-                  "Relatório Detalhado com Diagnóstico Completo",
+                  "Relatório Detalhado com Anamnese Terapêutica Completa",
                   "Entrega Rápida em até 24h no seu e-mail"
                 ].map((item, i) => (
                   <motion.li 

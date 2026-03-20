@@ -14,7 +14,7 @@ const PoemSection = () => {
     'Pede presença.',
     'Pede um retorno à origem.',
     '',
-    'A cura começa quando você honra o que sente',
+    'A reequilíbrio começa quando você honra o que sente',
     'e permite que a vida volte a fluir de dentro para fora.',
     'Com verdade.',
     'Com direção.',
@@ -31,7 +31,7 @@ const PoemSection = () => {
           className="max-w-3xl mx-auto text-center bg-stone-50/90 backdrop-blur-sm p-8 sm:p-12 rounded-lg shadow-xl"
         >
           <Text as="h2" variant="h2" className="mb-10">
-            Acreditamos na <span className="text-gradient-gold">cura pela raiz.</span>
+            Acreditamos na <span className="text-gradient-gold">reequilíbrio pela raiz.</span>
           </Text>
           <div className="space-y-3 text-2xl md:text-3xl font-serif text-gray-700 italic text-left md:text-center">
             {poemLines.map((line, index) => (

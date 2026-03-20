@@ -18,7 +18,7 @@ const WhyWeAreDifferentSection = () => {
 
   const howItWorks = [
     "Atendimento 100% online e seguro",
-    "Primeira consulta: diagnóstico completo em 60 minutos",
+    "Primeiro Atendimento Terapêutico: anamnese terapêutica completa em 60 minutos",
     "Planos personalizados para sua necessidade",
     "Acompanhamento via WhatsApp (consulte planos)"
   ];

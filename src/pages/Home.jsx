@@ -57,13 +57,13 @@ const Home = () => {
     },
     {
       icon: Target,
-      title: "Diagnóstico Energético Preciso",
+      title: "Anamnese Terapêutica Energética Precisa",
       description: "Mapeamos as influências que afetam seu bem-estar físico, emocional, mental e energético. O resultado é um retrato vibracional completo do seu campo."
     },
     {
       icon: Heart,
       title: "Tratamento Personalizado",
-      description: 'A partir do diagnóstico, traçamos um plano terapêutico único, direcionado para limpar, equilibrar e proteger seu campo energético.',
+      description: 'A partir do anamnese terapêutica, traçamos um plano terapêutico único, direcionado para limpar, equilibrar e proteger seu campo energético.',
     }
   ];
 

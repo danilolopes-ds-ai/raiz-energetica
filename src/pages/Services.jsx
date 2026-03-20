@@ -28,7 +28,7 @@ const Services = () => {
     },
     {
       title: 'Receba sua entrega',
-      description: 'Para diagnósticos (Limpeza Energética), você recebe o resultado por e-mail ou whatsapp. Para terapias, o tratamento é iniciado dentro do prazo combinado ou agendado.',
+      description: 'Para anamneses terapêuticas (Limpeza Energética), você recebe o resultado por e-mail ou whatsapp. Para terapias, o tratamento é iniciado dentro do prazo combinado ou agendado.',
       icon: '📩'
     },
     {
@@ -41,7 +41,7 @@ const Services = () => {
   const testimonials = [
     { name: "Maria, mãe de João (16)", service: "Harmonia Geracional", text: "Em 30 dias ele parou de chegar tarde, voltou a conversar comigo e as notas melhoraram. Ele nem imagina que fiz a Harmonia Geracional.", rating: 5 },
     { name: "Carlos, pai de Sofia (14)", service: "Radiestesia Genética", text: "Eu estava desesperado com a rebeldia da minha filha. A sessão de Radiestesia revelou uma questão da minha própria adolescência que eu passava pra ela. Mudou tudo.", rating: 5 },
-    { name: "Ana P.", service: "Diagnóstico Raiz", text: "O diagnóstico foi um mapa claro do que eu precisava trabalhar. Foi o primeiro passo para uma grande mudança na minha vida.", rating: 5 }
+    { name: "Ana P.", service: "Anamnese Terapêutica Raiz", text: "A anamnese terapêutica foi um mapa claro do que eu precisava trabalhar. Foi o primeiro passo para uma grande mudança na minha vida.", rating: 5 }
   ];
 
   return (

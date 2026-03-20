@@ -61,7 +61,7 @@ const ContactForm = ({
         trackMetaEvent('Purchase', {
             value: 297.00,
             currency: 'BRL',
-            content_name: 'Consulta Inicial Agendada (Simulado)',
+            content_name: 'atendimento terapêutico Inicial Agendada (Simulado)',
         });
       }
 

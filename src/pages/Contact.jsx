@@ -20,11 +20,11 @@ const Contact = () => {
   }, {
     icon: Calendar,
     title: "Agendamento Direto",
-    description: "Agende sua consulta online",
-    action: "Agendar Consulta",
+    description: "Agende seu atendimento terapêutico online",
+    action: "Agendar Atendimento",
     link: "/agendar",
     color: "bg-[#2D8C5C]",
-    details: "Sistema online para agendamento de consultas e terapias"
+    details: "Sistema online para agendamento de atendimentos terapêuticos e terapias"
   }, {
     icon: Mail,
     title: "E-mail Comercial",

@@ -11,7 +11,7 @@ const MethodologySection = () => {
     {
       icon: Zap,
       emoji: "⚡️",
-      title: "Diagnóstico Energético",
+      title: "Anamnese Terapêutica Energética",
       description: "Analisamos seu campo vibracional com Radiestesia Genética para identificar a verdadeira origem dos sintomas.",
       expandedInfo: "Utilizamos pêndulos, gráficos radiestésicos e outras técnicas energéticas para mapear bloqueios, desequilíbrios e campos de interferência que afetam sua saúde física, emocional, mental e energética."
     },

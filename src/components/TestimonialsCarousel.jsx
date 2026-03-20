@@ -11,7 +11,7 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    service: 'Diagnóstico – Desvendando a Raiz',
+    service: 'anamnese terapêutica – Desvendando a Raiz',
     quote: 'Achei que era só cansaço, mas quando vi o relatório entendi que era um padrão antigo da minha família. Foi como acender uma luz dentro de mim.',
     author: 'Fernanda R.',
     age: 35,
@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     id: 2,
-    service: 'Diagnóstico – Desvendando a Raiz',
+    service: 'anamnese terapêutica – Desvendando a Raiz',
     quote: 'O PDF que recebi parecia ter sido escrito por alguém que me conhece há anos. Direto, profundo e revelador. Já comecei o plano de ação.',
     author: 'Eduardo M.',
     age: 41,
@@ -28,7 +28,7 @@ const testimonials = [
   {
     id: 3,
     service: 'Radiestesia Genética',
-    quote: 'Eu tinha dores que médicos não explicavam. A Radiestesia mostrou que era algo herdado da minha avó. Depois da sessão, senti alívio real.',
+    quote: 'Eu tinha dores que profissionais da saúde não explicavam. A Radiestesia mostrou que era algo herdado da minha avó. Depois da sessão, senti alívio real.',
     author: 'Simone G.',
     age: 47,
     emoji: '🧬'

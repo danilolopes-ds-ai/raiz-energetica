@@ -51,7 +51,7 @@ const TestimonialsCarousel = ({ testimonials }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Veja os resultados reais de quem já passou pelo diagnóstico energético
+            Veja os resultados reais de quem já passou pela anamnese terapêutica energética
           </motion.p>
         </div>
 
@@ -83,7 +83,7 @@ const TestimonialsCarousel = ({ testimonials }) => {
         >
           <div className="text-center">
             <div className="text-3xl font-bold text-indigo-600 mb-2">500+</div>
-            <div className="text-slate-600">Diagnósticos Realizados</div>
+            <div className="text-slate-600">anamneses terapêuticas Realizados</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-indigo-600 mb-2">98%</div>

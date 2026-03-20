@@ -11,7 +11,7 @@ const ServicesCTA = () => {
     trackGAEvent('GENERIC_BOOKING_INTENT', {
       source_page: 'services_page',
       button_location: 'bottom_cta',
-      button_text: 'Agendar Consulta',
+      button_text: 'Agendar Atendimento',
     });
   };
 
@@ -85,7 +85,7 @@ const ServicesCTA = () => {
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
             >
-              É hora de escutar o que seu campo está tentando dizer e curar o que nunca foi acessado.
+              É hora de escutar o que seu campo está tentando dizer e reequilibrar o que nunca foi acessado.
             </motion.p>
             
             <motion.p 
@@ -114,7 +114,7 @@ const ServicesCTA = () => {
                 className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-base font-bold px-10 py-7 rounded-full shadow-xl shadow-emerald-500/30 hover:shadow-2xl transition-all duration-300"
               >
                 <Link to="/agendar" onClick={handleBookingIntent} className="flex items-center">
-                  <Calendar className="w-5 h-5 mr-2" /> Agendar Consulta
+                  <Calendar className="w-5 h-5 mr-2" /> Agendar Atendimento
                 </Link>
               </Button>
             </motion.div>

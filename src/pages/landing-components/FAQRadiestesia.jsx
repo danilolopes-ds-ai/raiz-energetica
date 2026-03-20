@@ -15,8 +15,8 @@ const FAQRadiestesia = () => {
       answer: "Após a sessão de 60 minutos, você recebe um relatório por áudio e imagens via WhatsApp detalhando tudo que foi identificado e tratado. Caso prefira, posso enviar um resumo por e-mail. O retorno é personalizado conforme cada caso específico."
     },
     {
-      question: "Que tipo de problemas a Radiestesia Genética pode tratar?",
-      answer: "A técnica é completa: trata desde causas físicas (dores, doenças que se repetem na família), até energias de imóveis doentes (veios de água subterrâneos, antenas de celular, postes de alta tensão), padrões repetitivos (histórias que se repetem entre gerações), vampiros energéticos, energias de objetos pessoais (tatuagens, cicatrizes, piercings, relógios), entre muitas outras origens."
+      question: "Que tipo de problemas a Radiestesia Genética pode auxiliar na recuperação energética?",
+      answer: "A técnica é completa: trata desde causas físicas (dores, desequilíbrios que se repetem na família), até energias de imóveis doentes (veios de água subterrâneos, antenas de celular, postes de alta tensão), padrões repetitivos (histórias que se repetem entre gerações), vampiros energéticos, energias de objetos pessoais (tatuagens, cicatrizes, piercings, relógios), entre muitas outras origens."
     },
     {
       question: "Preciso fazer várias sessões ou apenas uma resolve?",
@@ -39,8 +39,8 @@ const FAQRadiestesia = () => {
       answer: "A Radiestesia Genética é realizada 100% à distância. Através de campos energéticos sutis, a conexão entre você e o terapeuta acontece independentemente da localização física. Similar ao WiFi, mas no campo sutil. A ciência quântica comprova que a informação transcende o espaço físico, permitindo que o tratamento seja tão efetivo quanto presencial."
     },
     {
-      question: "Posso fazer Radiestesia Genética junto com tratamento médico?",
-      answer: "Sim! Ela potencializa tratamentos convencionais, mas não substitui acompanhamento médico, psicológico ou psiquiátrico. Funciona como terapia complementar e integrativa que trata o campo energético."
+      question: "Posso fazer Radiestesia Genética junto com tratamento terapeuta holístico?",
+      answer: "Sim! Ela potencializa tratamentos convencionais, mas não substitui acompanhamento de profissionais da saúde, psicológicos ou psiquiátricos. Funciona como terapia complementar e integrativa que atua no campo energético."
     },
     {
       question: "Como funciona a garantia de 7 dias?",

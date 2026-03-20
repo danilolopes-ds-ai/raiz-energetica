@@ -32,7 +32,7 @@ export const SERVICE_COLORS = {
     gradient: 'from-emerald-600 to-teal-600',
     badge: 'bg-green-100 text-green-800 dark:bg-emerald-900/50 dark:text-emerald-200'
   },
-  'Diagnóstico da Raiz': {
+  'anamnese terapêutica da Raiz': {
     bg: 'bg-purple-100 dark:bg-purple-900/30',
     text: 'text-purple-800 dark:text-purple-300',
     border: 'border-purple-200 dark:border-purple-800/50',
@@ -80,7 +80,7 @@ export const DEMO_TESTIMONIALS = [
   {
     id: 3,
     service: 'Desvendando a Raiz',
-    text: 'Foi como olhar no espelho pela primeira vez. O Diagnóstico da Raiz me deu clareza sobre o que fazer — e principalmente, o que parar de carregar.',
+    text: 'Foi como olhar no espelho pela primeira vez. A anamnese terapêutica da Raiz me deu clareza sobre o que fazer — e principalmente, o que parar de carregar.',
     name: 'Tamires L.',
     age: 28,
     location: 'Rio de Janeiro, RJ',
@@ -94,7 +94,7 @@ export const DEMO_TESTIMONIALS = [
   {
     id: 4,
     service: 'Radiestesia Genética',
-    text: 'Eu tinha dores que médicos não explicavam. A Radiestesia mostrou que era algo herdado da minha avó. Depois da sessão, senti alívio real.',
+    text: 'Eu tinha dores que profissionais da saúde não explicavam. A Radiestesia mostrou que era algo herdado da minha avó. Depois da sessão, senti alívio real.',
     name: 'Simone G.',
     age: 47,
     location: 'Porto Alegre, RS',
@@ -144,7 +144,7 @@ export const DEMO_TESTIMONIALS = [
   {
     id: 8,
     service: 'Harmonia Geracional',
-    text: 'A gente brigava todo dia. Eu achava que era culpa dele, mas entendi que a cura começava por mim. Hoje somos parceiros.',
+    text: 'A gente brigava todo dia. Eu achava que era culpa dele, mas entendi que a reequilíbrio começava por mim. Hoje somos parceiros.',
     name: 'Roberta A.',
     age: 38,
     location: 'Fortaleza, CE',

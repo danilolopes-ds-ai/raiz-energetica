@@ -16,7 +16,7 @@ export const services = [
     ],
     duration: '60 minutos',
     format: 'Online via videochamada',
-    price: 'Consultar valores'
+    price: 'Ver valores'
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const services = [
     ],
     duration: '90 minutos',
     format: 'Online via videochamada',
-    price: 'Consultar valores'
+    price: 'Ver valores'
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ export const services = [
     ],
     duration: '60 minutos',
     format: 'Online - Trabalho energético à distância',
-    price: 'Consultar valores',
+    price: 'Ver valores',
     note: 'O filho(a) não precisa saber que o trabalho está sendo feito'
   }
 ];

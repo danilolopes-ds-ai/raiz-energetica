@@ -12,7 +12,7 @@ const AboutFinalWords = () => {
           className="max-w-4xl mx-auto"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-green-400">
-            A Raiz Energética não é apenas uma clínica. É uma revolução na forma como compreendemos e tratamos os desequilíbrios energéticos.
+            A Raiz Energética não é apenas uma centro terapêutico. É uma revolução na forma como compreendemos e tratamos os desequilíbrios energéticos.
           </h3>
           <p className="text-lg text-gray-300 italic">
             Descubra o que está na raiz dos seus desafios e transforme sua vida de forma definitiva.

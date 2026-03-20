@@ -12,7 +12,7 @@ const TestimonialNavigation = ({
     <div className="relative mb-12 md:mb-16 mt-12">
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
-          Quando a <span className="text-gradient">cura</span> começa pela{' '}
+          Quando a <span className="text-gradient">reequilíbrio</span> começa pela{' '}
           <span className="text-gradient">raiz</span>, o resultado{' '}
           <span className="text-gradient">transforma</span>
         </h2>

@@ -22,7 +22,7 @@ const MethodologySection = ({ methodology }) => {
         <div className="mt-12 text-center">
           <Text variant="h4" className="max-w-3xl mx-auto text-[#cc4e00]">
             Não é sobre silenciar o sintoma.<br/>
-            <span className="text-[#4ca626] font-bold">É sobre escutar o que ele está tentando te dizer e curar de onde tudo começou.</span>
+            <span className="text-[#4ca626] font-bold">É sobre escutar o que ele está tentando te dizer e reequilibrar de onde tudo começou.</span>
           </Text>
         </div>
       </GridSection>

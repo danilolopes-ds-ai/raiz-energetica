@@ -15,7 +15,7 @@ const LandingFooter = () => (
                 />
                 <p>Todos os direitos reservados.</p>
             </div>
-            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta de bem-estar e não substitui tratamentos médicos, psicológicos ou psiquiátricos.</p>
+            <p className="text-xs mt-2 max-w-2xl mx-auto">Este serviço é uma ferramenta de bem-estar e não substitui tratamentos profissionais da saúde, psicológicos ou psiquiátricos.</p>
         </div>
     </footer>
 );
