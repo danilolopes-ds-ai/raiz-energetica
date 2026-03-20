@@ -92,19 +92,33 @@ const BlogPost = () => {
 
   const fetchAllPosts = async () => {
     try {
-      const { data, error } = await supabase
+      let data = null;
+
+      const firstTry = await supabase
         .from('posts')
         .select('id, title, slug, excerpt, image, category')
         .eq('status', 'published')
         .limit(10);
 
-      if (error) throw error;
+      if (!firstTry.error) {
+        data = firstTry.data;
+      } else {
+        const fallbackTry = await supabase
+          .from('posts')
+          .select('*')
+          .limit(10);
+
+        if (fallbackTry.error) {
+          throw fallbackTry.error;
+        }
+        data = fallbackTry.data;
+      }
       
       // Adaptar estrutura
       const adaptedPosts = (data || []).map(post => ({
         ...post,
-        description: post.excerpt,
-        image: post.image || '/images/hero-home.webp'
+        description: post.excerpt || post.description || '',
+        image: post.image || post.image_url || '/images/hero-home.webp'
       }));
       
       setAllPosts(adaptedPosts);

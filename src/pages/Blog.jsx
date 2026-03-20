@@ -56,28 +56,55 @@ const Blog = () => {
     const fetchPosts = async () => {
       setLoading(true);
       setError(null);
-      try {
-        const { data, error } = await supabase
+
+      const buildAdaptedPosts = (rows) => (rows || []).map(post => ({
+        ...post,
+        description: post.excerpt || post.description || '',
+        image: post.image || post.image_url || '/images/hero-home.webp',
+        readTime: post.read_time || post.readTime || '5 min',
+        date: post.created_at || post.date,
+      }));
+
+      const queries = [
+        () => supabase
           .from('posts')
           .select('id, title, slug, excerpt, image, content, category, created_at, author, read_time, featured')
           .eq('status', 'published')
-          .order('created_at', { ascending: false });
+          .order('created_at', { ascending: false }),
+        () => supabase
+          .from('posts')
+          .select('*')
+          .eq('status', 'published')
+          .order('created_at', { ascending: false }),
+        () => supabase
+          .from('posts')
+          .select('*')
+          .order('created_at', { ascending: false }),
+      ];
 
-        if (error) {
-          throw error;
+      try {
+        let resolvedData = null;
+        let lastError = null;
+
+        for (const runQuery of queries) {
+          const { data, error } = await runQuery();
+          if (!error) {
+            resolvedData = data;
+            break;
+          }
+          lastError = error;
         }
-        // Adapta estrutura para compatibilidade com componentes existentes
-        const adaptedPosts = (data || []).map(post => ({
-          ...post,
-          description: post.excerpt,
-          image: post.image || '/images/hero-home.webp',
-          readTime: post.read_time,
-          date: post.created_at
-        }));
+
+        if (!resolvedData && lastError) {
+          throw lastError;
+        }
+
+        const adaptedPosts = buildAdaptedPosts(resolvedData);
         setPosts(adaptedPosts);
       } catch (err) {
-        setError('Não foi possível carregar os posts. Tente novamente mais tarde.');
         console.error('Erro ao buscar posts:', err);
+        setPosts([]);
+        setError('Não foi possível sincronizar o blog agora. Exibindo conteúdo padrão.');
       } finally {
         setLoading(false);
       }
@@ -110,7 +137,7 @@ const Blog = () => {
   }
 
   if (error) {
-    return <div className="flex justify-center items-center h-screen text-red-500">{error}</div>;
+    console.warn(error);
   }
 
   return (
