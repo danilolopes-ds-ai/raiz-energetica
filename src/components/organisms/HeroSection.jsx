@@ -155,7 +155,10 @@ const HeroSection = ({
                   <img  
                     className="rounded-2xl w-full h-[280px] sm:h-[350px] lg:h-[420px] object-contain"
                     alt={image.alt} 
-                    src={image.src} 
+                    src={image.src}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </div>
 

@@ -7,9 +7,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Layout from '@/components/Layout';
 import ScrollToTop from '@/components/utils/ScrollToTop';
 import AnalyticsProvider from '@/components/utils/AnalyticsProvider';
-import ProtectedRoute from '@/components/utils/ProtectedRoute'; // Autenticação é crítica, manter eager ou lazy depende da estratégia, mas lazy é ok aqui.
 import ErrorBoundary from '@/components/ErrorBoundary'; // VOCÊ TINHA O ARQUIVO, USE-O!
-import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/contexts/AuthContext';
 
 // Pages (Lazy Load - Code Splitting)
@@ -28,12 +26,10 @@ const Obrigado = lazy(() => import('@/pages/Obrigado'));
 const LimpezaEnergetica = lazy(() => import('@/pages/LimpezaEnergetica'));
 const RadiestesiaGenetica = lazy(() => import('@/pages/RadiestesiaGenetica'));
 const HarmoniaGeracional = lazy(() => import('@/pages/HarmoniaGeracional'));
-const Quiz = lazy(() => import('@/pages/Quiz'));
 
 // Admin Pages (Lazy Load - Crítico para performance mobile)
 const AdminLayout = lazy(() => import('@/pages/admin/AdminLayout'));
 const Dashboard = lazy(() => import('@/pages/admin/Dashboard'));
-const AdminPosts = lazy(() => import('@/pages/admin/AdminPosts'));
 // const AdminServices = lazy(() => import('@/pages/admin/AdminServices')); // Não estava sendo usado nas rotas abaixo, verifique se precisa
 const CreatePost = lazy(() => import('@/pages/admin/CreatePost'));
 const ManagePosts = lazy(() => import('@/pages/admin/ManagePosts'));
@@ -63,7 +59,6 @@ function App() {
                   <Route path="/limpeza-energetica" element={<LimpezaEnergetica />} />
                   <Route path="/radiestesia-genetica" element={<RadiestesiaGenetica />} />
                   <Route path="/harmonia-geracional" element={<HarmoniaGeracional />} />
-                  <Route path="/quiz" element={<Quiz />} />
                   
                   {/* Layout Routes */}
                   <Route path="/" element={<Layout />}>
@@ -91,7 +86,6 @@ function App() {
                 </Routes>
               </Suspense>
             </ErrorBoundary>
-            <Toaster />
             <SpeedInsights />
           </AnalyticsProvider>
         </Router>

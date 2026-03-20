@@ -59,10 +59,10 @@ const ExitIntentPopup = () => {
             <div className="relative z-10">
               <Zap className="mx-auto h-12 w-12 text-green-500 mb-4" />
               <h2 className="text-2xl font-bold text-gray-800 mb-2">Antes de ir...</h2>
-              <p className="text-gray-600 mb-6">Descubra em 2 minutos qual o seu principal bloqueio energético e como resolvê-lo.</p>
+              <p className="text-gray-600 mb-6">Fale com a Helena e descubra o melhor caminho para o seu momento.</p>
               <Button asChild size="lg" className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold shadow-lg hover:shadow-xl transition-shadow">
-                <Link to="/quiz" onClick={() => setIsOpen(false)}>
-                  Fazer o Quiz Gratuito
+                <Link to="/contato" onClick={() => setIsOpen(false)}>
+                  Falar com a Helena
                 </Link>
               </Button>
             </div>

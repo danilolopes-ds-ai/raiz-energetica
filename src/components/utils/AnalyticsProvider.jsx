@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { initAnalytics, trackPageView as trackGAPageView } from '@/lib/analytics';
-import { trackPageView as trackMetaPageView } from '@/lib/metaPixel';
+import { initAnalytics } from '@/lib/analytics';
+import { initMetaPixel } from '@/lib/metaPixel';
 import { initClarity } from '@/lib/clarity';
 import { tracking } from '@/lib/tracking';
 
@@ -10,12 +10,11 @@ const AnalyticsProvider = ({ children }) => {
 
   useEffect(() => {
     initAnalytics();
+    initMetaPixel();
     initClarity();
   }, []);
 
   useEffect(() => {
-    trackGAPageView();
-    trackMetaPageView();
     tracking.pageView();
 
     // Scroll depth tracking

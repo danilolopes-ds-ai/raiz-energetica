@@ -22,7 +22,9 @@ const AboutHero = ({ stats }) => {
                 className="rounded-2xl shadow-xl w-full max-w-2xl mx-auto object-cover"
                 alt="Mulher conectada com a natureza, simbolizando a raiz energética"
                 src="/images/services/raiz-mulher.webp"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <p className="text-sm italic text-gray-500 mt-3">
                 “Cura começa quando voltamos a nos conectar com aquilo que sustenta nossa essência.”
