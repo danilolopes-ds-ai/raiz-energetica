@@ -68,14 +68,14 @@ const HeroSection = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center lg:justify-start"
               >
                 {primaryCta && (
                   <AppButton
                     asChild
                     size="lg"
                     variant="primary"
-                    className="group relative overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] text-base sm:text-lg font-semibold px-8 py-4"
+                    className="group relative shrink-0 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] text-base sm:text-lg font-semibold px-8 py-4"
                   >
                     <a href={primaryCta.link} target="_blank" rel="noopener noreferrer">
                       <span className="relative z-10">{primaryCta.text}</span>
@@ -88,7 +88,7 @@ const HeroSection = ({
                     asChild
                     size="lg"
                     variant="secondary"
-                    className="group transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] text-base sm:text-lg font-medium px-8 py-4 border-2 border-emerald-200 hover:border-emerald-300 bg-white/80 backdrop-blur-sm"
+                    className="group relative shrink-0 transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] text-base sm:text-lg font-medium px-8 py-4 border-2 border-emerald-200 hover:border-emerald-300 bg-white/80 backdrop-blur-sm"
                   >
                     <Link to={secondaryCta.link}>
                       {secondaryCta.icon && <secondaryCta.icon className="w-5 h-5 mr-2" />}
