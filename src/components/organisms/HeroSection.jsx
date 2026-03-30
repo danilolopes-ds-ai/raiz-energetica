@@ -75,7 +75,7 @@ const HeroSection = ({
                     asChild
                     size="lg"
                     variant="primary"
-                    className="group relative overflow-hidden pulse-glow transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] text-base sm:text-lg font-semibold px-8 py-4"
+                    className="group relative overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] text-base sm:text-lg font-semibold px-8 py-4"
                   >
                     <a href={primaryCta.link} target="_blank" rel="noopener noreferrer">
                       <span className="relative z-10">{primaryCta.text}</span>
