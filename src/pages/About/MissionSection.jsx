@@ -11,7 +11,7 @@ const MissionSection = () => {
   ];
 
   return (
-    <section className="pt-16 sm:pt-24 bg-white">
+    <section className="pt-16 sm:pt-24 lg:pb-16 bg-white">
       <div className="container mx-auto px-0 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <motion.div
