@@ -12,7 +12,7 @@ const BridgeImageSection = () => {
           className="flex justify-center"
         >
           <img 
-            src="/images/services/raiz-mulher.webp"
+            src="/images/services/raiz-cura.webp"
             alt="Imagem simbólica de reequilíbrio e conexão com a natureza, representando a filosofia da Raiz Energética"
             className="object-cover w-full max-w-4xl h-auto"
           />
